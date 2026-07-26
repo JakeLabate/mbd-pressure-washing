@@ -1,0 +1,42 @@
+name: Vendor brand assets
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  vendor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download assets
+        run: |
+          set +e
+          mkdir -p "$(dirname 'img/mbd-source-image0.png')"
+          echo 'Fetching img/mbd-source-image0.png'
+          curl -fsSL --max-time 30 --max-filesize 10485760 -A 'Mozilla/5.0 (compatible; site-builder)' -o 'img/mbd-source-image0.png' 'https://img1.wsimg.com/isteam/ip/ec20e267-03c5-4602-afb3-e01a77f418a5/image0.png' || echo '  MISS img/mbd-source-image0.png'
+          mkdir -p "$(dirname 'img/mbd-source-gutter.jpg')"
+          echo 'Fetching img/mbd-source-gutter.jpg'
+          curl -fsSL --max-time 30 --max-filesize 10485760 -A 'Mozilla/5.0 (compatible; site-builder)' -o 'img/mbd-source-gutter.jpg' 'https://img1.wsimg.com/isteam/ip/ec20e267-03c5-4602-afb3-e01a77f418a5/IMG_8441.jpeg' || echo '  MISS img/mbd-source-gutter.jpg'
+      - name: Drop anything that is not a real image
+        run: |
+          for f in $(git status --porcelain --untracked-files=all | awk '{print $2}'); do
+            case "$f" in .github/*) continue;; esac
+            if [ -f "$f" ]; then
+              t=$(file -b --mime-type "$f")
+              case "$t" in
+                image/*|font/*|application/font*) : ;;
+                text/xml|application/xml|text/plain)
+                  # SVG is reported inconsistently across `file` versions.
+                  if head -c 1024 "$f" | grep -qi '<svg'; then :; else
+                    echo "  DROP $f ($t, not an svg)"; rm -f "$f"; fi ;;
+                *) echo "  DROP $f ($t)"; rm -f "$f" ;;
+              esac
+            fi
+          done
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --staged --quiet && echo 'nothing vendored' && exit 0
+          git commit -m 'Vendor brand assets'
+          git push
