@@ -239,13 +239,16 @@ li{margin:0 0 .4em}
   display:flex;flex-wrap:wrap;gap:10px;
 }
 .towns li{margin:0}
-.towns span{
+.towns a{
   display:inline-block;
   border:1px solid var(--rule);
+  color:var(--ink);text-decoration:none;
   font-family:var(--display);font-weight:700;font-stretch:104%;
   font-size:.82rem;letter-spacing:.02em;
   padding-top:7px;padding-bottom:7px;padding-left:13px;padding-right:13px;
+  transition:border-color .16s ease,color .16s ease;
 }
+.towns a:hover{border-color:var(--accent);color:var(--accent-text)}
 
 /* two column */
 .cols{display:grid;gap:clamp(26px,4vw,54px);grid-template-columns:1fr}
@@ -316,7 +319,8 @@ li{margin:0 0 .4em}
   padding-top:clamp(44px,5vw,68px);padding-bottom:34px;
   display:grid;gap:34px;grid-template-columns:1fr;
 }
-@media(min-width:760px){.foot-in{grid-template-columns:1.3fr 1fr 1fr}}
+@media(min-width:760px){.foot-in{grid-template-columns:1.4fr 1fr 1fr}}
+@media(min-width:1000px){.foot-in{grid-template-columns:1.5fr 1fr .8fr .9fr}}
 .foot h2,.foot h3{
   font-size:.74rem;letter-spacing:.17em;text-transform:uppercase;
   color:var(--foot-muted);font-weight:700;font-stretch:104%;margin-bottom:14px;
@@ -453,7 +457,7 @@ li{margin:0 0 .4em}
 <div class="wrap">
 <p class="eyebrow">Where we work</p>
 <h2>Milford and the towns around it.</h2>
-<ul class="towns"><li><span>Milford</span></li><li><span>Orange</span></li><li><span>West Haven</span></li><li><span>Stratford</span></li><li><span>Fairfield</span></li><li><span>Bridgeport</span></li><li><span>Woodbridge</span></li><li><span>Norwalk</span></li></ul>
+<ul class="towns"><li><a href="pressure-washing-milford-ct.html">Milford</a></li><li><a href="pressure-washing-orange-ct.html">Orange</a></li><li><a href="pressure-washing-west-haven-ct.html">West Haven</a></li><li><a href="pressure-washing-stratford-ct.html">Stratford</a></li><li><a href="pressure-washing-fairfield-ct.html">Fairfield</a></li><li><a href="pressure-washing-bridgeport-ct.html">Bridgeport</a></li><li><a href="pressure-washing-woodbridge-ct.html">Woodbridge</a></li><li><a href="pressure-washing-norwalk-ct.html">Norwalk</a></li></ul>
 <p class="muted" style="margin-top:26px">Residential and commercial properties, Monday to Friday, 9:00am to 5:00pm.</p>
 </div>
 </section>
@@ -494,6 +498,12 @@ li{margin:0 0 .4em}
 <li><a href="faq.html">Pressure washing FAQ</a></li>
 <li><a href="contact.html">Contact and hours</a></li>
 <li><a href="index.html">Home</a></li>
+</ul>
+</div>
+<div>
+<h2>Towns we serve</h2>
+<ul>
+<li><a href="pressure-washing-milford-ct.html">Milford, CT</a></li><li><a href="pressure-washing-west-haven-ct.html">West Haven, CT</a></li><li><a href="pressure-washing-stratford-ct.html">Stratford, CT</a></li><li><a href="pressure-washing-fairfield-ct.html">Fairfield, CT</a></li><li><a href="pressure-washing-bridgeport-ct.html">Bridgeport, CT</a></li><li><a href="pressure-washing-orange-ct.html">Orange, CT</a></li><li><a href="pressure-washing-woodbridge-ct.html">Woodbridge, CT</a></li><li><a href="pressure-washing-norwalk-ct.html">Norwalk, CT</a></li>
 </ul>
 </div>
 </div>
