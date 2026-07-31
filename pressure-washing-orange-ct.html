@@ -339,11 +339,27 @@ li{margin:0 0 .4em}
    padding, so it runs the full width of the viewport. No max-width: a marquee
    slider is meant to run off both edges. Vertical padding only. */
 .reviews-band{
+  position:relative;
   background:var(--bone);
   margin-top:clamp(28px,4vw,44px);
   padding-top:0;padding-bottom:0;
-  min-height:300px;
   overflow:hidden;
+  font-size:0;          /* kills the inline descender gap under the embed */
+}
+/* An iframe is inline by default and sits on the text baseline, which leaves a
+   few pixels of background showing underneath it. This is the usual cause of a
+   thin strip below an embed. */
+.reviews-band iframe{display:block;width:100%;border:0}
+.reviews-band > *{font-size:1rem}
+/* Masks the third-party branding row pinned to the bottom of the widget.
+   Change the background below to recolour it. */
+.reviews-band::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:34px;
+  background:var(--bone);
+  z-index:2;
 }
 .reviews-band img{max-width:100%;height:auto}
 /* A light surface, so anything inheriting the site's dark-panel link colour
