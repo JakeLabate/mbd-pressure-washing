@@ -32,6 +32,9 @@
   --gold:#b2873f;
   --gold-lite:#e8c57f;
   --gold-deep:#704b19;
+  /* the review widget renders on this blue; the band and the branding
+     mask match it so no surface of ours can show through */
+  --embed-bg:#0033ff;
   --display:"Bodoni Moda","Didot","Times New Roman",serif;
   --body:"Public Sans",system-ui,-apple-system,Segoe UI,sans-serif;
   --w:1120px;
@@ -340,7 +343,7 @@ li{margin:0 0 .4em}
    slider is meant to run off both edges. Vertical padding only. */
 .reviews-band{
   position:relative;
-  background:var(--bone);
+  background:var(--embed-bg);
   margin-top:clamp(28px,4vw,44px);
   padding-top:0;padding-bottom:0;
   overflow:hidden;
@@ -357,16 +360,16 @@ li{margin:0 0 .4em}
   content:"";
   position:absolute;
   left:0;right:0;bottom:0;
-  height:34px;
-  background:var(--bone);
+  height:48px;
+  background:var(--embed-bg);
   z-index:2;
 }
 .reviews-band img{max-width:100%;height:auto}
-/* A light surface, so anything inheriting the site's dark-panel link colour
-   would vanish on it. Reset to dark tones inside the band. */
-.reviews-band{color:var(--ink)}
-.reviews-band a{color:var(--gold-deep)}
-.reviews-band a:hover{color:var(--ink)}
+/* The band matches the widget's own blue, so anything of ours that shows
+   before or instead of the embed needs light text, not dark. */
+.reviews-band{color:var(--paper)}
+.reviews-band a{color:var(--bone)}
+.reviews-band a:hover{color:var(--paper)}
 .reviews-band .es-widget-branding{
   display:inline-flex;align-items:center;gap:8px;
   font-size:.78rem;text-decoration:none;
