@@ -32,9 +32,6 @@
   --gold:#b2873f;
   --gold-lite:#e8c57f;
   --gold-deep:#704b19;
-  /* the review widget renders on this blue; the band and the branding
-     mask match it so no surface of ours can show through */
-  --embed-bg:#0033ff;
   --display:"Bodoni Moda","Didot","Times New Roman",serif;
   --body:"Public Sans",system-ui,-apple-system,Segoe UI,sans-serif;
   --w:1120px;
@@ -343,7 +340,7 @@ li{margin:0 0 .4em}
    slider is meant to run off both edges. Vertical padding only. */
 .reviews-band{
   position:relative;
-  background:var(--embed-bg);
+  background:var(--void);
   margin-top:clamp(28px,4vw,44px);
   padding-top:0;padding-bottom:0;
   overflow:hidden;
@@ -360,13 +357,14 @@ li{margin:0 0 .4em}
   content:"";
   position:absolute;
   left:0;right:0;bottom:0;
-  height:48px;
-  background:var(--embed-bg);
+  height:53px;
+  background:var(--void);
   z-index:2;
 }
 .reviews-band img{max-width:100%;height:auto}
-/* The band matches the widget's own blue, so anything of ours that shows
-   before or instead of the embed needs light text, not dark. */
+/* Black band and mask. Band height is driven entirely by the embed, so this
+   background sits fully behind it; light text covers the case where the embed
+   fails to load. */
 .reviews-band{color:var(--paper)}
 .reviews-band a{color:var(--bone)}
 .reviews-band a:hover{color:var(--paper)}
