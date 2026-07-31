@@ -10,17 +10,18 @@ jobs:
       - run: |
           REF=3cfdab0ed5fc52f7f8c9ddaa4e19e623f2dfcd98
           : > embed-probe.txt
-          for u in             "https://embedsocial.com/cdn/ht.js"             "https://embedsocial.com/api/pro_hashtag/$REF"             "https://embedsocial.com/facebook_feed/pro_hashtag/$REF"             "https://embedsocial.com/admin/localstorage/$REF" ; do
-            echo "=== $u ===" >> embed-probe.txt
-            code=$(curl -sS --compressed -o body.raw -w '%{http_code}' --max-time 40 -A "Mozilla/5.0" "$u" || echo FAIL)
-            tr -cd '[:print:]
-' < body.raw > body.txt
+          probe () {
+            echo "=== $1 ===" >> embed-probe.txt
+            code=$(curl -sS --compressed -o body.raw -w '%{http_code}' --max-time 40 -A "Mozilla/5.0" "$1" || echo FAIL)
             echo "http: $code  bytes: $(wc -c < body.raw)" >> embed-probe.txt
-            head -c 700 body.txt >> embed-probe.txt
+            tr -cd '[:print:][:space:]' < body.raw > body.txt
+            head -c 600 body.txt >> embed-probe.txt
             echo "" >> embed-probe.txt
-            grep -oiE '"(rating|reviewsCount|totalReviews|averageRating|name)":[^,}]{0,40}' body.txt | head -12 >> embed-probe.txt
-            echo "" >> embed-probe.txt
-          done
+          }
+          probe "https://embedsocial.com/cdn/ht.js"
+          probe "https://embedsocial.com/api/pro_hashtag/$REF"
+          probe "https://embedsocial.com/facebook_feed/pro_hashtag/$REF"
+          probe "https://embedsocial.com/widget/ht/$REF"
           wc -c embed-probe.txt
       - run: |
           git config user.name 'github-actions[bot]'
