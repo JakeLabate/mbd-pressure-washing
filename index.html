@@ -191,6 +191,8 @@ li{margin:0 0 .4em}
 /* sections */
 .sec{padding-top:clamp(48px,6vw,88px);padding-bottom:clamp(48px,6vw,88px)}
 .sec-shell{background:var(--panel)}
+/* the full-bleed band supplies the closing space, so the section drops its own */
+#reviews{padding-bottom:0}
 .prose{max-width:68ch}
 .prose h2{margin-bottom:18px}
 .prose h3{margin-top:32px;margin-bottom:10px}
@@ -333,24 +335,29 @@ li{margin:0 0 .4em}
 /* The review widget renders in EmbedSocial's own styles, likely inside an
    iframe, so none of it is reachable from here. It gets a light surface to
    land on rather than a guess at overriding it. */
-.reviews-frame{
+/* Full-bleed review band. It sits outside .wrap and takes no horizontal
+   padding, so it runs the full width of the viewport. No max-width: a marquee
+   slider is meant to run off both edges. Vertical padding only. */
+.reviews-band{
   background:var(--bone);
-  border:1px solid var(--gold-deep);
-  border-radius:4px;
-  margin-top:30px;
-  padding-top:16px;padding-bottom:16px;padding-left:16px;padding-right:16px;
+  border-top:2px solid var(--gold);
+  border-bottom:2px solid var(--gold);
+  margin-top:clamp(28px,4vw,44px);
+  padding-top:clamp(18px,2.5vw,30px);
+  padding-bottom:clamp(18px,2.5vw,30px);
   min-height:300px;
   overflow:hidden;
 }
-.reviews-frame img{max-width:100%;height:auto}
-/* The frame is a light surface, so anything inheriting the site's dark-panel
-   link colour would vanish on it. Reset to dark tones inside the frame. */
-.reviews-frame{color:var(--ink)}
-.reviews-frame a{color:var(--gold-deep)}
-.reviews-frame a:hover{color:var(--ink)}
-.reviews-frame .es-widget-branding{
+.reviews-band img{max-width:100%;height:auto}
+/* A light surface, so anything inheriting the site's dark-panel link colour
+   would vanish on it. Reset to dark tones inside the band. */
+.reviews-band{color:var(--ink)}
+.reviews-band a{color:var(--gold-deep)}
+.reviews-band a:hover{color:var(--ink)}
+.reviews-band .es-widget-branding{
   display:inline-flex;align-items:center;gap:8px;
   font-size:.78rem;text-decoration:none;
+  padding-left:var(--pad);padding-right:var(--pad);
 }
 .foot-social-h{margin-top:20px}
 .foot-social{display:flex;flex-wrap:wrap;gap:16px}
@@ -562,13 +569,13 @@ li{margin:0 0 .4em}
 <p class="eyebrow">Reviews</p>
 <h2>What Connecticut homeowners say.</h2>
 <p class="lead muted">Published on Google and loaded straight from the business profile, so what you see here is what is on the listing.</p>
-<div class="reviews-frame">
+</div>
+<div class="reviews-band">
 <div class="embedsocial-hashtag" data-ref="3cfdab0ed5fc52f7f8c9ddaa4e19e623f2dfcd98">
 <a class="feed-powered-by-es feed-powered-by-es-feed-img es-widget-branding" href="https://embedsocial.com/google-reviews-widget/" target="_blank" rel="noopener" title="Embed Google reviews">
 <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial" width="20" height="20">
 <div class="es-widget-branding-text">Embed Google reviews</div>
 </a>
-</div>
 </div>
 </div>
 <script>
