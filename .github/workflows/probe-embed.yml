@@ -1,0 +1,39 @@
+name: probe-embed
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get install -y ffmpeg >/dev/null 2>&1 || true
+      - run: |
+          REF=3cfdab0ed5fc52f7f8c9ddaa4e19e623f2dfcd98
+          : > embed-probe.txt
+          probe () {
+            echo "=== $1 ===" >> embed-probe.txt
+            code=$(curl -sSL --compressed -o body.raw -w '%{http_code}' --max-time 40 -A "Mozilla/5.0" -e "https://mbdpressurewashing.net/" "$1" || echo FAIL)
+            echo "http: $code  bytes: $(wc -c < body.raw)" >> embed-probe.txt
+            tr -cd '[:print:][:space:]' < body.raw > body.txt
+            head -c 1400 body.txt >> embed-probe.txt
+            echo "" >> embed-probe.txt
+          }
+          echo "--- video headers ---" >> embed-probe.txt
+          curl -sSI --max-time 30 https://mbdpressurewashing.net/img/mbd-video.mp4 | grep -iE '^(HTTP|content-type|content-length|accept-ranges)' >> embed-probe.txt
+          echo "--- range request (needed for seeking) ---" >> embed-probe.txt
+          curl -sS -r 0-99 -o /dev/null -w 'range status %{http_code}, got %{size_download} bytes\n' --max-time 30 https://mbdpressurewashing.net/img/mbd-video.mp4 >> embed-probe.txt
+          echo "--- poster ---" >> embed-probe.txt
+          curl -sSI --max-time 30 https://mbdpressurewashing.net/img/mbd-video-poster.jpg | grep -iE '^(HTTP|content-type)' >> embed-probe.txt
+          echo "--- integrity: download and probe ---" >> embed-probe.txt
+          curl -sS --max-time 120 -o v.mp4 https://mbdpressurewashing.net/img/mbd-video.mp4
+          ls -l v.mp4 | awk '{print "downloaded bytes: " $5}' >> embed-probe.txt
+          md5sum v.mp4 >> embed-probe.txt
+          ffprobe -v error -show_entries format=duration,format_name -show_entries stream=codec_name,width,height -of default=noprint_wrappers=1 v.mp4 >> embed-probe.txt 2>&1 || echo "FFPROBE FAILED" >> embed-probe.txt
+          wc -c embed-probe.txt
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add embed-probe.txt
+          git commit -m "Embed probe results" || echo "no change"
+          git push
