@@ -1,0 +1,37 @@
+name: probe-embed
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get install -y ffmpeg >/dev/null 2>&1 || true
+      - run: |
+          REF=3cfdab0ed5fc52f7f8c9ddaa4e19e623f2dfcd98
+          : > embed-probe.txt
+          probe () {
+            echo "=== $1 ===" >> embed-probe.txt
+            code=$(curl -sSL --compressed -o body.raw -w '%{http_code}' --max-time 40 -A "Mozilla/5.0" -e "https://mbdpressurewashing.net/" "$1" || echo FAIL)
+            echo "http: $code  bytes: $(wc -c < body.raw)" >> embed-probe.txt
+            tr -cd '[:print:][:space:]' < body.raw > body.txt
+            head -c 1400 body.txt >> embed-probe.txt
+            echo "" >> embed-probe.txt
+          }
+          echo "--- new town pages live ---" >> embed-probe.txt
+          for t in westport trumbull seymour branford east-haven guilford norwalk; do
+            echo "$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 https://mbdpressurewashing.net/pressure-washing-$t-ct/)  $t" >> embed-probe.txt
+          done
+          echo "--- sitemap count ---" >> embed-probe.txt
+          curl -sS --max-time 20 https://mbdpressurewashing.net/sitemap.xml | grep -c "<loc>" >> embed-probe.txt
+          echo "--- guilford identity ---" >> embed-probe.txt
+          curl -sS --max-time 20 https://mbdpressurewashing.net/pressure-washing-guilford-ct/ -o g.txt
+          grep -oE "<title>[^<]*</title>|rel=\"canonical\" href=\"[^\"]*\"" g.txt | head -2 >> embed-probe.txt
+          wc -c embed-probe.txt
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add embed-probe.txt
+          git commit -m "Embed probe results" || echo "no change"
+          git push
