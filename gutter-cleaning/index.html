@@ -439,9 +439,14 @@ li{margin:0 0 .4em}
 .foot-base{
   border-top:1px solid var(--gold-deep);
   padding-top:20px;padding-bottom:26px;
-  display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+  display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;
   font-size:.82rem;color:var(--muted);
 }
+.foot-base .credit a{
+  color:var(--muted);text-decoration:none;
+  border-bottom:1px solid var(--gold-deep);padding-bottom:2px;
+}
+.foot-base .credit a:hover{color:var(--gold-lite);border-bottom-color:var(--gold)}
 
 /* mobile call bar */
 .callbar{display:none}
@@ -687,6 +692,7 @@ li{margin:0 0 .4em}
 <div class="wrap foot-base">
 <span>Copyright MBD Pressure Washing. All rights reserved.</span>
 <span>Serving 14 towns across the Connecticut shoreline and the lower valley.</span>
+<span class="credit">Site by <a href="https://jakelabate.com" rel="noopener">Jake Labate</a></span>
 </div>
 </footer>
 <a class="callbar" href="tel:4754506215">Call 475-450-6215 for a free estimate</a>
