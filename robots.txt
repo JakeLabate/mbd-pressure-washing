@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jakelabate.github.io/mbd-pressure-washing/sitemap.xml
+Sitemap: https://mbdpressurewashing.net/sitemap.xml
