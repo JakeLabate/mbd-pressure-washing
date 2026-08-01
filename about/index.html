@@ -274,6 +274,28 @@ li{margin:0 0 .4em}
   padding-left:24px;margin-top:36px;margin-bottom:36px;max-width:24ch;
 }
 
+/* photos */
+.shot{margin:0}
+.shot img{
+  display:block;width:100%;height:auto;
+  border:1px solid var(--gold-deep);
+  border-radius:3px;
+  background:var(--void);
+}
+.shot figcaption{
+  font-size:.83rem;color:var(--muted);
+  margin-top:10px;line-height:1.5;
+}
+.shot-ba img{aspect-ratio:1000 / 833}
+.shot-owner img{aspect-ratio:900 / 960}
+.ba-key{
+  display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;
+  font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;
+}
+.ba-key span{display:inline-flex;align-items:center;gap:7px;color:var(--muted)}
+.ba-key span::before{content:"";width:12px;height:12px;border:1px solid var(--gold)}
+.ba-key .k-after::before{background:var(--gold)}
+
 /* video */
 .cols-video{align-items:center}
 @media(min-width:860px){.cols-video{grid-template-columns:1fr .72fr}}
@@ -488,12 +510,22 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec">
-<div class="wrap prose">
+<div class="wrap cols">
+<div class="prose">
 <h2>Why this business exists</h2>
 <p>I started MBD Pressure Washing because I got tired of seeing good, well kept homes let down by the one thing nobody thinks about until it becomes a problem: the exterior. Salt spray, pollen, mildew and gutter buildup do not care how nice your house is.</p>
 <p>I run this business the way I would want a contractor to treat my own home. I show up when I say I will, I explain what I am doing and why, and I do not cut a job short to get to the next one. Every roof, patio and fence gets the same attention, whether it is a quick gutter clean or a full house wash.</p>
 <p class="pull">If it is worth doing, it is worth doing carefully and correctly.</p>
 <p>That is the whole approach. The rest is equipment, technique and turning up.</p>
+</div>
+<figure class="shot shot-owner">
+<img src="/img/mbd-owner.jpg"
+     srcset="/img/mbd-owner-sm.jpg 560w, /img/mbd-owner.jpg 900w"
+     sizes="(min-width: 860px) 42vw, 92vw"
+     width="900" height="960" loading="lazy" decoding="async"
+     alt="The owner of MBD Pressure Washing standing beside the company trailer, which carries the gold MBD Pressure Washing logo and the phone number 475-450-6215.">
+<figcaption>The MBD trailer and the person who tows it. Calls, quotes and the work itself all go through the same pair of hands.</figcaption>
+</figure>
 </div>
 </section>
 
