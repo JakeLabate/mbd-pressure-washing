@@ -1,0 +1,40 @@
+name: probe-embed
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          REF=3cfdab0ed5fc52f7f8c9ddaa4e19e623f2dfcd98
+          : > embed-probe.txt
+          probe () {
+            echo "=== $1 ===" >> embed-probe.txt
+            code=$(curl -sSL --compressed -o body.raw -w '%{http_code}' --max-time 40 -A "Mozilla/5.0" -e "https://mbdpressurewashing.net/" "$1" || echo FAIL)
+            echo "http: $code  bytes: $(wc -c < body.raw)" >> embed-probe.txt
+            tr -cd '[:print:][:space:]' < body.raw > body.txt
+            head -c 1400 body.txt >> embed-probe.txt
+            echo "" >> embed-probe.txt
+          }
+          echo "--- apex, direct ---" >> embed-probe.txt
+          for u in / /about/ /faq/ /house-washing/ /pressure-washing-woodbridge-ct/ /sitemap.xml /robots.txt /img/mbd-logo.png; do
+            echo "$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "https://mbdpressurewashing.net$u")  $u" >> embed-probe.txt
+          done
+          echo "--- www should now fold into apex ---" >> embed-probe.txt
+          curl -sSI --max-time 20 "https://www.mbdpressurewashing.net/about/" | grep -iE '^(HTTP|location)' >> embed-probe.txt
+          echo "--- legacy stub ---" >> embed-probe.txt
+          echo "$(curl -sSL -o /dev/null -w '%{http_code} %{url_effective}' --max-time 20 https://mbdpressurewashing.net/f-a-q/)" >> embed-probe.txt
+          echo "--- old flat url must be gone ---" >> embed-probe.txt
+          echo "$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 https://mbdpressurewashing.net/about.html)  /about.html" >> embed-probe.txt
+          echo "--- identity + canonical ---" >> embed-probe.txt
+          curl -sS --max-time 20 https://mbdpressurewashing.net/about/ -o a.txt
+          grep -oE '<title>[^<]*</title>|rel="canonical" href="[^"]*"' a.txt | head -2 >> embed-probe.txt
+          wc -c embed-probe.txt
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add embed-probe.txt
+          git commit -m "Embed probe results" || echo "no change"
+          git push
