@@ -1,10 +1,0 @@
---- photo assets live ---
-200 image/jpeg 173298   mbd-owner.jpg
-200 image/jpeg 76333   mbd-owner-sm.jpg
-200 image/jpeg 220978   mbd-fence-before-after.jpg
-200 image/jpeg 89368   mbd-fence-before-after-sm.jpg
-200 video/mp4 5670202   mbd-video.mp4
---- pages referencing them ---
-/ -> mbd-fence-before-after-sm.jpg mbd-fence-before-after.jpg 
-/about/ -> mbd-owner-sm.jpg mbd-owner.jpg 
-/decks-fences-patios/ -> mbd-fence-before-after-sm.jpg mbd-fence-before-after.jpg 
