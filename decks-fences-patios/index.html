@@ -274,6 +274,28 @@ li{margin:0 0 .4em}
   padding-left:24px;margin-top:36px;margin-bottom:36px;max-width:24ch;
 }
 
+/* photos */
+.shot{margin:0}
+.shot img{
+  display:block;width:100%;height:auto;
+  border:1px solid var(--gold-deep);
+  border-radius:3px;
+  background:var(--void);
+}
+.shot figcaption{
+  font-size:.83rem;color:var(--muted);
+  margin-top:10px;line-height:1.5;
+}
+.shot-ba img{aspect-ratio:1000 / 833}
+.shot-owner img{aspect-ratio:900 / 960}
+.ba-key{
+  display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;
+  font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;
+}
+.ba-key span{display:inline-flex;align-items:center;gap:7px;color:var(--muted)}
+.ba-key span::before{content:"";width:12px;height:12px;border:1px solid var(--gold)}
+.ba-key .k-after::before{background:var(--gold)}
+
 /* video */
 .cols-video{align-items:center}
 @media(min-width:860px){.cols-video{grid-template-columns:1fr .72fr}}
@@ -515,6 +537,25 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec sec-shell">
+<div class="wrap cols">
+<div class="prose">
+<p class="eyebrow">Before and after</p>
+<h2>A vinyl fence, mid job.</h2>
+<p>This is the difference on vinyl fencing specifically. The grey is not the material ageing, it is algae and weather buildup sitting on top of it.</p>
+<p>Cleaned at low pressure with a solution that does the lifting, so the panel is not furred and water is not forced into the joints.</p>
+</div>
+<figure class="shot shot-ba">
+<img src="/img/mbd-fence-before-after.jpg"
+     srcset="/img/mbd-fence-before-after-sm.jpg 620w, /img/mbd-fence-before-after.jpg 1000w"
+     sizes="(min-width: 860px) 48vw, 92vw"
+     width="1000" height="833" loading="lazy" decoding="async"
+     alt="A vinyl privacy fence shown in two halves. The left half is grey and streaked with algae and weathering. The right half has been soft washed back to clean white.">
+<figcaption>The same vinyl fence, left half before and right half after a soft wash. No high pressure was used on it.</figcaption>
+</figure>
+</div>
+</section>
+
+<section class="sec">
 <div class="wrap">
 <p class="eyebrow">Also worth cleaning</p>
 <h2>The rest of the exterior.</h2>
