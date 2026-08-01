@@ -1,0 +1,20 @@
+--- DNS ---
+185.199.109.153
+185.199.108.153
+185.199.111.153
+185.199.110.153
+jakelabate.github.io.
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+--- live URLs ---
+301  /
+301  /about/
+301  /faq/
+301  /pressure-washing-milford-ct/
+301  /f-a-q/
+301  /sitemap.xml
+301  /robots.txt
+--- home page identity ---
+<title>301 Moved Permanently</title>
