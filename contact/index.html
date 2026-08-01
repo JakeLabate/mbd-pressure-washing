@@ -34,6 +34,10 @@
   --gold-deep:#704b19;
   --display:"Bodoni Moda","Didot","Times New Roman",serif;
   --body:"Public Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  /* Numerals never use the Didone. At text sizes its hairline diagonal drops
+     out and the 4 collapses toward the width of a 1. Public Sans holds a
+     steady 2.2x width difference at every size the site uses. */
+  --num:"Public Sans",system-ui,-apple-system,Segoe UI,sans-serif;
   --w:1120px;
   --pad:clamp(20px,5vw,44px);
 }
@@ -234,7 +238,8 @@ li{margin:0 0 .4em}
 .steps li::before{
   content:counter(s,decimal-leading-zero);
   position:absolute;left:0;top:-6px;
-  font-family:var(--display);font-weight:600;font-size:1.7rem;
+  font-family:var(--num);font-weight:700;font-size:1.45rem;
+  letter-spacing:.02em;
   color:var(--gold);
 }
 .steps h3{margin-bottom:4px}
@@ -273,6 +278,16 @@ li{margin:0 0 .4em}
   border-left:3px solid var(--gold);
   padding-left:24px;margin-top:36px;margin-bottom:36px;max-width:24ch;
 }
+
+.tel-big{font-family:var(--num);font-weight:700;font-size:clamp(1.9rem,1.3rem+2.2vw,2.9rem)}
+
+/* numerals: phone numbers, counters, anything read digit by digit */
+.num,.tel,.btn,.callbar,.foot-tel,.tel-big,.steps li::before,.hours td{
+  font-family:var(--num);
+  font-variant-numeric:tabular-nums lining-nums;
+  font-feature-settings:"tnum" 1,"lnum" 1;
+}
+.tel,.callbar,.foot-tel,.tel-big{letter-spacing:.015em}
 
 /* photos */
 .shot{margin:0}
@@ -365,8 +380,8 @@ li{margin:0 0 .4em}
   font-size:1.5rem;color:var(--gold-lite);margin-bottom:10px;
 }
 .foot .foot-tel{
-  font-family:var(--display);font-weight:600;
-  font-size:1.6rem;color:var(--paper);text-decoration:none;display:inline-block;
+  font-family:var(--num);font-weight:700;
+  font-size:1.55rem;color:var(--paper);text-decoration:none;display:inline-block;
   margin-top:6px;margin-bottom:6px;
 }
 .foot .foot-tel:hover{color:var(--gold-lite);text-decoration:none}
@@ -510,7 +525,7 @@ li{margin:0 0 .4em}
 <div class="wrap cols">
 <div>
 <p class="eyebrow">By phone</p>
-<h2>475-450-6215</h2>
+<h2 class="tel-big">475-450-6215</h2>
 <p class="lead" style="margin-top:18px">Estimates are free on every service. We stay in touch through the job, so you are not left guessing about when we are coming or what is happening.</p>
 <div class="btnrow">
 <a class="btn" href="tel:4754506215">Call 475-450-6215</a>
