@@ -1,0 +1,42 @@
+name: probe-embed
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get install -y ffmpeg >/dev/null 2>&1 || true
+      - run: |
+          REF=3cfdab0ed5fc52f7f8c9ddaa4e19e623f2dfcd98
+          : > embed-probe.txt
+          probe () {
+            echo "=== $1 ===" >> embed-probe.txt
+            code=$(curl -sSL --compressed -o body.raw -w '%{http_code}' --max-time 40 -A "Mozilla/5.0" -e "https://mbdpressurewashing.net/" "$1" || echo FAIL)
+            echo "http: $code  bytes: $(wc -c < body.raw)" >> embed-probe.txt
+            tr -cd '[:print:][:space:]' < body.raw > body.txt
+            head -c 1400 body.txt >> embed-probe.txt
+            echo "" >> embed-probe.txt
+          }
+          echo "--- real POST to the endpoint (JSON) ---" >> embed-probe.txt
+          curl -sS -X POST "https://formsubmit.co/ajax/Mbdpressurewashing@gmail.com" \
+            -H "Content-Type: application/json" -H "Accept: application/json" \
+            -H "Origin: https://mbdpressurewashing.net" \
+            -H "Referer: https://mbdpressurewashing.net/contact/" \
+            --max-time 40 \
+            -d '{"name":"Endpoint check","phone":"000","_subject":"Endpoint check","_template":"table","_captcha":"false"}' \
+            -w "\nHTTP %{http_code}\n" >> embed-probe.txt 2>&1
+          echo "--- CORS preflight ---" >> embed-probe.txt
+          curl -sS -X OPTIONS "https://formsubmit.co/ajax/Mbdpressurewashing@gmail.com" \
+            -H "Origin: https://mbdpressurewashing.net" \
+            -H "Access-Control-Request-Method: POST" \
+            -H "Access-Control-Request-Headers: content-type" \
+            -D - -o /dev/null --max-time 30 2>&1 | grep -iE '^(HTTP|access-control)' >> embed-probe.txt
+          wc -c embed-probe.txt
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add embed-probe.txt
+          git commit -m "Embed probe results" || echo "no change"
+          git push
