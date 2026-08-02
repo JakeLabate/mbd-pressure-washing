@@ -1,0 +1,6 @@
+--- deployed form config ---
+var ENDPOINT = "https://formsubmit.co/ajax/Mbdpressurewashing@gmail.com"
+var INBOX = "Mbdpressurewashing@gmail.com"
+1
+--- provider reachable ---
+formsubmit.co reachable: 403
