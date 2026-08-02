@@ -894,7 +894,9 @@ li{margin:0 0 .4em}
           status.setAttribute('data-state','err');
           status.innerHTML = 'We could not send that just now. Please call '
             + '<a href="tel:+14754506215">475-450-6215</a>, or '
-            + '<a href="#" id="qf-mail">send it as an email instead</a>. Sorry for the trouble.';
+            + '<a href="#" id="qf-mail">send it as an email instead</a>. Sorry for the trouble.'
+            + '<span class="summary"></span>';
+          status.querySelector('.summary').textContent = summary(o);
           var l0 = document.getElementById('qf-mail');
           if(l0) l0.addEventListener('click', function(e){ e.preventDefault(); mailtoFallback(o); });
           submit.disabled = false;
@@ -906,7 +908,8 @@ li{margin:0 0 .4em}
         status.innerHTML = 'That did not send. Please call '
           + '<a href="tel:+14754506215">475-450-6215</a>, or '
           + '<a href="#" id="qf-mail">send it as an email instead</a>.'
-          + '<span class="diag"></span>';
+          + '<span class="summary"></span><span class="diag"></span>';
+        status.querySelector('.summary').textContent = summary(o);
         status.querySelector('.diag').textContent = String(detail);
         var link = document.getElementById('qf-mail');
         if(link) link.addEventListener('click', function(e){ e.preventDefault(); mailtoFallback(o); });
