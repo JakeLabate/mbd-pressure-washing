@@ -1,0 +1,37 @@
+name: probe-embed
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get install -y ffmpeg >/dev/null 2>&1 || true
+      - run: |
+          REF=3cfdab0ed5fc52f7f8c9ddaa4e19e623f2dfcd98
+          : > embed-probe.txt
+          probe () {
+            echo "=== $1 ===" >> embed-probe.txt
+            code=$(curl -sSL --compressed -o body.raw -w '%{http_code}' --max-time 40 -A "Mozilla/5.0" -e "https://mbdpressurewashing.net/" "$1" || echo FAIL)
+            echo "http: $code  bytes: $(wc -c < body.raw)" >> embed-probe.txt
+            tr -cd '[:print:][:space:]' < body.raw > body.txt
+            head -c 1400 body.txt >> embed-probe.txt
+            echo "" >> embed-probe.txt
+          }
+          echo "--- live robots.txt ---" >> embed-probe.txt
+          curl -sSI --max-time 25 https://mbdpressurewashing.net/robots.txt | grep -iE '^(HTTP|content-type|content-length)' >> embed-probe.txt
+          curl -sS --max-time 25 https://mbdpressurewashing.net/robots.txt >> embed-probe.txt
+          echo "--- sitemap URLs all reachable? sample ---" >> embed-probe.txt
+          for u in / /about/ /pressure-washing-guilford-ct/ /pressure-washing-westport-ct/; do
+            echo "$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 https://mbdpressurewashing.net$u)  $u" >> embed-probe.txt
+          done
+          echo "--- sitemap loc count ---" >> embed-probe.txt
+          curl -sS --max-time 25 https://mbdpressurewashing.net/sitemap.xml | grep -c "<loc>" >> embed-probe.txt
+          wc -c embed-probe.txt
+      - run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add embed-probe.txt
+          git commit -m "Embed probe results" || echo "no change"
+          git push
