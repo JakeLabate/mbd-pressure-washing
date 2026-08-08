@@ -325,6 +325,10 @@ li{margin:0 0 .4em}
 .lp-trust span{display:inline-flex;align-items:center;gap:8px}
 .lp-trust span::before{content:"";width:9px;height:9px;background:var(--gold);flex:0 0 auto}
 
+.cols-owner{align-items:center}
+@media(min-width:860px){.cols-owner{grid-template-columns:.8fr 1.2fr}}
+.cols-owner .pull{font-size:clamp(1.15rem,1rem+.7vw,1.5rem);margin-top:26px;margin-bottom:26px}
+
 /* photos */
 .shot{margin:0}
 .shot img{
@@ -441,7 +445,7 @@ li{margin:0 0 .4em}
 .reviews-band iframe{display:block;width:100%;border:0}
 .reviews-band > *{font-size:1rem}
 /* Masks the third-party branding row pinned to the bottom of the widget.
-   Change the background below to recolour it. */
+   Change the background below to recolor it. */
 .reviews-band::after{
   content:"";
   position:absolute;
@@ -575,7 +579,7 @@ li{margin:0 0 .4em}
 .formnote{font-size:.92rem;color:var(--muted);margin:0}
 .formnote a{font-weight:700}
 /* Side by side needs 380px and a 390px phone gives the form 350px, so below
-   that the button goes full width and the phone centres under it. A wrapped
+   that the button goes full width and the phone centers under it. A wrapped
    half width button next to stray text looks like a bug; this looks chosen,
    and a full width tap target is better on a phone anyway. */
 @media(max-width:430px){
@@ -662,7 +666,7 @@ li{margin:0 0 .4em}
      srcset="/img/mbd-owner-sm.jpg 560w, /img/mbd-owner.jpg 900w"
      sizes="(min-width: 860px) 42vw, 92vw"
      width="900" height="960" loading="lazy" decoding="async"
-     alt="The owner of MBD Pressure Washing standing beside the company trailer, which carries the gold MBD Pressure Washing logo and the phone number 475-450-6215.">
+     alt="Matt, the owner of MBD Pressure Washing, standing beside the company trailer, which carries the gold MBD Pressure Washing logo and the phone number 475-450-6215.">
 <figcaption>The MBD trailer and the person who tows it. Calls, quotes and the work itself all go through the same pair of hands.</figcaption>
 </figure>
 </div>
