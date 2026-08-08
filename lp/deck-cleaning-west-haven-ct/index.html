@@ -322,6 +322,10 @@ li{margin:0 0 .4em}
 .lp-trust span{display:inline-flex;align-items:center;gap:8px}
 .lp-trust span::before{content:"";width:9px;height:9px;background:var(--gold);flex:0 0 auto}
 
+.cols-owner{align-items:center}
+@media(min-width:860px){.cols-owner{grid-template-columns:.8fr 1.2fr}}
+.cols-owner .pull{font-size:clamp(1.15rem,1rem+.7vw,1.5rem);margin-top:26px;margin-bottom:26px}
+
 /* photos */
 .shot{margin:0}
 .shot img{
@@ -438,7 +442,7 @@ li{margin:0 0 .4em}
 .reviews-band iframe{display:block;width:100%;border:0}
 .reviews-band > *{font-size:1rem}
 /* Masks the third-party branding row pinned to the bottom of the widget.
-   Change the background below to recolour it. */
+   Change the background below to recolor it. */
 .reviews-band::after{
   content:"";
   position:absolute;
@@ -572,7 +576,7 @@ li{margin:0 0 .4em}
 .formnote{font-size:.92rem;color:var(--muted);margin:0}
 .formnote a{font-weight:700}
 /* Side by side needs 380px and a 390px phone gives the form 350px, so below
-   that the button goes full width and the phone centres under it. A wrapped
+   that the button goes full width and the phone centers under it. A wrapped
    half width button next to stray text looks like a bug; this looks chosen,
    and a full width tap target is better on a phone anyway. */
 @media(max-width:430px){
@@ -710,6 +714,29 @@ li{margin:0 0 .4em}
 <div class="panel">
 <h3>What the job includes</h3>
 <ul class="checks"><li>Algae, mildew and ground in grime lifted off the boards</li><li>Pressure matched to wood, composite or vinyl</li><li>Railings, spindles and steps done with the deck surface</li><li>A less slippery surface once the growth is gone</li><li>Ready for sealing or staining if that is the next step</li></ul>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap cols cols-owner">
+<figure class="shot shot-owner">
+<img src="/img/mbd-owner.jpg"
+     srcset="/img/mbd-owner-sm.jpg 560w, /img/mbd-owner.jpg 900w"
+     sizes="(min-width: 860px) 40vw, 92vw"
+     width="900" height="960" loading="lazy" decoding="async"
+     alt="Matt, the owner of MBD Pressure Washing, standing beside the company trailer, which carries the MBD logo and the phone number 475-450-6215.">
+</figure>
+<div class="prose">
+<p class="eyebrow">Who you are calling</p>
+<h2>You get Matt, not a call center.</h2>
+<p>MBD Pressure Washing is owner operated. Matt quotes the job, Matt turns up, and Matt does the work. When you call about a property in West Haven, you are talking to the person who will be standing in front of it.</p>
+<p>That is also why the method matters here. Nobody is being sent out with a machine and a quota. Every surface gets the pressure it can take, whether that is a full house wash or an hour of gutters.</p>
+<p class="pull">If it is worth doing, it is worth doing carefully and correctly.</p>
+<div class="btnrow">
+<a class="btn" href="tel:4754506215">Call 475-450-6215</a>
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
+</div>
 </div>
 </div>
 </section>
