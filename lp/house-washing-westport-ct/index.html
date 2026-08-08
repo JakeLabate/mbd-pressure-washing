@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/house-washing-westport-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/house-washing-westport-ct/", "name": "House washing in Westport, CT | Free Estimate | MBD", "description": "House washing in Westport, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/house-washing-westport-ct/#service", "name": "House washing in Westport, CT", "serviceType": "House washing", "description": "House washing in Westport, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Westport, CT"}}]}</script>
 </head>
@@ -706,16 +680,17 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec">
-<div class="wrap">
-<p class="eyebrow">Neighborhoods</p>
-<h2>Where we work in Westport.</h2>
-<p class="lead muted">Hover or tap an area to see which part of Westport it covers. If yours is not shown we almost certainly still work there, so ask.</p>
-<div class="hoodwrap">
-<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Westport, Connecticut, divided into the neighbourhood areas MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="hoods"><g class="hood" data-hood="coleytown" tabindex="0" role="button" aria-label="Coleytown"><path class="cell" d="M240.6,26.0 L237.4,27.9 L152.5,95.8 L133.0,60.4 L124.91856418143706,80.25391203502724 L234.55747719051988,186.98205744209903 L311.0273495273021,153.3616825354103 L264.8,69.6 L240.6,26.0 Z"/><circle class="dot" cx="215.6" cy="91.5" r="3"/><text class="hlabel" x="215.5" y="80.7">Coleytown</text></g><g class="hood" data-hood="compo" tabindex="0" role="button" aria-label="Compo"><path class="cell" d="M171.14951720777782,328.8244208707977 L176.8,328.1 L180.8,323.1 L186.1,321.6 L188.2,326.6 L181.9,334.6 L201.0,332.8 L195.7,342.0 L204.2,349.4 L209.2,336.7 L218.3,330.2 L224.1,328.0 L225.4,321.6 L223.3,316.5 L224.7,310.3 L224.9,295.6 L230.3,298.4 L237.1,280.0 L241.5,284.1 L250.01448205793955,287.662181269138 L250.67981444803505,289.26594391743976 L244.9,299.2 L240.9,302.6 L233.4,303.9 L236.9,312.4 L242.3,315.9 L259.8,315.7 L262.5,321.1 L263.4290958655157,319.99768287142206 L218.81216275818332,212.4499791003041 L209.73117181277237,217.01816052101387 L167.16664480431206,325.89374013212813 Z"/><circle class="dot" cx="204.6" cy="301.8" r="3"/><text class="hlabel" x="219.5" y="309.7">Compo</text></g><g class="hood" data-hood="greens-farms" tabindex="0" role="button" aria-label="Greens Farms"><path class="cell" d="M250.01448205793955,287.662181269138 L251.3,288.2 L250.67981444803505,289.26594391743976 L263.4290958655157,319.99768287142206 L268.4,314.1 L275.7,308.6 L294.3,300.7 L312.1,301.5 L323.7,304.5 L334.9,293.9 L349.4,287.2 L351.7,277.6 L345.2,271.3 L350.2,267.5 L349.2,262.0 L351.6,254.9 L349.7,247.2 L352.9,240.2 L351.6,230.3 L345.4,216.1 L347.9,207.8 L346.1,201.6 L342.2,198.3 L334.4,198.2 L333.9,192.8 L329.5,182.8 L330.7,176.6 L321.7,172.7 L311.0273495273021,153.3616825354103 L234.55747719051993,186.98205744209903 L218.81216275818335,212.44997910030412 Z"/><circle class="dot" cx="292.1" cy="265.5" r="3"/><text class="hlabel" x="315.2" y="246.7">Greens Farms</text></g><g class="hood" data-hood="old-hill" tabindex="0" role="button" aria-label="Old Hill"><path class="cell" d="M124.91856418143706,80.25391203502724 L112.2,111.5 L107.1,186.8 L113.2,198.0 L123.3,210.2 L123.7,227.7 L124.00369177325122,230.31279646297173 L209.73117181277237,217.0181605210139 L218.81216275818338,212.4499791003041 L234.55747719051988,186.98205744209906 Z"/><circle class="dot" cx="138.6" cy="170.6" r="3"/><text class="hlabel" x="149.2" y="186.1">Old Hill</text></g><g class="hood" data-hood="saugatuck" tabindex="0" role="button" aria-label="Saugatuck"><path class="cell" d="M124.00369177325122,230.31279646297173 L129.5,277.6 L120.79577951706841,325.5163028565343 L138.40911251980984,325.6596671949287 L141.0,316.9 L149.5,306.0 L153.5,310.7 L157.1,306.7 L161.0,296.3 L163.4,296.7 L159.3,311.2 L159.5,325.1 L160.41942153075075,325.8388208729247 L167.16664480431206,325.89374013212813 L209.73117181277235,217.0181605210139 Z"/><circle class="dot" cx="156.0" cy="282.8" r="3"/><text class="hlabel" x="153.0" y="299.8">Saugatuck</text></g><g class="hood" data-hood="saugatuck-shores" tabindex="0" role="button" aria-label="Saugatuck Shores"><path class="cell" d="M120.79577951706841,325.5163028565343 L119.4,333.2 L121.6,341.5 L119.2,348.8 L120.7,363.3 L126.7,354.2 L132.4,352.6 L141.3,361.6 L127.4,362.3 L128.2,366.5 L138.0,371.4 L147.6,371.3 L153.2,374.0 L164.7,370.9 L170.2,365.1 L163.2,360.4 L154.4,358.9 L144.0,352.2 L138.2,346.5 L126.8,344.1 L136.3,339.2 L136.8,331.1 L138.40911251980984,325.6596671949287 L160.41942153075075,325.8388208729247 L165.1,329.6 L171.14951720777782,328.8244208707977 L167.16664480431203,325.89374013212813 Z"/><circle class="dot" cx="155.3" cy="368.8" r="3"/><text class="hlabel" x="142.0" y="349.3">Saugatuck Shores</text></g></g><g class="tbase"><path class="tshape" d="M240.6,26.0 L237.4,27.9 L152.5,95.8 L133.0,60.4 L112.2,111.5 L107.1,186.8 L113.2,198.0 L123.3,210.2 L123.7,227.7 L129.5,277.6 L119.4,333.2 L121.6,341.5 L119.2,348.8 L120.7,363.3 L126.7,354.2 L132.4,352.6 L141.3,361.6 L127.4,362.3 L128.2,366.5 L138.0,371.4 L147.6,371.3 L153.2,374.0 L164.7,370.9 L170.2,365.1 L163.2,360.4 L154.4,358.9 L144.0,352.2 L138.2,346.5 L126.8,344.1 L136.3,339.2 L136.8,331.1 L141.0,316.9 L149.5,306.0 L153.5,310.7 L157.1,306.7 L161.0,296.3 L163.4,296.7 L159.3,311.2 L159.5,325.1 L165.1,329.6 L176.8,328.1 L180.8,323.1 L186.1,321.6 L188.2,326.6 L181.9,334.6 L201.0,332.8 L195.7,342.0 L204.2,349.4 L209.2,336.7 L218.3,330.2 L224.1,328.0 L225.4,321.6 L223.3,316.5 L224.7,310.3 L224.9,295.6 L230.3,298.4 L237.1,280.0 L241.5,284.1 L251.3,288.2 L244.9,299.2 L240.9,302.6 L233.4,303.9 L236.9,312.4 L242.3,315.9 L259.8,315.7 L262.5,321.1 L268.4,314.1 L275.7,308.6 L294.3,300.7 L312.1,301.5 L323.7,304.5 L334.9,293.9 L349.4,287.2 L351.7,277.6 L345.2,271.3 L350.2,267.5 L349.2,262.0 L351.6,254.9 L349.7,247.2 L352.9,240.2 L351.6,230.3 L345.4,216.1 L347.9,207.8 L346.1,201.6 L342.2,198.3 L334.4,198.2 L333.9,192.8 L329.5,182.8 L330.7,176.6 L321.7,172.7 L264.8,69.6 L240.6,26.0 Z"/></g></svg>
-<div>
-<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="coleytown">Coleytown</button></li><li><button type="button" class="hoodchip" data-hood="compo">Compo</button></li><li><button type="button" class="hoodchip" data-hood="greens-farms">Greens Farms</button></li><li><button type="button" class="hoodchip" data-hood="old-hill">Old Hill</button></li><li><button type="button" class="hoodchip" data-hood="saugatuck">Saugatuck</button></li><li><button type="button" class="hoodchip" data-hood="saugatuck-shores">Saugatuck Shores</button></li></ul>
-<p class="hoodnote">Town outline from Connecticut open data. Neighborhood centers from OpenStreetMap contributors. The shaded areas are approximate, showing the part of town nearest each neighborhood rather than official boundaries.</p>
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Westport, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M219.6,22.0 L216.7,23.7 L139.6,85.4 L121.9,53.3 L103.1,99.6 L98.4,168.0 L104.0,178.2 L113.1,189.2 L113.5,205.2 L118.8,250.4 L109.6,300.9 L111.5,308.5 L109.4,315.1 L110.8,328.3 L116.2,320.0 L121.3,318.6 L129.5,326.7 L116.9,327.3 L117.6,331.2 L126.4,335.7 L135.2,335.6 L140.3,338.0 L150.7,335.2 L155.7,329.9 L149.3,325.7 L141.3,324.3 L131.9,318.2 L126.7,313.0 L116.3,310.9 L124.9,306.4 L125.4,299.1 L129.1,286.1 L136.9,276.3 L140.5,280.5 L143.8,276.9 L147.4,267.4 L149.6,267.8 L145.8,281.0 L146.0,293.6 L151.1,297.7 L161.7,296.3 L165.4,291.8 L170.1,290.4 L172.1,295.0 L166.3,302.2 L183.7,300.6 L178.8,309.0 L186.6,315.6 L191.1,304.1 L199.4,298.2 L204.7,296.2 L205.8,290.4 L203.9,285.8 L205.2,280.1 L205.4,266.8 L210.2,269.4 L216.4,252.6 L220.4,256.3 L229.3,260.1 L223.5,270.1 L219.9,273.1 L213.1,274.4 L216.3,282.1 L221.2,285.2 L237.1,285.1 L239.6,290.0 L244.9,283.7 L251.5,278.6 L268.4,271.5 L284.6,272.2 L295.1,274.9 L305.3,265.3 L318.5,259.2 L320.5,250.5 L314.6,244.7 L319.1,241.3 L318.3,236.3 L320.4,229.8 L318.7,222.9 L321.6,216.5 L320.4,207.5 L314.8,194.6 L317.0,187.1 L315.4,181.4 L311.9,178.5 L304.8,178.3 L304.4,173.4 L300.4,164.4 L301.4,158.7 L293.3,155.2 L241.6,61.6 L219.6,22.0 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Westport, not just the easy parts.</h2>
+<p>Westport sits in Fairfield County, and we cover the whole of it. That includes Compo Beach and Compo South, Saugatuck and Saugatuck Shores, Greens Farms, Old Hill, Long Lots, Coleytown and the downtown Westport village area.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
 </div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
@@ -942,27 +917,6 @@ li{margin:0 0 .4em}
   });
 })();
 </script>
-<script>
-(function(){
-  var hoods = document.querySelectorAll('.hoodmap .hood');
-  var chips = document.querySelectorAll('.hoodchip');
-  if(!hoods.length) return;
-  function set(id, on){
-    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
-    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
-  }
-  function wire(nodes){
-    nodes.forEach(function(n){
-      var id = n.dataset.hood;
-      n.addEventListener('mouseenter', function(){ set(id, true); });
-      n.addEventListener('mouseleave', function(){ set(id, false); });
-      n.addEventListener('focus', function(){ set(id, true); });
-      n.addEventListener('blur', function(){ set(id, false); });
-      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
-    });
-  }
-  wire(hoods); wire(chips);
-})();
-</script>
+
 </body>
 </html>
