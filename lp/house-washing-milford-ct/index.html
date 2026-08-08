@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/house-washing-milford-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/house-washing-milford-ct/", "name": "House washing in Milford, CT | Free Estimate | MBD", "description": "House washing in Milford, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/house-washing-milford-ct/#service", "name": "House washing in Milford, CT", "serviceType": "House washing", "description": "House washing in Milford, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Milford, CT"}}]}</script>
 </head>
@@ -706,16 +680,17 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec">
-<div class="wrap">
-<p class="eyebrow">Neighborhoods</p>
-<h2>Where we work in Milford.</h2>
-<p class="lead muted">Hover or tap an area to see which part of Milford it covers. If yours is not shown we almost certainly still work there, so ask.</p>
-<div class="hoodwrap">
-<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Milford, Connecticut, divided into the neighbourhood areas MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="hoods"><g class="hood" data-hood="devon" tabindex="0" role="button" aria-label="Devon"><path class="cell" d="M87.35035537083793,206.08190823986516 L91.1,218.1 L85.9,240.5 L85.3,252.9 L89.1,266.3 L88.7,274.2 L86.1,280.9 L90.4,281.1 L86.6,293.7 L87.4,309.0 L72.058183441295,318.8950177804665 L82.84843647393622,317.4618296382 L120.71322341478073,305.13791313386855 L172.57667178147122,221.5899690073228 Z"/><circle class="dot" cx="107.1" cy="274.4" r="3"/><text class="hlabel" x="94.7" y="270.4">Devon</text></g><g class="hood" data-hood="laurel-beach" tabindex="0" role="button" aria-label="Laurel Beach"><path class="cell" d="M126.91334601618675,348.3372424467159 L127.1,348.1 L136.7,329.7 L143.0,323.2 L143.3369227323628,322.61686450167974 L120.71322341478076,305.1379131338685 L82.848436473936,317.4618296382001 Z"/><circle class="dot" cx="127.8" cy="338.0" r="3"/><text class="hlabel" x="125.8" y="327.8">Laurel Beach</text></g><g class="hood" data-hood="morningside" tabindex="0" role="button" aria-label="Morningside"><path class="cell" d="M311.53501458941224,260.5669621114061 L318.0,267.1 L330.3,262.1 L337.0,250.3 L346.6,238.6 L354.7117677609227,210.15994676592155 L315.91873989596814,174.7536118098122 L308.53546577590095,181.7893380091874 Z"/><circle class="dot" cx="335.7" cy="239.0" r="3"/><text class="hlabel" x="327.8" y="230.7">Morningside</text></g><g class="hood" data-hood="walnut-beach" tabindex="0" role="button" aria-label="Walnut Beach"><path class="cell" d="M143.3369227323628,322.61686450167974 L148.2,314.2 L157.4,304.8 L170.7,295.6 L185.2,290.1 L201.4,288.5 L202.1,282.8 L214.0,260.5 L214.2910299092783,260.241010080734 L196.6901814517007,223.38573026908665 L189.74082391301584,218.88100838630277 L172.57667178147122,221.58996900732276 L120.71322341478077,305.1379131338685 Z"/><circle class="dot" cx="154.3" cy="303.7" r="3"/><text class="hlabel" x="178.2" y="276.0">Walnut Beach</text></g><g class="hood" data-hood="woodmont" tabindex="0" role="button" aria-label="Woodmont"><path class="cell" d="M354.7117677609227,210.15994676592155 L354.9,209.5 L358.6,205.3 L368.5,207.4 L373.3,203.3 L384.7,205.2 L396.4,176.1 L396.9,166.8 L393.5,164.3 L379.6,168.5 L376.8,163.0 L379.9,153.3 L377.5,146.0 L373.9,143.4 L376.7,135.8 L380.1,133.4 L331.5907854686408,119.66658513747508 L315.91873989596814,174.7536118098122 Z"/><circle class="dot" cx="381.7" cy="188.6" r="3"/><text class="hlabel" x="370.8" y="171.4">Woodmont</text></g><g class="hood" data-hood="baldwins-crossing" tabindex="0" role="button" aria-label="Baldwins Crossing"><path class="cell" d="M145.8,26.0 L142.1,41.6 L141.2,49.7 L143.0,67.6 L142.4,81.0 L145.0,97.9 L144.3,108.9 L141.4,115.5 L132.7,129.4 L117.3,144.4 L105.4,152.7 L89.4,180.8 L86.1,193.7 L87.2,205.6 L87.35035537083793,206.08190823986516 L172.5766717814712,221.58996900732276 L189.7408239130159,218.88100838630277 L193.3751304704923,59.490706508410014 L175.5,46.8 L145.8,26.0 Z"/><circle class="dot" cx="129.9" cy="149.1" r="3"/><text class="hlabel" x="136.4" y="118.7">Baldwins Crossing</text></g><g class="hood" data-hood="bayview" tabindex="0" role="button" aria-label="Bayview"><path class="cell" d="M214.2910299092783,260.241010080734 L224.9,250.8 L240.8,246.2 L231.3,237.7 L225.3,237.4 L229.4,226.9 L234.9,238.3 L246.3,240.9 L248.6,234.9 L252.8,232.0 L254.1,223.9 L265.2,220.4 L267.2,214.2 L275.9,208.9 L273.1,221.7 L266.3,225.4 L260.1,234.4 L255.5,244.7 L250.0,244.8 L256.6,259.2 L265.7,269.0 L280.5,258.8 L293.9,256.5 L308.5,257.5 L311.53501458941224,260.5669621114061 L308.53546577590095,181.78933800918742 L196.6901814517007,223.38573026908662 Z"/><circle class="dot" cx="285.8" cy="240.9" r="3"/><text class="hlabel" x="257.0" y="237.4">Bayview</text></g><g class="hood" data-hood="cedar-beach" tabindex="0" role="button" aria-label="Cedar Beach"><path class="cell" d="M72.058183441295,318.8950177804665 L70.5,319.9 L65.5,326.5 L63.1,334.0 L63.5,348.3 L67.6,354.0 L80.8,362.9 L88.1,363.6 L93.8,359.7 L104.9,359.6 L95.6,366.9 L90.8,374.0 L102.5,371.0 L116.4,361.7 L126.91334601618675,348.3372424467159 L82.84843647393593,317.4618296382 Z"/><circle class="dot" cx="117.5" cy="352.7" r="3"/><text class="hlabel" x="86.6" y="349.2">Cedar Beach</text></g><g class="hood" data-hood="forest-heights" tabindex="0" role="button" aria-label="Forest Heights"><path class="cell" d="M189.7408239130159,218.88100838630282 L196.69018145170068,223.38573026908662 L308.53546577590095,181.7893380091874 L315.91873989596814,174.7536118098122 L331.5907854686408,119.66658513747508 L275.9,103.9 L231.7,86.7 L193.3751304704923,59.490706508410014 Z"/><circle class="dot" cx="252.7" cy="151.9" r="3"/><text class="hlabel" x="255.4" y="146.1">Forest Heights</text></g></g><g class="tbase"><path class="tshape" d="M145.8,26.0 L142.1,41.6 L141.2,49.7 L143.0,67.6 L142.4,81.0 L145.0,97.9 L144.3,108.9 L141.4,115.5 L132.7,129.4 L117.3,144.4 L105.4,152.7 L89.4,180.8 L86.1,193.7 L87.2,205.6 L91.1,218.1 L85.9,240.5 L85.3,252.9 L89.1,266.3 L88.7,274.2 L86.1,280.9 L90.4,281.1 L86.6,293.7 L87.4,309.0 L70.5,319.9 L65.5,326.5 L63.1,334.0 L63.5,348.3 L67.6,354.0 L80.8,362.9 L88.1,363.6 L93.8,359.7 L104.9,359.6 L95.6,366.9 L90.8,374.0 L102.5,371.0 L116.4,361.7 L127.1,348.1 L136.7,329.7 L143.0,323.2 L148.2,314.2 L157.4,304.8 L170.7,295.6 L185.2,290.1 L201.4,288.5 L202.1,282.8 L214.0,260.5 L224.9,250.8 L240.8,246.2 L231.3,237.7 L225.3,237.4 L229.4,226.9 L234.9,238.3 L246.3,240.9 L248.6,234.9 L252.8,232.0 L254.1,223.9 L265.2,220.4 L267.2,214.2 L275.9,208.9 L273.1,221.7 L266.3,225.4 L260.1,234.4 L255.5,244.7 L250.0,244.8 L256.6,259.2 L265.7,269.0 L280.5,258.8 L293.9,256.5 L308.5,257.5 L318.0,267.1 L330.3,262.1 L337.0,250.3 L346.6,238.6 L354.9,209.5 L358.6,205.3 L368.5,207.4 L373.3,203.3 L384.7,205.2 L396.4,176.1 L396.9,166.8 L393.5,164.3 L379.6,168.5 L376.8,163.0 L379.9,153.3 L377.5,146.0 L373.9,143.4 L376.7,135.8 L380.1,133.4 L275.9,103.9 L231.7,86.7 L175.5,46.8 L145.8,26.0 Z"/></g></svg>
-<div>
-<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="devon">Devon</button></li><li><button type="button" class="hoodchip" data-hood="laurel-beach">Laurel Beach</button></li><li><button type="button" class="hoodchip" data-hood="morningside">Morningside</button></li><li><button type="button" class="hoodchip" data-hood="walnut-beach">Walnut Beach</button></li><li><button type="button" class="hoodchip" data-hood="woodmont">Woodmont</button></li><li><button type="button" class="hoodchip" data-hood="baldwins-crossing">Baldwins Crossing</button></li><li><button type="button" class="hoodchip" data-hood="bayview">Bayview</button></li><li><button type="button" class="hoodchip" data-hood="cedar-beach">Cedar Beach</button></li><li><button type="button" class="hoodchip" data-hood="forest-heights">Forest Heights</button></li></ul>
-<p class="hoodnote">Town outline from Connecticut open data. Neighborhood centers from OpenStreetMap contributors. The shaded areas are approximate, showing the part of town nearest each neighborhood rather than official boundaries.</p>
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Milford, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M133.5,22.0 L130.1,36.2 L129.3,43.5 L131.0,59.7 L130.5,71.9 L132.8,87.3 L132.1,97.3 L129.5,103.3 L121.6,115.9 L107.7,129.5 L96.8,137.0 L82.3,162.6 L79.4,174.3 L80.3,185.1 L83.9,196.4 L79.1,216.7 L78.6,228.0 L82.0,240.2 L81.7,247.4 L79.3,253.4 L83.2,253.6 L79.8,265.1 L80.5,279.0 L65.1,288.9 L60.6,294.8 L58.5,301.7 L58.8,314.7 L62.5,319.9 L74.5,327.9 L81.2,328.6 L86.3,325.0 L96.4,325.0 L88.0,331.6 L83.6,338.0 L94.2,335.2 L106.8,326.8 L116.5,314.4 L125.3,297.8 L131.0,291.8 L135.7,283.7 L144.1,275.2 L156.1,266.8 L169.3,261.8 L184.1,260.3 L184.6,255.2 L195.5,235.0 L205.4,226.2 L219.8,221.9 L211.2,214.2 L205.7,214.0 L209.4,204.4 L214.4,214.8 L224.8,217.2 L226.9,211.7 L230.7,209.0 L231.9,201.7 L242.0,198.6 L243.8,192.9 L251.7,188.1 L249.1,199.7 L242.9,203.0 L237.4,211.2 L233.1,220.5 L228.2,220.7 L234.1,233.8 L242.4,242.6 L255.8,233.4 L268.0,231.3 L281.3,232.2 L289.9,240.9 L301.1,236.4 L307.2,225.7 L315.9,215.0 L323.4,188.6 L326.7,184.9 L335.8,186.7 L340.1,183.0 L350.5,184.7 L361.1,158.3 L361.5,149.9 L358.5,147.6 L345.8,151.4 L343.3,146.4 L346.1,137.6 L343.9,131.0 L340.7,128.6 L343.2,121.7 L346.3,119.5 L251.7,92.8 L211.6,77.1 L160.5,40.9 L133.5,22.0 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Milford, not just the easy parts.</h2>
+<p>Milford sits in New Haven County, and we cover the whole of it. That includes Woodmont, Walnut Beach, Silver Sands, Devon, Milford Point, Gulf Beach, Laurel Beach, Morningside, Point Lookout, downtown Milford, Wheelers Farms and north Milford.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
 </div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
@@ -942,27 +917,6 @@ li{margin:0 0 .4em}
   });
 })();
 </script>
-<script>
-(function(){
-  var hoods = document.querySelectorAll('.hoodmap .hood');
-  var chips = document.querySelectorAll('.hoodchip');
-  if(!hoods.length) return;
-  function set(id, on){
-    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
-    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
-  }
-  function wire(nodes){
-    nodes.forEach(function(n){
-      var id = n.dataset.hood;
-      n.addEventListener('mouseenter', function(){ set(id, true); });
-      n.addEventListener('mouseleave', function(){ set(id, false); });
-      n.addEventListener('focus', function(){ set(id, true); });
-      n.addEventListener('blur', function(){ set(id, false); });
-      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
-    });
-  }
-  wire(hoods); wire(chips);
-})();
-</script>
+
 </body>
 </html>
