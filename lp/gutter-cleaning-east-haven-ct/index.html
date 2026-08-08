@@ -569,21 +569,24 @@ li{margin:0 0 .4em}
 @media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
 .hoodmap{width:100%;height:auto;display:block;overflow:visible}
 .hoodmap .tshape{
-  fill:var(--ember);stroke:var(--gold);stroke-width:1.6;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;
+  fill:none;stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
 }
+.hoodmap .cell{
+  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
+  vector-effect:non-scaling-stroke;transition:fill .16s ease;
+}
+.hoodmap .hood:focus{outline:none}
+.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
 .hoodmap .hood{cursor:pointer}
-.hoodmap .halo{fill:var(--gold);opacity:0;transition:opacity .16s ease}
-.hoodmap .hit{fill:transparent}
-.hoodmap .dot{fill:var(--gold-lite);stroke:var(--void);stroke-width:1.2;transition:r .16s ease}
+.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
 .hoodmap .hlabel{
   font-family:var(--body);font-size:11.5px;font-weight:600;
   fill:var(--paper);text-anchor:middle;pointer-events:none;
   opacity:0;transition:opacity .16s ease;
   paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
 }
-.hoodmap .hood.on .halo{opacity:.22}
-.hoodmap .hood.on .dot{r:6.5;fill:var(--paper)}
+.hoodmap .hood.on .dot{fill:var(--paper)}
 .hoodmap .hood.on .hlabel{opacity:1}
 .hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
 .hoodlist li{margin:0}
@@ -706,12 +709,12 @@ li{margin:0 0 .4em}
 <div class="wrap">
 <p class="eyebrow">Neighborhoods</p>
 <h2>Where we work in East Haven.</h2>
-<p class="lead muted">Hover or tap a neighborhood to find it on the map. If yours is not listed we almost certainly still cover it, so ask.</p>
+<p class="lead muted">Hover or tap an area to see which part of East Haven it covers. If yours is not shown we almost certainly still work there, so ask.</p>
 <div class="hoodwrap">
-<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of East Haven, Connecticut, showing the neighbourhoods MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="tbase"><path class="tshape" d="M225.0,106.3 L199.3,185.6 L167.6,251.6 L169.0,342.8 L163.6,350.9 L159.3,350.1 L155.8,354.8 L151.3,354.5 L141.5,361.9 L152.2,367.2 L155.1,374.0 L163.3,368.4 L172.7,369.0 L185.0,373.5 L190.5,370.6 L202.3,368.7 L206.1,366.8 L219.4,367.0 L224.8,365.1 L227.5,361.8 L234.0,343.2 L242.0,330.5 L243.6,327.9 L244.1,319.2 L241.2,313.2 L236.4,313.0 L229.9,308.6 L226.4,309.7 L221.5,300.8 L221.1,286.2 L222.8,280.6 L227.9,271.4 L229.1,265.9 L226.4,262.3 L225.8,256.4 L227.9,248.8 L234.6,238.8 L240.5,233.0 L253.7,226.2 L262.9,217.9 L266.4,212.0 L270.3,201.4 L274.6,177.3 L280.9,168.9 L304.7,158.1 L318.5,93.0 L318.4,27.1 L307.5,26.0 L307.5,32.8 L296.5,33.1 L296.1,65.4 L296.4,86.8 L225.0,106.3 Z"/></g><g class="hoods"><g class="hood" data-hood="foxon"><circle class="halo" cx="263.7" cy="142.8" r="13"/><circle class="dot" cx="263.7" cy="142.8" r="4.5"/><text class="hlabel" x="263.7" y="131.8">Foxon</text><circle class="hit" cx="263.7" cy="142.8" r="15"/></g><g class="hood" data-hood="momauguin"><circle class="halo" cx="192.4" cy="347.8" r="13"/><circle class="dot" cx="192.4" cy="347.8" r="4.5"/><text class="hlabel" x="192.4" y="336.8">Momauguin</text><circle class="hit" cx="192.4" cy="347.8" r="15"/></g><g class="hood" data-hood="bradford-manor"><circle class="halo" cx="205.8" cy="352.7" r="13"/><circle class="dot" cx="205.8" cy="352.7" r="4.5"/><text class="hlabel" x="205.8" y="341.7">Bradford Manor</text><circle class="hit" cx="205.8" cy="352.7" r="15"/></g></g></svg>
+<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of East Haven, Connecticut, divided into the neighbourhood areas MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="hoods"><g class="hood" data-hood="foxon" tabindex="0" role="button" aria-label="Foxon"><path class="cell" d="M225.0,106.3 L199.3,185.6 L178.8455910656033,228.18646655110985 L229.8301686111144,245.91915132669493 L234.6,238.8 L240.5,233.0 L253.7,226.2 L262.9,217.9 L266.4,212.0 L270.3,201.4 L274.6,177.3 L280.9,168.9 L304.7,158.1 L318.5,93.0 L318.4,27.1 L307.5,26.0 L307.5,32.8 L296.5,33.1 L296.1,65.4 L296.4,86.8 L225.0,106.3 Z"/><circle class="dot" cx="263.7" cy="142.8" r="3"/><text class="hlabel" x="266.1" y="146.2">Foxon</text></g><g class="hood" data-hood="momauguin" tabindex="0" role="button" aria-label="Momauguin"><path class="cell" d="M178.8455910656033,228.18646655110985 L167.6,251.6 L169.0,342.8 L163.6,350.9 L159.3,350.1 L155.8,354.8 L151.3,354.5 L141.5,361.9 L152.2,367.2 L155.1,374.0 L163.3,368.4 L172.7,369.0 L185.0,373.5 L190.5,370.6 L191.73106646058739,370.40177743431224 L221.1990637191157,289.8158257477241 L221.1,286.2 L222.8,280.6 L227.9,271.4 L229.1,265.9 L226.4,262.3 L225.8,256.4 L227.9,248.8 L229.8301686111144,245.91915132669493 Z"/><circle class="dot" cx="192.4" cy="347.8" r="3"/><text class="hlabel" x="188.7" y="316.5">Momauguin</text></g><g class="hood" data-hood="bradford-manor" tabindex="0" role="button" aria-label="Bradford Manor"><path class="cell" d="M191.73106646058739,370.40177743431224 L202.3,368.7 L206.1,366.8 L219.4,367.0 L224.8,365.1 L227.5,361.8 L234.0,343.2 L242.0,330.5 L243.6,327.9 L244.1,319.2 L241.2,313.2 L236.4,313.0 L229.9,308.6 L226.4,309.7 L221.5,300.8 L221.1990637191157,289.8158257477241 Z"/><circle class="dot" cx="205.8" cy="352.7" r="3"/><text class="hlabel" x="225.8" y="334.7">Bradford Manor</text></g></g><g class="tbase"><path class="tshape" d="M225.0,106.3 L199.3,185.6 L167.6,251.6 L169.0,342.8 L163.6,350.9 L159.3,350.1 L155.8,354.8 L151.3,354.5 L141.5,361.9 L152.2,367.2 L155.1,374.0 L163.3,368.4 L172.7,369.0 L185.0,373.5 L190.5,370.6 L202.3,368.7 L206.1,366.8 L219.4,367.0 L224.8,365.1 L227.5,361.8 L234.0,343.2 L242.0,330.5 L243.6,327.9 L244.1,319.2 L241.2,313.2 L236.4,313.0 L229.9,308.6 L226.4,309.7 L221.5,300.8 L221.1,286.2 L222.8,280.6 L227.9,271.4 L229.1,265.9 L226.4,262.3 L225.8,256.4 L227.9,248.8 L234.6,238.8 L240.5,233.0 L253.7,226.2 L262.9,217.9 L266.4,212.0 L270.3,201.4 L274.6,177.3 L280.9,168.9 L304.7,158.1 L318.5,93.0 L318.4,27.1 L307.5,26.0 L307.5,32.8 L296.5,33.1 L296.1,65.4 L296.4,86.8 L225.0,106.3 Z"/></g></svg>
 <div>
 <ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="foxon">Foxon</button></li><li><button type="button" class="hoodchip" data-hood="momauguin">Momauguin</button></li><li><button type="button" class="hoodchip" data-hood="bradford-manor">Bradford Manor</button></li></ul>
-<p class="hoodnote">Town boundary from Connecticut open data. Neighborhood locations from OpenStreetMap contributors.</p>
+<p class="hoodnote">Town outline from Connecticut open data. Neighborhood centers from OpenStreetMap contributors. The shaded areas are approximate, showing the part of town nearest each neighborhood rather than official boundaries.</p>
 </div>
 </div>
 </div>
