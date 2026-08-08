@@ -784,6 +784,7 @@ li{margin:0 0 .4em}
     var bad = [];
     ['qf-name','qf-phone','qf-property','qf-town','qf-surface'].forEach(function(id){
       var el = document.getElementById(id);
+      if(!el) return;               // hidden on landing pages, value comes preset
       var empty = !el.value.trim();
       setInvalid(el, empty);
       if(empty) bad.push(el);
