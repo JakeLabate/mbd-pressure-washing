@@ -293,7 +293,26 @@ li{margin:0 0 .4em}
 .lp-bar{background:var(--void);border-bottom:1px solid var(--gold-deep)}
 .lp-bar-in{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
 .lp-bar .tel{margin-left:auto}
-.lp-hero .hero-in{padding-top:clamp(34px,4vw,56px);padding-bottom:clamp(60px,7vw,88px)}
+.lp-hero .hero-in{
+  padding-top:clamp(30px,3.4vw,50px);
+  padding-bottom:clamp(56px,6.5vw,84px);
+  grid-template-columns:1fr;
+}
+/* Small screens: pitch, then the form, then the supporting detail. The form
+   is the only thing on this page that earns money, so it goes above the
+   bullets rather than below them. */
+.lp-hero .hero-copy{order:1}
+.lp-hero #quote{order:2}
+.lp-hero .hero-extra{order:3}
+.lp-hero .hero-extra .lp-points{margin-top:0}
+@media(min-width:940px){
+  .lp-hero .hero-in{grid-template-columns:1.02fr .98fr;align-items:start}
+  .lp-hero .hero-copy{grid-column:1;grid-row:1;padding-top:8px}
+  .lp-hero .hero-extra{grid-column:1;grid-row:2}
+  .lp-hero #quote{grid-column:2;grid-row:1 / span 2}
+}
+/* the form sits on the hero panel, so it needs its own edge to read as a card */
+.lp-hero .formwrap{border-color:var(--gold);box-shadow:0 18px 44px rgba(0,0,0,.45)}
 .lp-points{list-style:none;padding-left:0;display:grid;gap:10px;margin-top:20px}
 .lp-points li{position:relative;padding-left:26px;margin:0;color:var(--bone);font-size:1rem}
 .lp-points li::before{content:"";position:absolute;left:0;top:.6em;width:13px;height:2px;background:var(--gold-lite)}
@@ -594,25 +613,11 @@ li{margin:0 0 .4em}
 <p class="eyebrow anim-rise">Milford, Connecticut</p>
 <h1 class="anim-rise">House washing in Milford, CT.</h1>
 <p class="lede anim-rise-2">Milford runs about 17 miles of coastline, so siding through Woodmont, Walnut Beach and Milford Point carries a salt film that rain does not rinse off. Inland toward Wheelers Farms it is mildew on the shaded elevations instead.</p>
-<ul class="lp-points anim-rise-2"><li>Dirt, algae, mildew and weather buildup lifted off the siding</li><li>Low pressure throughout, so nothing is driven behind the panels</li><li>Vinyl, stucco, brick, Hardie board and painted clapboard</li></ul>
 <div class="btnrow anim-rise-3">
 <a class="btn" href="tel:4754506215">Call 475-450-6215</a>
-<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
-</div>
-<div class="lp-trust">
-<span>Owner operated</span><span>Free estimates</span><span>Serving Milford and nearby</span>
 </div>
 </div>
-</div>
-<svg class="washedge" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-<path class="washedge-fill" d="M0,27 C 170,7 300,45 470,31 C 640,17 780,47 950,33 C 1120,19 1290,41 1440,23 L1440,48 L0,48 Z"/>
-<path class="washedge-line" d="M0,27 C 170,7 300,45 470,31 C 640,17 780,47 950,33 C 1120,19 1290,41 1440,23"/>
-</svg>
-</section>
-
-<section class="sec" id="quote">
-<div class="wrap cols cols-form">
-<div class="formwrap">
+<div id="quote"><div class="formwrap">
 <h3>Request a free estimate</h3>
 <p class="formintro">House washing in Milford, CT. Leave your details and we will come back with a price. It takes about thirty seconds.</p>
 <form id="quoteForm" novalidate>
@@ -667,14 +672,31 @@ li{margin:0 0 .4em}
 </div>
 <div class="formstatus" id="qf-status" role="status" aria-live="polite"></div>
 </form>
+</div></div>
+<div class="hero-extra">
+<ul class="lp-points"><li>Dirt, algae, mildew and weather buildup lifted off the siding</li><li>Low pressure throughout, so nothing is driven behind the panels</li><li>Vinyl, stucco, brick, Hardie board and painted clapboard</li></ul>
+<div class="lp-trust">
+<span>Owner operated</span><span>Free estimates</span><span>Serving Milford and nearby</span>
 </div>
+</div>
+</div>
+<svg class="washedge" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+<path class="washedge-fill" d="M0,27 C 170,7 300,45 470,31 C 640,17 780,47 950,33 C 1120,19 1290,41 1440,23 L1440,48 L0,48 Z"/>
+<path class="washedge-line" d="M0,27 C 170,7 300,45 470,31 C 640,17 780,47 950,33 C 1120,19 1290,41 1440,23"/>
+</svg>
+</section>
+
+<section class="sec">
+<div class="wrap cols">
 <div class="prose">
 <p class="eyebrow">How we do it</p>
 <h2>House washing done properly.</h2>
 <p>Soft washing puts the work on the cleaning solution rather than on pressure. The solution breaks down the algae and grime, then a low pressure rinse carries it away. That matters on siding because high pressure drives water behind panels, strips paint and chews up trim.</p>
+<p class="muted">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+<div class="panel">
 <h3>What the job includes</h3>
 <ul class="checks"><li>Dirt, algae, mildew and weather buildup lifted off the siding</li><li>Low pressure throughout, so nothing is driven behind the panels</li><li>Vinyl, stucco, brick, Hardie board and painted clapboard</li><li>Trim, soffits and gutter exteriors done with the walls</li><li>Cleaning solution matched to the surface, not one mix for everything</li></ul>
-<p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
 </div>
 </div>
 </section>
