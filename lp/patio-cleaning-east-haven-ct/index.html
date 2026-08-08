@@ -634,9 +634,10 @@ li{margin:0 0 .4em}
 <span class="hint">Optional, but it lets us size the job without a second call.</span>
 </div>
 <div class="field wide" data-field>
-<label for="qf-material">Siding or decking material</label>
-<input id="qf-material" name="material" type="text" placeholder="Vinyl, cedar, Hardie board, composite, not sure">
-<span class="hint">Optional. It decides the pressure and the solution we use.</span>
+<label for="qf-material">Surface type</label>
+<select id="qf-material" name="surface_type">
+<option value="">Select if you know</option><option value="Concrete pavers">Concrete pavers</option><option value="Poured concrete">Poured concrete</option><option value="Brick">Brick</option><option value="Flagstone or natural stone">Flagstone or natural stone</option><option value="Stamped concrete">Stamped concrete</option><option value="Asphalt driveway">Asphalt driveway</option><option value="Not sure">Not sure</option></select>
+<span class="hint">Optional. Hard surfaces vary more than people expect.</span>
 </div>
 <div class="field wide" data-field>
 <label for="qf-msg">Anything else we should know?</label>
