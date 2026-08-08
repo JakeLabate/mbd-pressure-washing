@@ -291,6 +291,22 @@ li{margin:0 0 .4em}
 }
 .tel,.callbar,.foot-tel,.tel-big{letter-spacing:.015em}
 
+
+/* paid landing pages */
+.lp-bar{background:var(--void);border-bottom:1px solid var(--gold-deep)}
+.lp-bar-in{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+.lp-bar .tel{margin-left:auto}
+.lp-hero .hero-in{padding-top:clamp(34px,4vw,56px);padding-bottom:clamp(60px,7vw,88px)}
+.lp-points{display:grid;gap:10px;margin-top:20px}
+.lp-points li{position:relative;padding-left:26px;margin:0;color:var(--bone);font-size:1rem}
+.lp-points li::before{content:"";position:absolute;left:0;top:.6em;width:13px;height:2px;background:var(--gold-lite)}
+.lp-trust{
+  display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;
+  font-size:.79rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--muted);
+}
+.lp-trust span{display:inline-flex;align-items:center;gap:8px}
+.lp-trust span::before{content:"";width:9px;height:9px;background:var(--gold);flex:0 0 auto}
+
 /* photos */
 .shot{margin:0}
 .shot img{
@@ -471,7 +487,7 @@ li{margin:0 0 .4em}
 }
 @media(max-width:720px){
   body{padding-bottom:60px}
-  .bar-in .tel{display:none}
+  .bar-in .tel,.lp-bar-in .tel{display:none}
   .callbar{
     display:block;position:fixed;left:0;right:0;bottom:0;z-index:50;
     background:var(--gold);color:var(--ink);text-align:center;text-decoration:none;
