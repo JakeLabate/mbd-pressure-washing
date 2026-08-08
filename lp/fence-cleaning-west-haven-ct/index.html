@@ -563,6 +563,39 @@ li{margin:0 0 .4em}
   font-family:var(--body);font-size:.86rem;color:var(--bone);
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
+
+/* per-town neighbourhood map */
+.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
+.hoodmap{width:100%;height:auto;display:block;overflow:visible}
+.hoodmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.6;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+.hoodmap .hood{cursor:pointer}
+.hoodmap .halo{fill:var(--gold);opacity:0;transition:opacity .16s ease}
+.hoodmap .hit{fill:transparent}
+.hoodmap .dot{fill:var(--gold-lite);stroke:var(--void);stroke-width:1.2;transition:r .16s ease}
+.hoodmap .hlabel{
+  font-family:var(--body);font-size:11.5px;font-weight:600;
+  fill:var(--paper);text-anchor:middle;pointer-events:none;
+  opacity:0;transition:opacity .16s ease;
+  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
+}
+.hoodmap .hood.on .halo{opacity:.22}
+.hoodmap .hood.on .dot{r:6.5;fill:var(--paper)}
+.hoodmap .hood.on .hlabel{opacity:1}
+.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
+.hoodlist li{margin:0}
+.hoodchip{
+  font-family:var(--body);font-size:.83rem;font-weight:600;
+  color:var(--bone);background:transparent;
+  border:1px solid var(--gold-deep);border-radius:2px;
+  padding:8px 13px;cursor:pointer;
+  transition:border-color .16s ease,color .16s ease;
+}
+.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
+.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/fence-cleaning-west-haven-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/fence-cleaning-west-haven-ct/", "name": "Fence cleaning in West Haven, CT | Free Estimate | MBD", "description": "Fence cleaning in West Haven, Connecticut. Vinyl and wood fencing brought back from grey. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/fence-cleaning-west-haven-ct/#service", "name": "Fence cleaning in West Haven, CT", "serviceType": "Fence cleaning", "description": "Fence cleaning in West Haven, Connecticut. Vinyl and wood fencing brought back from grey. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "West Haven, CT"}}]}</script>
 </head>
@@ -665,6 +698,21 @@ li{margin:0 0 .4em}
 <h3>What the job includes</h3>
 <ul class="checks"><li>Algae, mildew and weather staining removed panel by panel</li><li>Vinyl, wood and composite fencing</li><li>Both sides where access allows</li><li>Low pressure on vinyl, so the panels are not furred or forced apart</li><li>Posts, caps and gate hardware done with the run</li></ul>
 <p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<p class="eyebrow">Neighborhoods</p>
+<h2>Where we work in West Haven.</h2>
+<p class="lead muted">Hover or tap a neighborhood to find it on the map. If yours is not listed we almost certainly still cover it, so ask.</p>
+<div class="hoodwrap">
+<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of West Haven, Connecticut, showing the neighbourhoods MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="tbase"><path class="tshape" d="M129.7,26.0 L145.7,76.3 L139.7,123.6 L135.9,136.2 L139.6,149.0 L136.0,165.6 L140.0,169.2 L148.7,166.1 L159.1,175.8 L139.6,201.4 L120.2,222.2 L119.2,293.8 L123.0,298.8 L119.7,307.5 L125.8,310.5 L124.3,322.0 L120.2,323.1 L115.9,326.2 L112.2,336.2 L116.8,339.7 L120.0,349.1 L115.9,361.9 L119.6,369.1 L137.8,363.5 L142.2,366.9 L157.8,367.1 L174.4,374.0 L184.9,361.1 L195.8,341.5 L203.2,324.5 L215.9,312.4 L220.2,305.0 L219.4,296.1 L224.9,290.3 L235.7,292.2 L245.9,280.5 L253.6,275.9 L269.4,272.2 L284.5,265.5 L313.2,258.3 L317.0,251.9 L329.0,240.8 L326.6,233.1 L333.9,224.8 L347.0,220.5 L347.8,215.1 L328.5,224.5 L323.9,217.7 L311.3,206.2 L304.5,180.1 L292.8,163.4 L287.6,144.8 L288.5,135.3 L281.3,131.9 L269.9,120.1 L258.6,116.3 L251.3,109.9 L254.7,103.0 L246.7,86.1 L237.8,79.5 L235.1,70.9 L237.4,60.3 L232.9,52.6 L236.5,39.6 L189.0,34.3 L129.7,26.0 Z"/></g><g class="hoods"><g class="hood" data-hood="allingtown"><circle class="halo" cx="224.2" cy="95.5" r="13"/><circle class="dot" cx="224.2" cy="95.5" r="4.5"/><text class="hlabel" x="224.2" y="84.5">Allingtown</text><circle class="hit" cx="224.2" cy="95.5" r="15"/></g><g class="hood" data-hood="savin-rock"><circle class="halo" cx="271.8" cy="259.4" r="13"/><circle class="dot" cx="271.8" cy="259.4" r="4.5"/><text class="hlabel" x="271.8" y="248.39999999999998">Savin Rock</text><circle class="hit" cx="271.8" cy="259.4" r="15"/></g><g class="hood" data-hood="west-shore"><circle class="halo" cx="189.9" cy="334.1" r="13"/><circle class="dot" cx="189.9" cy="334.1" r="4.5"/><text class="hlabel" x="189.9" y="323.1">West Shore</text><circle class="hit" cx="189.9" cy="334.1" r="15"/></g><g class="hood" data-hood="sea-bluff"><circle class="halo" cx="208.8" cy="283.8" r="13"/><circle class="dot" cx="208.8" cy="283.8" r="4.5"/><text class="hlabel" x="208.8" y="272.8">Sea Bluff</text><circle class="hit" cx="208.8" cy="283.8" r="15"/></g></g></svg>
+<div>
+<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="allingtown">Allingtown</button></li><li><button type="button" class="hoodchip" data-hood="savin-rock">Savin Rock</button></li><li><button type="button" class="hoodchip" data-hood="west-shore">West Shore</button></li><li><button type="button" class="hoodchip" data-hood="sea-bluff">Sea Bluff</button></li></ul>
+<p class="hoodnote">Town boundary from Connecticut open data. Neighborhood locations from OpenStreetMap contributors.</p>
+</div>
 </div>
 </div>
 </section>
@@ -889,6 +937,28 @@ li{margin:0 0 .4em}
       })
       .then(function(){ submit.disabled = false; });
   });
+})();
+</script>
+<script>
+(function(){
+  var hoods = document.querySelectorAll('.hoodmap .hood');
+  var chips = document.querySelectorAll('.hoodchip');
+  if(!hoods.length) return;
+  function set(id, on){
+    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
+    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
+  }
+  function wire(nodes){
+    nodes.forEach(function(n){
+      var id = n.dataset.hood;
+      n.addEventListener('mouseenter', function(){ set(id, true); });
+      n.addEventListener('mouseleave', function(){ set(id, false); });
+      n.addEventListener('focus', function(){ set(id, true); });
+      n.addEventListener('blur', function(){ set(id, false); });
+      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
+    });
+  }
+  wire(hoods); wire(chips);
 })();
 </script>
 </body>
