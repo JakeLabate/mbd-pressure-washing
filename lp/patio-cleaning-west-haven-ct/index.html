@@ -301,15 +301,9 @@ li{margin:0 0 .4em}
 /* Small screens: pitch, then the form, then the supporting detail. The form
    is the only thing on this page that earns money, so it goes above the
    bullets rather than below them. */
-.lp-hero .hero-copy{order:1}
-.lp-hero #quote{order:2}
-.lp-hero .hero-extra{order:3}
-.lp-hero .hero-extra .lp-points{margin-top:0}
 @media(min-width:940px){
   .lp-hero .hero-in{grid-template-columns:1.02fr .98fr;align-items:start}
-  .lp-hero .hero-copy{grid-column:1;grid-row:1;padding-top:8px}
-  .lp-hero .hero-extra{grid-column:1;grid-row:2}
-  .lp-hero #quote{grid-column:2;grid-row:1 / span 2}
+  .lp-hero .hero-copy{padding-top:8px}
 }
 /* the form sits on the hero panel, so it needs its own edge to read as a card */
 .lp-points{list-style:none;padding-left:0;display:grid;gap:10px;margin-top:20px}
@@ -555,6 +549,8 @@ li{margin:0 0 .4em}
   width:100%;
 }
 .field textarea{min-height:116px;resize:vertical}
+/* on landing pages the message box is a note, not an essay */
+.lp-hero .field textarea{min-height:64px}
 .field input:focus,.field select:focus,.field textarea:focus{
   border-color:var(--gold);outline:2px solid var(--gold-lite);outline-offset:1px;
 }
@@ -633,6 +629,9 @@ li{margin:0 0 .4em}
 <div class="btnrow anim-rise-3">
 <a class="btn" href="tel:4754506215">Call 475-450-6215</a>
 </div>
+<div class="lp-trust anim-rise-3">
+<span>Owner operated</span><span>Free estimates</span><span>Serving West Haven and nearby</span>
+</div>
 </div>
 <div id="quote"><div class="formwrap">
 <h3>Request a free estimate</h3>
@@ -663,13 +662,13 @@ li{margin:0 0 .4em}
 <div class="field wide" data-field>
 <label for="qf-address">Street address</label>
 <input id="qf-address" name="address" type="text" autocomplete="street-address" placeholder="So we can look at the property before quoting">
-<span class="hint">Optional, but it lets us size the job without a second call.</span>
+
 </div>
 <div class="field wide" data-field>
 <label for="qf-material">Surface type</label>
 <select id="qf-material" name="surface_type">
 <option value="">Select if you know</option><option value="Concrete pavers">Concrete pavers</option><option value="Poured concrete">Poured concrete</option><option value="Brick">Brick</option><option value="Flagstone or natural stone">Flagstone or natural stone</option><option value="Stamped concrete">Stamped concrete</option><option value="Asphalt driveway">Asphalt driveway</option><option value="Not sure">Not sure</option></select>
-<span class="hint">Optional. Hard surfaces vary more than people expect.</span>
+
 </div>
 <div class="field wide" data-field>
 <label for="qf-msg">Anything else we should know?</label>
@@ -690,12 +689,6 @@ li{margin:0 0 .4em}
 <div class="formstatus" id="qf-status" role="status" aria-live="polite"></div>
 </form>
 </div></div>
-<div class="hero-extra">
-<ul class="lp-points"><li>Pavers, flagstone, concrete and brick</li><li>Grime lifted out of the joints and edges, not just the open faces</li><li>Driveways and sidewalks on the same visit if you want them</li></ul>
-<div class="lp-trust">
-<span>Owner operated</span><span>Free estimates</span><span>Serving West Haven and nearby</span>
-</div>
-</div>
 </div>
 <svg class="washedge" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true" focusable="false">
 <path class="washedge-fill" d="M0,27 C 170,7 300,45 470,31 C 640,17 780,47 950,33 C 1120,19 1290,41 1440,23 L1440,48 L0,48 Z"/>
