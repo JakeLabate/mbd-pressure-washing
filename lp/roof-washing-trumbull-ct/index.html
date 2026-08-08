@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/roof-washing-trumbull-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/roof-washing-trumbull-ct/", "name": "Roof washing in Trumbull, CT | Free Estimate | MBD", "description": "Roof washing in Trumbull, Connecticut. Algae, moss and lichen removed without stripping the shingle. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/roof-washing-trumbull-ct/#service", "name": "Roof washing in Trumbull, CT", "serviceType": "Roof washing", "description": "Roof washing in Trumbull, Connecticut. Algae, moss and lichen removed without stripping the shingle. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Trumbull, CT"}}]}</script>
 </head>
@@ -706,16 +680,17 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec">
-<div class="wrap">
-<p class="eyebrow">Neighborhoods</p>
-<h2>Where we work in Trumbull.</h2>
-<p class="lead muted">Hover or tap an area to see which part of Trumbull it covers. If yours is not shown we almost certainly still work there, so ask.</p>
-<div class="hoodwrap">
-<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Trumbull, Connecticut, divided into the neighbourhood areas MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="hoods"><g class="hood" data-hood="long-hill" tabindex="0" role="button" aria-label="Long Hill"><path class="cell" d="M240.4,41.6 L155.87401849994208,49.498934515725935 L72.0218303026195,173.51492742144347 L103.6,222.5 L126.6880077539199,258.6233422752718 L241.77327248059584,246.0238873919775 L277.8270474849712,220.068061402865 L291.1758333559357,193.9472890504221 L314.9481862016133,141.3712567209561 L240.4,41.6 Z"/><circle class="dot" cx="179.9" cy="177.0" r="3"/><text class="hlabel" x="206.5" y="158.9">Long Hill</text></g><g class="hood" data-hood="nichols" tabindex="0" role="button" aria-label="Nichols"><path class="cell" d="M355.18116454053546,341.8565090571406 L383.0,325.8 L394.2,320.9 L406.0,308.5 L408.9059020839281,302.7358335712246 L291.17583335593577,193.94728905042194 L277.8270474849712,220.06806140286497 Z"/><circle class="dot" cx="370.1" cy="274.2" r="3"/><text class="hlabel" x="359.5" y="287.7">Nichols</text></g><g class="hood" data-hood="avalon-gates" tabindex="0" role="button" aria-label="Avalon Gates"><path class="cell" d="M241.94391085790886,323.9203066353887 L249.7,322.1 L250.8,327.0 L262.3,328.7 L273.1,333.9 L281.9,341.2 L283.2,347.9 L292.5,358.4 L305.0,357.8 L322.3,351.4 L338.3,351.6 L355.18116454053546,341.8565090571406 L277.8270474849712,220.06806140286497 L241.7732724805958,246.02388739197747 Z"/><circle class="dot" cx="287.6" cy="326.6" r="3"/><text class="hlabel" x="284.0" y="325.1">Avalon Gates</text></g><g class="hood" data-hood="nichols-farm-historic-district" tabindex="0" role="button" aria-label="Nichols Farm Historic District"><path class="cell" d="M408.9059020839281,302.7358335712246 L412.1,296.4 L424.4,290.3 L434.0,288.3 L425.8,275.4 L425.9,262.8 L421.9,250.3 L419.4,236.5 L414.0,216.1 L391.8,162.6 L333.5,166.2 L314.9481862016133,141.37125672095607 L291.17583335593577,193.94728905042194 Z"/><circle class="dot" cx="377.4" cy="266.3" r="3"/><text class="hlabel" x="393.7" y="237.2">Nichols Farm Historic District</text></g><g class="hood" data-hood="ox-hill" tabindex="0" role="button" aria-label="Ox Hill"><path class="cell" d="M126.6880077539199,258.6233422752718 L145.4,287.9 L107.7,314.0 L119.7,333.5 L155.9,331.1 L195.9,330.2 L216.6,326.7 L228.5,329.4 L236.6,328.4 L239.9,324.4 L241.94391085790886,323.9203066353887 L241.7732724805958,246.0238873919775 Z"/><circle class="dot" cx="196.3" cy="326.8" r="3"/><text class="hlabel" x="188.1" y="311.2">Ox Hill</text></g><g class="hood" data-hood="rock-raymond" tabindex="0" role="button" aria-label="Rock Raymond"><path class="cell" d="M155.87401849994208,49.498934515725935 L125.9,52.3 L103.6,54.0 L27.9,61.8 L26.0,70.4 L26.5,102.9 L72.0218303026195,173.51492742144347 Z"/><circle class="dot" cx="28.6" cy="74.7" r="3"/><text class="hlabel" x="76.8" y="80.6">Rock Raymond</text></g></g><g class="tbase"><path class="tshape" d="M240.4,41.6 L125.9,52.3 L103.6,54.0 L27.9,61.8 L26.0,70.4 L26.5,102.9 L103.6,222.5 L145.4,287.9 L107.7,314.0 L119.7,333.5 L155.9,331.1 L195.9,330.2 L216.6,326.7 L228.5,329.4 L236.6,328.4 L239.9,324.4 L249.7,322.1 L250.8,327.0 L262.3,328.7 L273.1,333.9 L281.9,341.2 L283.2,347.9 L292.5,358.4 L305.0,357.8 L322.3,351.4 L338.3,351.6 L383.0,325.8 L394.2,320.9 L406.0,308.5 L412.1,296.4 L424.4,290.3 L434.0,288.3 L425.8,275.4 L425.9,262.8 L421.9,250.3 L419.4,236.5 L414.0,216.1 L391.8,162.6 L333.5,166.2 L240.4,41.6 Z"/></g></svg>
-<div>
-<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="long-hill">Long Hill</button></li><li><button type="button" class="hoodchip" data-hood="nichols">Nichols</button></li><li><button type="button" class="hoodchip" data-hood="avalon-gates">Avalon Gates</button></li><li><button type="button" class="hoodchip" data-hood="nichols-farm-historic-district">Nichols Farm Historic District</button></li><li><button type="button" class="hoodchip" data-hood="ox-hill">Ox Hill</button></li><li><button type="button" class="hoodchip" data-hood="rock-raymond">Rock Raymond</button></li></ul>
-<p class="hoodnote">Town outline from Connecticut open data. Neighborhood centers from OpenStreetMap contributors. The shaded areas are approximate, showing the part of town nearest each neighborhood rather than official boundaries.</p>
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Trumbull, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M219.5,34.0 L114.1,43.9 L93.5,45.5 L23.8,52.6 L22.0,60.5 L22.5,90.5 L93.5,200.8 L132.1,261.0 L97.3,285.0 L108.4,303.1 L141.8,300.8 L178.6,300.0 L197.7,296.7 L208.6,299.2 L216.1,298.3 L219.1,294.7 L228.2,292.5 L229.1,297.0 L239.8,298.6 L249.7,303.4 L257.9,310.1 L259.0,316.3 L267.6,326.0 L279.1,325.4 L295.1,319.5 L309.8,319.7 L351.0,296.0 L361.3,291.4 L372.2,280.0 L377.8,268.8 L389.1,263.2 L398.0,261.4 L390.5,249.5 L390.6,237.8 L386.9,226.3 L384.6,213.6 L379.6,194.8 L359.1,145.5 L305.4,148.8 L219.5,34.0 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Trumbull, not just the easy parts.</h2>
+<p>Trumbull sits in Fairfield County, and we cover the whole of it. That includes Long Hill, Nichols, Tashua, Trumbull Center, the Pequonnock River Valley area, White Plains, Booth Hill and the neighborhoods off Main Street.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
 </div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
@@ -942,27 +917,6 @@ li{margin:0 0 .4em}
   });
 })();
 </script>
-<script>
-(function(){
-  var hoods = document.querySelectorAll('.hoodmap .hood');
-  var chips = document.querySelectorAll('.hoodchip');
-  if(!hoods.length) return;
-  function set(id, on){
-    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
-    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
-  }
-  function wire(nodes){
-    nodes.forEach(function(n){
-      var id = n.dataset.hood;
-      n.addEventListener('mouseenter', function(){ set(id, true); });
-      n.addEventListener('mouseleave', function(){ set(id, false); });
-      n.addEventListener('focus', function(){ set(id, true); });
-      n.addEventListener('blur', function(){ set(id, false); });
-      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
-    });
-  }
-  wire(hoods); wire(chips);
-})();
-</script>
+
 </body>
 </html>
