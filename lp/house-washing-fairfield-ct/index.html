@@ -563,6 +563,39 @@ li{margin:0 0 .4em}
   font-family:var(--body);font-size:.86rem;color:var(--bone);
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
+
+/* per-town neighbourhood map */
+.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
+.hoodmap{width:100%;height:auto;display:block;overflow:visible}
+.hoodmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.6;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+.hoodmap .hood{cursor:pointer}
+.hoodmap .halo{fill:var(--gold);opacity:0;transition:opacity .16s ease}
+.hoodmap .hit{fill:transparent}
+.hoodmap .dot{fill:var(--gold-lite);stroke:var(--void);stroke-width:1.2;transition:r .16s ease}
+.hoodmap .hlabel{
+  font-family:var(--body);font-size:11.5px;font-weight:600;
+  fill:var(--paper);text-anchor:middle;pointer-events:none;
+  opacity:0;transition:opacity .16s ease;
+  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
+}
+.hoodmap .hood.on .halo{opacity:.22}
+.hoodmap .hood.on .dot{r:6.5;fill:var(--paper)}
+.hoodmap .hood.on .hlabel{opacity:1}
+.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
+.hoodlist li{margin:0}
+.hoodchip{
+  font-family:var(--body);font-size:.83rem;font-weight:600;
+  color:var(--bone);background:transparent;
+  border:1px solid var(--gold-deep);border-radius:2px;
+  padding:8px 13px;cursor:pointer;
+  transition:border-color .16s ease,color .16s ease;
+}
+.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
+.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/house-washing-fairfield-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/house-washing-fairfield-ct/", "name": "House washing in Fairfield, CT | Free Estimate | MBD", "description": "House washing in Fairfield, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/house-washing-fairfield-ct/#service", "name": "House washing in Fairfield, CT", "serviceType": "House washing", "description": "House washing in Fairfield, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Fairfield, CT"}}]}</script>
 </head>
@@ -665,6 +698,21 @@ li{margin:0 0 .4em}
 <h3>What the job includes</h3>
 <ul class="checks"><li>Dirt, algae, mildew and weather buildup lifted off the siding</li><li>Low pressure throughout, so nothing is driven behind the panels</li><li>Vinyl, stucco, brick, Hardie board and painted clapboard</li><li>Trim, soffits and gutter exteriors done with the walls</li><li>Cleaning solution matched to the surface, not one mix for everything</li></ul>
 <p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<p class="eyebrow">Neighborhoods</p>
+<h2>Where we work in Fairfield.</h2>
+<p class="lead muted">Hover or tap a neighborhood to find it on the map. If yours is not listed we almost certainly still cover it, so ask.</p>
+<div class="hoodwrap">
+<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Fairfield, Connecticut, showing the neighbourhoods MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="tbase"><path class="tshape" d="M298.7,26.9 L295.3,26.0 L291.3,30.9 L289.3,40.9 L286.6,44.2 L281.7,55.1 L279.7,63.8 L271.8,72.5 L271.3,76.2 L264.3,85.4 L249.8,61.8 L230.5,31.9 L225.7,28.0 L220.5,34.4 L215.0,46.8 L206.8,50.9 L201.2,61.2 L193.2,67.0 L180.4,80.8 L175.6,84.2 L112.9,82.8 L110.9,90.8 L114.0,92.2 L108.7,98.9 L103.5,115.0 L103.2,126.6 L95.2,130.7 L91.7,139.5 L112.7,177.2 L161.8,266.2 L169.5,269.6 L168.5,275.0 L172.3,283.6 L172.7,288.3 L179.5,288.4 L182.8,291.2 L184.4,296.6 L182.2,303.7 L187.5,316.0 L188.7,324.6 L185.9,330.7 L187.6,337.3 L185.5,343.4 L186.4,348.2 L182.1,351.5 L187.6,356.9 L188.9,349.8 L193.9,346.4 L200.5,344.5 L205.5,345.8 L214.3,338.6 L219.1,327.8 L231.1,321.5 L239.1,310.8 L243.5,312.3 L237.7,324.6 L227.2,326.9 L223.2,330.1 L218.4,344.2 L229.5,346.6 L236.3,353.6 L240.4,363.1 L257.7,365.4 L260.2,369.4 L266.6,374.0 L280.4,363.0 L289.0,352.2 L300.2,345.7 L315.7,342.2 L320.2,326.2 L319.6,319.2 L322.8,311.1 L332.2,296.2 L328.3,288.6 L334.4,281.2 L332.8,270.0 L326.6,267.7 L323.3,262.1 L324.8,258.0 L343.0,240.5 L346.1,232.9 L352.9,226.8 L352.5,224.3 L357.9,217.9 L354.7,213.9 L346.0,217.6 L346.6,210.4 L354.2,202.0 L356.3,195.2 L364.8,187.1 L364.1,179.5 L368.3,175.5 L363.0,161.4 L365.1,130.6 L340.8,91.9 L307.7,41.7 L298.7,26.9 Z"/></g><g class="hoods"><g class="hood" data-hood="greenfield-hill"><circle class="halo" cx="198.8" cy="194.7" r="13"/><circle class="dot" cx="198.8" cy="194.7" r="4.5"/><text class="hlabel" x="198.8" y="183.7">Greenfield Hill</text><circle class="hit" cx="198.8" cy="194.7" r="15"/></g><g class="hood" data-hood="southport"><circle class="halo" cx="217.6" cy="315.8" r="13"/><circle class="dot" cx="217.6" cy="315.8" r="4.5"/><text class="hlabel" x="217.6" y="304.8">Southport</text><circle class="hit" cx="217.6" cy="315.8" r="15"/></g><g class="hood" data-hood="stratfield"><circle class="halo" cx="326.7" cy="102.5" r="13"/><circle class="dot" cx="326.7" cy="102.5" r="4.5"/><text class="hlabel" x="326.7" y="91.5">Stratfield</text><circle class="hit" cx="326.7" cy="102.5" r="15"/></g><g class="hood" data-hood="little-danbury"><circle class="halo" cx="309.5" cy="339.3" r="13"/><circle class="dot" cx="309.5" cy="339.3" r="4.5"/><text class="hlabel" x="309.5" y="328.3">Little Danbury</text><circle class="hit" cx="309.5" cy="339.3" r="15"/></g><g class="hood" data-hood="melville-village"><circle class="halo" cx="329.9" cy="149.7" r="13"/><circle class="dot" cx="329.9" cy="149.7" r="4.5"/><text class="hlabel" x="329.9" y="138.7">Melville Village</text><circle class="hit" cx="329.9" cy="149.7" r="15"/></g><g class="hood" data-hood="mill-plain"><circle class="halo" cx="247.8" cy="279.3" r="13"/><circle class="dot" cx="247.8" cy="279.3" r="4.5"/><text class="hlabel" x="247.8" y="268.3">Mill Plain</text><circle class="hit" cx="247.8" cy="279.3" r="15"/></g><g class="hood" data-hood="murray"><circle class="halo" cx="212.8" cy="139.8" r="13"/><circle class="dot" cx="212.8" cy="139.8" r="4.5"/><text class="hlabel" x="212.8" y="128.8">Murray</text><circle class="hit" cx="212.8" cy="139.8" r="15"/></g><g class="hood" data-hood="tunxis-hill"><circle class="halo" cx="315.9" cy="195.6" r="13"/><circle class="dot" cx="315.9" cy="195.6" r="4.5"/><text class="hlabel" x="315.9" y="184.6">Tunxis Hill</text><circle class="hit" cx="315.9" cy="195.6" r="15"/></g></g></svg>
+<div>
+<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="greenfield-hill">Greenfield Hill</button></li><li><button type="button" class="hoodchip" data-hood="southport">Southport</button></li><li><button type="button" class="hoodchip" data-hood="stratfield">Stratfield</button></li><li><button type="button" class="hoodchip" data-hood="little-danbury">Little Danbury</button></li><li><button type="button" class="hoodchip" data-hood="melville-village">Melville Village</button></li><li><button type="button" class="hoodchip" data-hood="mill-plain">Mill Plain</button></li><li><button type="button" class="hoodchip" data-hood="murray">Murray</button></li><li><button type="button" class="hoodchip" data-hood="tunxis-hill">Tunxis Hill</button></li></ul>
+<p class="hoodnote">Town boundary from Connecticut open data. Neighborhood locations from OpenStreetMap contributors.</p>
+</div>
 </div>
 </div>
 </section>
@@ -889,6 +937,28 @@ li{margin:0 0 .4em}
       })
       .then(function(){ submit.disabled = false; });
   });
+})();
+</script>
+<script>
+(function(){
+  var hoods = document.querySelectorAll('.hoodmap .hood');
+  var chips = document.querySelectorAll('.hoodchip');
+  if(!hoods.length) return;
+  function set(id, on){
+    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
+    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
+  }
+  function wire(nodes){
+    nodes.forEach(function(n){
+      var id = n.dataset.hood;
+      n.addEventListener('mouseenter', function(){ set(id, true); });
+      n.addEventListener('mouseleave', function(){ set(id, false); });
+      n.addEventListener('focus', function(){ set(id, true); });
+      n.addEventListener('blur', function(){ set(id, false); });
+      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
+    });
+  }
+  wire(hoods); wire(chips);
 })();
 </script>
 </body>
