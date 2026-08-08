@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/house-washing-orange-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/house-washing-orange-ct/", "name": "House washing in Orange, CT | Free Estimate | MBD", "description": "House washing in Orange, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/house-washing-orange-ct/#service", "name": "House washing in Orange, CT", "serviceType": "House washing", "description": "House washing in Orange, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Orange, CT"}}]}</script>
 </head>
@@ -701,6 +675,22 @@ li{margin:0 0 .4em}
 <h3>What the job includes</h3>
 <ul class="checks"><li>Dirt, algae, mildew and weather buildup lifted off the siding</li><li>Low pressure throughout, so nothing is driven behind the panels</li><li>Vinyl, stucco, brick, Hardie board and painted clapboard</li><li>Trim, soffits and gutter exteriors done with the walls</li><li>Cleaning solution matched to the surface, not one mix for everything</li></ul>
 <p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Orange, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M331.1,22.0 L327.4,28.8 L282.8,46.0 L253.2,39.9 L208.5,28.5 L183.7,26.0 L157.3,37.3 L140.5,37.0 L130.2,34.0 L114.5,42.3 L103.0,59.9 L97.1,77.3 L92.6,84.2 L102.1,99.2 L101.6,110.1 L98.0,121.1 L90.6,135.7 L77.3,148.0 L60.0,156.2 L45.2,165.8 L37.7,173.7 L29.1,190.7 L69.8,219.3 L146.9,274.0 L207.5,297.6 L350.2,338.0 L354.5,336.8 L356.0,324.8 L349.6,321.7 L353.1,312.6 L349.1,307.3 L350.1,232.2 L370.5,210.4 L390.9,183.6 L380.0,173.4 L370.9,176.6 L366.8,172.9 L370.5,155.5 L366.6,142.1 L370.6,128.9 L376.9,79.2 L360.1,26.5 L331.1,22.0 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Orange, not just the easy parts.</h2>
+<p>Orange sits in New Haven County, and we cover the whole of it. That includes The Orange Center Road and town green area, Derby Milford Road, Racebrook Road, Grassy Hill, Turkey Hill and the neighborhoods off the Boston Post Road.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
+</div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
