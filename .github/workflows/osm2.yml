@@ -1,0 +1,31 @@
+name: osm2
+on: workflow_dispatch
+jobs:
+  q:
+    runs-on: ubuntu-latest
+    permissions: {contents: write}
+    steps:
+      - uses: actions/checkout@v4
+      - name: query overpass
+        run: |
+          Q='[out:json][timeout:180];node["place"](41.00,-73.60,41.50,-72.55);out body;'
+          for host in overpass-api.de overpass.kumi.systems; do
+            echo "trying $host"
+            code=$(curl -sS -o raw.json -w '%{http_code}' --max-time 200 \
+              -A "MBD-site-build/1.0" --data-urlencode "data=$Q" "https://$host/api/interpreter" || echo FAIL)
+            echo "  http $code  bytes $(wc -c < raw.json)"
+            if [ "$code" = "200" ]; then break; fi
+          done
+          head -c 300 raw.json
+          python3 - <<'EOF'
+          import json
+          d=json.load(open('raw.json'))
+          els=[e for e in d.get('elements',[]) if e.get('tags',{}).get('name') and e.get('lat')]
+          out=[{'n':e['tags']['name'],'lat':round(e['lat'],5),'lon':round(e['lon'],5),
+                'p':e['tags'].get('place')} for e in els]
+          json.dump(out, open('osm-places.json','w'))
+          print('kept places:', len(out))
+          EOF
+      - run: |
+          git config user.name bot; git config user.email bot@users.noreply.github.com
+          git add osm-places.json && git commit -m "osm places" && git push
