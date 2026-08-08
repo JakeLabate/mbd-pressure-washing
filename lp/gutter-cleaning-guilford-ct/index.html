@@ -563,6 +563,39 @@ li{margin:0 0 .4em}
   font-family:var(--body);font-size:.86rem;color:var(--bone);
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
+
+/* per-town neighbourhood map */
+.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
+.hoodmap{width:100%;height:auto;display:block;overflow:visible}
+.hoodmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.6;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+.hoodmap .hood{cursor:pointer}
+.hoodmap .halo{fill:var(--gold);opacity:0;transition:opacity .16s ease}
+.hoodmap .hit{fill:transparent}
+.hoodmap .dot{fill:var(--gold-lite);stroke:var(--void);stroke-width:1.2;transition:r .16s ease}
+.hoodmap .hlabel{
+  font-family:var(--body);font-size:11.5px;font-weight:600;
+  fill:var(--paper);text-anchor:middle;pointer-events:none;
+  opacity:0;transition:opacity .16s ease;
+  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
+}
+.hoodmap .hood.on .halo{opacity:.22}
+.hoodmap .hood.on .dot{r:6.5;fill:var(--paper)}
+.hoodmap .hood.on .hlabel{opacity:1}
+.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
+.hoodlist li{margin:0}
+.hoodchip{
+  font-family:var(--body);font-size:.83rem;font-weight:600;
+  color:var(--bone);background:transparent;
+  border:1px solid var(--gold-deep);border-radius:2px;
+  padding:8px 13px;cursor:pointer;
+  transition:border-color .16s ease,color .16s ease;
+}
+.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
+.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/gutter-cleaning-guilford-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/gutter-cleaning-guilford-ct/", "name": "Gutter cleaning in Guilford, CT | Free Estimate | MBD", "description": "Gutter cleaning in Guilford, Connecticut. Cleared by hand, downspouts flushed, debris taken away. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/gutter-cleaning-guilford-ct/#service", "name": "Gutter cleaning in Guilford, CT", "serviceType": "Gutter cleaning", "description": "Gutter cleaning in Guilford, Connecticut. Cleared by hand, downspouts flushed, debris taken away. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Guilford, CT"}}]}</script>
 </head>
@@ -665,6 +698,21 @@ li{margin:0 0 .4em}
 <h3>What the job includes</h3>
 <ul class="checks"><li>Leaves, sticks and debris cleared out of the full run</li><li>Downspouts flushed so you can see the water actually drain</li><li>A look over the system for visible damage or loose sections</li><li>The debris leaves with us rather than sitting on your lawn</li><li>Gutter exteriors can be washed at the same visit</li></ul>
 <p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<p class="eyebrow">Neighborhoods</p>
+<h2>Where we work in Guilford.</h2>
+<p class="lead muted">Hover or tap a neighborhood to find it on the map. If yours is not listed we almost certainly still cover it, so ask.</p>
+<div class="hoodwrap">
+<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Guilford, Connecticut, showing the neighbourhoods MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="tbase"><path class="tshape" d="M187.1,37.7 L185.6,44.9 L183.2,53.3 L178.4,54.7 L173.0,61.1 L169.5,67.1 L162.2,76.5 L156.4,83.4 L153.5,90.7 L150.1,89.4 L150.3,104.5 L150.9,116.7 L152.4,131.4 L153.8,171.3 L156.1,200.5 L158.0,222.3 L158.2,228.1 L156.8,235.7 L151.8,253.7 L152.5,260.7 L162.2,297.3 L171.9,320.5 L178.0,333.6 L172.3,336.0 L171.4,341.5 L166.6,342.7 L166.7,349.8 L173.0,351.9 L176.9,346.9 L179.5,349.2 L180.6,343.6 L184.8,346.1 L187.4,343.8 L193.8,341.0 L194.9,342.1 L195.3,347.2 L205.2,360.7 L199.3,364.1 L199.1,366.9 L201.3,368.3 L206.9,367.1 L206.6,369.7 L203.4,372.3 L205.7,374.0 L212.3,373.4 L213.9,370.6 L220.7,368.4 L221.7,370.8 L224.6,372.5 L225.9,369.5 L229.1,369.4 L235.1,363.1 L238.9,354.8 L238.6,350.3 L241.1,350.0 L245.3,352.3 L248.3,355.7 L248.7,349.0 L245.9,345.1 L248.8,338.6 L251.6,337.0 L254.8,333.4 L258.9,335.6 L261.2,334.1 L260.5,331.3 L264.3,325.9 L270.5,330.7 L272.4,335.1 L278.5,335.2 L276.0,328.4 L278.1,327.2 L278.8,320.6 L281.6,319.1 L285.1,319.8 L287.6,316.7 L285.8,310.2 L288.3,307.8 L292.5,307.0 L289.3,302.1 L288.3,298.2 L290.1,295.8 L286.8,293.0 L288.6,291.3 L291.1,292.6 L292.8,288.8 L307.9,274.1 L307.3,264.6 L307.8,260.8 L309.9,255.5 L306.2,249.1 L304.2,248.9 L304.0,244.1 L300.8,239.5 L299.0,239.2 L295.5,235.1 L294.6,230.8 L284.2,223.8 L283.8,220.4 L277.0,215.5 L273.9,218.0 L265.2,209.4 L262.4,204.8 L251.1,184.6 L247.4,170.2 L245.3,165.1 L241.5,150.5 L243.5,136.9 L242.9,131.1 L243.4,116.3 L243.2,101.3 L243.4,86.9 L243.0,80.4 L243.4,60.4 L244.6,41.9 L244.9,26.0 L239.3,26.1 L227.3,28.6 L214.5,30.9 L200.4,34.9 L187.1,37.7 Z"/></g><g class="hoods"><g class="hood" data-hood="leetes-island"><circle class="halo" cx="195.7" cy="336.6" r="13"/><circle class="dot" cx="195.7" cy="336.6" r="4.5"/><text class="hlabel" x="195.7" y="325.6">Leetes Island</text><circle class="hit" cx="195.7" cy="336.6" r="15"/></g><g class="hood" data-hood="beaver-head-corner"><circle class="halo" cx="168.0" cy="107.6" r="13"/><circle class="dot" cx="168.0" cy="107.6" r="4.5"/><text class="hlabel" x="168.0" y="96.6">Beaver Head Corner</text><circle class="hit" cx="168.0" cy="107.6" r="15"/></g><g class="hood" data-hood="guilford-historic-town-center"><circle class="halo" cx="239.5" cy="301.7" r="13"/><circle class="dot" cx="239.5" cy="301.7" r="4.5"/><text class="hlabel" x="239.5" y="290.7">Guilford Historic Town Center</text><circle class="hit" cx="239.5" cy="301.7" r="15"/></g><g class="hood" data-hood="meeting-house-hill-historic-district"><circle class="halo" cx="177.2" cy="147.1" r="13"/><circle class="dot" cx="177.2" cy="147.1" r="4.5"/><text class="hlabel" x="177.2" y="136.1">Meeting House Hill Historic District</text><circle class="hit" cx="177.2" cy="147.1" r="15"/></g><g class="hood" data-hood="north-guilford"><circle class="halo" cx="191.8" cy="149.1" r="13"/><circle class="dot" cx="191.8" cy="149.1" r="4.5"/><text class="hlabel" x="191.8" y="138.1">North Guilford</text><circle class="hit" cx="191.8" cy="149.1" r="15"/></g><g class="hood" data-hood="nut-plains"><circle class="halo" cx="237.2" cy="227.5" r="13"/><circle class="dot" cx="237.2" cy="227.5" r="4.5"/><text class="hlabel" x="237.2" y="216.5">Nut Plains</text><circle class="hit" cx="237.2" cy="227.5" r="15"/></g><g class="hood" data-hood="podunk"><circle class="halo" cx="282.5" cy="232.1" r="13"/><circle class="dot" cx="282.5" cy="232.1" r="4.5"/><text class="hlabel" x="282.5" y="221.1">Podunk</text><circle class="hit" cx="282.5" cy="232.1" r="15"/></g><g class="hood" data-hood="sachem-head"><circle class="halo" cx="210.3" cy="372.4" r="13"/><circle class="dot" cx="210.3" cy="372.4" r="4.5"/><text class="hlabel" x="210.3" y="361.4">Sachem Head</text><circle class="hit" cx="210.3" cy="372.4" r="15"/></g></g></svg>
+<div>
+<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="leetes-island">Leetes Island</button></li><li><button type="button" class="hoodchip" data-hood="beaver-head-corner">Beaver Head Corner</button></li><li><button type="button" class="hoodchip" data-hood="guilford-historic-town-center">Guilford Historic Town Center</button></li><li><button type="button" class="hoodchip" data-hood="meeting-house-hill-historic-district">Meeting House Hill Historic District</button></li><li><button type="button" class="hoodchip" data-hood="north-guilford">North Guilford</button></li><li><button type="button" class="hoodchip" data-hood="nut-plains">Nut Plains</button></li><li><button type="button" class="hoodchip" data-hood="podunk">Podunk</button></li><li><button type="button" class="hoodchip" data-hood="sachem-head">Sachem Head</button></li></ul>
+<p class="hoodnote">Town boundary from Connecticut open data. Neighborhood locations from OpenStreetMap contributors.</p>
+</div>
 </div>
 </div>
 </section>
@@ -889,6 +937,28 @@ li{margin:0 0 .4em}
       })
       .then(function(){ submit.disabled = false; });
   });
+})();
+</script>
+<script>
+(function(){
+  var hoods = document.querySelectorAll('.hoodmap .hood');
+  var chips = document.querySelectorAll('.hoodchip');
+  if(!hoods.length) return;
+  function set(id, on){
+    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
+    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
+  }
+  function wire(nodes){
+    nodes.forEach(function(n){
+      var id = n.dataset.hood;
+      n.addEventListener('mouseenter', function(){ set(id, true); });
+      n.addEventListener('mouseleave', function(){ set(id, false); });
+      n.addEventListener('focus', function(){ set(id, true); });
+      n.addEventListener('blur', function(){ set(id, false); });
+      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
+    });
+  }
+  wire(hoods); wire(chips);
 })();
 </script>
 </body>
