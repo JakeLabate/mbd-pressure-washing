@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/fence-cleaning-seymour-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/fence-cleaning-seymour-ct/", "name": "Fence cleaning in Seymour, CT | Free Estimate | MBD", "description": "Fence cleaning in Seymour, Connecticut. Vinyl and wood fencing brought back from grey. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/fence-cleaning-seymour-ct/#service", "name": "Fence cleaning in Seymour, CT", "serviceType": "Fence cleaning", "description": "Fence cleaning in Seymour, Connecticut. Vinyl and wood fencing brought back from grey. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Seymour, CT"}}]}</script>
 </head>
@@ -701,6 +675,22 @@ li{margin:0 0 .4em}
 <h3>What the job includes</h3>
 <ul class="checks"><li>Algae, mildew and weather staining removed panel by panel</li><li>Vinyl, wood and composite fencing</li><li>Both sides where access allows</li><li>Low pressure on vinyl, so the panels are not furred or forced apart</li><li>Posts, caps and gate hardware done with the run</li></ul>
 <p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Seymour, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M243.9,102.4 L227.9,120.3 L161.4,125.4 L149.7,166.0 L145.3,172.9 L131.8,182.3 L125.5,188.4 L49.2,247.1 L72.9,270.8 L74.5,275.9 L78.6,305.2 L84.0,313.6 L99.7,322.4 L115.1,332.9 L118.9,338.0 L131.9,330.7 L185.7,306.8 L191.7,301.2 L203.4,282.5 L207.6,278.5 L216.6,278.8 L239.2,265.2 L249.2,265.4 L277.9,277.7 L352.9,276.4 L348.8,218.0 L347.8,194.5 L351.4,134.5 L370.8,33.1 L304.8,22.0 L302.0,33.1 L296.6,46.1 L290.8,55.6 L283.4,72.2 L268.0,76.5 L243.9,102.4 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Seymour, not just the easy parts.</h2>
+<p>Seymour sits in New Haven County, and we cover the whole of it. That includes Great Hill, Skokorat, Bungay, downtown Seymour and the Naugatuck River corridor, plus the hillside neighborhoods above the valley floor.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
+</div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
