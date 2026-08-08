@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/house-washing-bridgeport-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/house-washing-bridgeport-ct/", "name": "House washing in Bridgeport, CT | Free Estimate | MBD", "description": "House washing in Bridgeport, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/house-washing-bridgeport-ct/#service", "name": "House washing in Bridgeport, CT", "serviceType": "House washing", "description": "House washing in Bridgeport, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Bridgeport, CT"}}]}</script>
 </head>
@@ -706,16 +680,17 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec">
-<div class="wrap">
-<p class="eyebrow">Neighborhoods</p>
-<h2>Where we work in Bridgeport.</h2>
-<p class="lead muted">Hover or tap an area to see which part of Bridgeport it covers. If yours is not shown we almost certainly still work there, so ask.</p>
-<div class="hoodwrap">
-<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Bridgeport, Connecticut, divided into the neighbourhood areas MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="hoods"><g class="hood" data-hood="black-rock" tabindex="0" role="button" aria-label="Black Rock"><path class="cell" d="M153.0730210016155,248.24513731825527 L145.8,256.1 L145.1,265.5 L156.4,260.7 L160.5,265.9 L153.6,274.1 L154.1,277.4 L145.2,285.3 L141.1,295.2 L124.60094876660325,311.1373814041747 L163.89375000000004,306.22578125 L189.59886877828058,284.16222096530925 Z"/><circle class="dot" cx="151.9" cy="306.1" r="3"/><text class="hlabel" x="152.7" y="277.5">Black Rock</text></g><g class="hood" data-hood="barnum-palliser-historic-district" tabindex="0" role="button" aria-label="Barnum–Palliser Historic District"><path class="cell" d="M219.35449900213334,282.1254215126282 L219.6,282.3 L216.0758508914098,287.32925445705064 L209.56328261643304,297.6659286586151 L215.42379403128612,310.12118412571743 L235.3,300.3 L254.7,297.2 L262.4,300.0 L269.9,306.2 L274.5,297.4 L279.2,282.1 L283.1,276.3 L290.6,273.9 L290.72114318401833,273.38354747865884 L320.5322771898508,297.3840367206426 L318.3,307.0 L332.47631578947363,307.0 L267.6150318400179,254.7811697017093 L237.39584633952325,253.4904004717887 Z"/><circle class="dot" cx="255.5" cy="274.2" r="3"/><text class="hlabel" x="263.0" y="288.7">Barnum–Palliser Historic District</text></g><g class="hood" data-hood="bassickville-historic-district" tabindex="0" role="button" aria-label="Bassickville Historic District"><path class="cell" d="M168.53139713663865,172.1025908028993 L167.1,192.5 L174.1,210.8 L168.6,216.0 L169.5,225.8 L158.4,236.4 L155.8,245.3 L153.0730210016155,248.24513731825527 L189.59886877828055,284.16222096530925 L203.2752160033311,293.4127502689198 L207.5,291.7 L215.1,279.1 L219.35449900213334,282.1254215126282 L216.0758508914098,287.32925445705064 L210.0,296.0 L208.84245221821868,297.1783669864896 L209.56328261643304,297.66592865861514 L237.39584633952327,253.4904004717887 L223.7670863482033,199.55778614716345 Z"/><circle class="dot" cx="210.9" cy="246.1" r="3"/><text class="hlabel" x="192.4" y="253.1">Bassickville Historic District</text></g><g class="hood" data-hood="black-rock-gardens-historic-district" tabindex="0" role="button" aria-label="Black Rock Gardens Historic District"><path class="cell" d="M124.60094876660325,311.1373814041747 L117.6,317.9 L115.7,323.2 L119.9,330.5 L128.0,333.4 L129.5675074183976,344.8428041543026 L163.89375000000007,306.22578125 Z"/><circle class="dot" cx="152.3" cy="309.3" r="3"/><text class="hlabel" x="128.5" y="323.9">Black Rock Gardens Historic District</text></g><g class="hood" data-hood="black-rock-historic-district" tabindex="0" role="button" aria-label="Black Rock Historic District"><path class="cell" d="M129.5675074183976,344.8428041543026 L130.0,348.0 L122.2,357.6 L127.2,367.5 L145.9,367.3 L151.7,363.7 L161.4,351.2 L160.6,341.2 L168.8,327.5 L176.1,326.3 L172.1,319.9 L179.5,305.3 L186.4,308.3 L194.1,307.3 L200.2,300.6 L200.1,294.7 L203.2752160033311,293.4127502689198 L208.8424522182187,297.1783669864896 L182.2,324.3 L179.8,332.0 L180.7,350.5 L178.6,374.0 L188.4,364.4 L184.5,350.6 L186.9,338.8 L194.5,327.2 L209.8,312.9 L215.42379403128612,310.12118412571743 L209.56328261643307,297.66592865861514 L189.5988687782806,284.16222096530925 L163.89375000000007,306.22578125 Z"/><circle class="dot" cx="162.2" cy="318.1" r="3"/><text class="hlabel" x="176.8" y="328.9">Black Rock Historic District</text></g><g class="hood" data-hood="bridgeport-downtown-north-historic-district" tabindex="0" role="button" aria-label="Bridgeport Downtown North Historic District"><path class="cell" d="M95.5,37.2 L138.3,102.3 L169.9,152.6 L168.53139713663865,172.1025908028993 L223.76708634820335,199.55778614716348 L226.42352205192358,199.40899671567095 L356.07095449663314,137.7018053116987 L337.6,63.2 L341.8,48.3 L348.9,40.3 L353.5,29.6 L309.7,54.9 L294.1,54.7 L277.1,60.9 L264.8,61.6 L255.7,51.3 L254.5,44.7 L245.8,37.5 L235.3,32.5 L223.9,30.7 L222.9,26.0 L213.3,28.3 L210.0,32.2 L202.1,33.1 L190.5,30.5 L170.1,33.9 L131.0,34.8 L95.5,37.2 Z"/><circle class="dot" cx="253.1" cy="161.2" r="3"/><text class="hlabel" x="234.2" y="66.7">Bridgeport Downtown North Historic District</text></g><g class="hood" data-hood="bridgeport-downtown-south-historic-district" tabindex="0" role="button" aria-label="Bridgeport Downtown South Historic District"><path class="cell" d="M237.3958463395233,253.49040047178872 L267.6150318400179,254.78116970170933 L272.91377571072974,222.5070024891917 L226.42352205192358,199.40899671567095 L223.76708634820332,199.55778614716348 Z"/><circle class="dot" cx="257.2" cy="234.4" r="3"/><text class="hlabel" x="245.6" y="225.9">Bridgeport Downtown South Historic District</text></g><g class="hood" data-hood="east-bridgeport" tabindex="0" role="button" aria-label="East Bridgeport"><path class="cell" d="M267.6150318400179,254.78116970170933 L290.72114318401833,273.38354747865884 L292.5,265.8 L282.3,256.4 L275.6,247.1 L276.7,236.7 L288.1,240.4 L294.0,235.3 L299.6,238.3 L295.0,244.6 L294.0,250.9 L300.5,255.7 L308.8,254.7 L306.3,262.6 L312.1,265.6 L316.0,260.9 L321.2,272.7 L330.4,275.5 L334.3,270.9 L332.8,262.7 L336.1,256.0 L346.1,252.7 L339.0,269.1 L341.2,272.4 L337.5,286.7 L331.2,282.8 L325.3,287.5 L320.9,295.8 L320.5322771898508,297.3840367206426 L332.47631578947363,307.0 L334.0,307.0 L348.7,249.5 L348.3,246.5 L358.3,233.2 L363.6,209.8 L360.16986258588383,195.60304236935244 L272.91377571072974,222.50700248919168 Z"/><circle class="dot" cx="284.0" cy="238.8" r="3"/><text class="hlabel" x="317.2" y="259.4">East Bridgeport</text></g><g class="hood" data-hood="east-bridgeport-historic-district" tabindex="0" role="button" aria-label="East Bridgeport Historic District"><path class="cell" d="M360.16986258588383,195.60304236935244 L360.0,194.9 L361.6,185.9 L359.1,182.3 L364.5,171.7 L356.07095449663314,137.7018053116987 L226.4235220519236,199.40899671567095 L272.9137757107297,222.50700248919168 Z"/><circle class="dot" cx="272.9" cy="202.8" r="3"/><text class="hlabel" x="332.6" y="186.3">East Bridgeport Historic District</text></g></g><g class="tbase"><path class="tshape" d="M95.5,37.2 L138.3,102.3 L169.9,152.6 L167.1,192.5 L174.1,210.8 L168.6,216.0 L169.5,225.8 L158.4,236.4 L155.8,245.3 L145.8,256.1 L145.1,265.5 L156.4,260.7 L160.5,265.9 L153.6,274.1 L154.1,277.4 L145.2,285.3 L141.1,295.2 L117.6,317.9 L115.7,323.2 L119.9,330.5 L128.0,333.4 L130.0,348.0 L122.2,357.6 L127.2,367.5 L145.9,367.3 L151.7,363.7 L161.4,351.2 L160.6,341.2 L168.8,327.5 L176.1,326.3 L172.1,319.9 L179.5,305.3 L186.4,308.3 L194.1,307.3 L200.2,300.6 L200.1,294.7 L207.5,291.7 L215.1,279.1 L219.6,282.3 L210.0,296.0 L182.2,324.3 L179.8,332.0 L180.7,350.5 L178.6,374.0 L188.4,364.4 L184.5,350.6 L186.9,338.8 L194.5,327.2 L209.8,312.9 L235.3,300.3 L254.7,297.2 L262.4,300.0 L269.9,306.2 L274.5,297.4 L279.2,282.1 L283.1,276.3 L290.6,273.9 L292.5,265.8 L282.3,256.4 L275.6,247.1 L276.7,236.7 L288.1,240.4 L294.0,235.3 L299.6,238.3 L295.0,244.6 L294.0,250.9 L300.5,255.7 L308.8,254.7 L306.3,262.6 L312.1,265.6 L316.0,260.9 L321.2,272.7 L330.4,275.5 L334.3,270.9 L332.8,262.7 L336.1,256.0 L346.1,252.7 L339.0,269.1 L341.2,272.4 L337.5,286.7 L331.2,282.8 L325.3,287.5 L320.9,295.8 L318.3,307.0 L334.0,307.0 L348.7,249.5 L348.3,246.5 L358.3,233.2 L363.6,209.8 L360.0,194.9 L361.6,185.9 L359.1,182.3 L364.5,171.7 L337.6,63.2 L341.8,48.3 L348.9,40.3 L353.5,29.6 L309.7,54.9 L294.1,54.7 L277.1,60.9 L264.8,61.6 L255.7,51.3 L254.5,44.7 L245.8,37.5 L235.3,32.5 L223.9,30.7 L222.9,26.0 L213.3,28.3 L210.0,32.2 L202.1,33.1 L190.5,30.5 L170.1,33.9 L131.0,34.8 L95.5,37.2 Z"/></g></svg>
-<div>
-<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="black-rock">Black Rock</button></li><li><button type="button" class="hoodchip" data-hood="barnum-palliser-historic-district">Barnum–Palliser Historic District</button></li><li><button type="button" class="hoodchip" data-hood="bassickville-historic-district">Bassickville Historic District</button></li><li><button type="button" class="hoodchip" data-hood="black-rock-gardens-historic-district">Black Rock Gardens Historic District</button></li><li><button type="button" class="hoodchip" data-hood="black-rock-historic-district">Black Rock Historic District</button></li><li><button type="button" class="hoodchip" data-hood="bridgeport-downtown-north-historic-district">Bridgeport Downtown North Historic District</button></li><li><button type="button" class="hoodchip" data-hood="bridgeport-downtown-south-historic-district">Bridgeport Downtown South Historic District</button></li><li><button type="button" class="hoodchip" data-hood="east-bridgeport">East Bridgeport</button></li><li><button type="button" class="hoodchip" data-hood="east-bridgeport-historic-district">East Bridgeport Historic District</button></li></ul>
-<p class="hoodnote">Town outline from Connecticut open data. Neighborhood centers from OpenStreetMap contributors. The shaded areas are approximate, showing the part of town nearest each neighborhood rather than official boundaries.</p>
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Bridgeport, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M87.8,32.2 L126.8,91.3 L155.5,136.9 L152.9,173.2 L159.2,189.8 L154.2,194.5 L155.1,203.5 L145.0,213.0 L142.6,221.1 L133.6,231.0 L132.9,239.5 L143.2,235.1 L146.9,239.8 L140.6,247.3 L141.0,250.3 L133.0,257.5 L129.3,266.5 L108.0,287.1 L106.2,291.9 L110.0,298.5 L117.4,301.2 L119.2,314.4 L112.1,323.1 L116.7,332.1 L133.6,331.9 L138.9,328.7 L147.7,317.3 L147.0,308.3 L154.5,295.8 L161.0,294.7 L157.4,288.9 L164.1,275.6 L170.4,278.4 L177.4,277.4 L183.0,271.3 L182.8,266.0 L189.6,263.2 L196.5,251.8 L200.5,254.7 L191.8,267.1 L166.6,292.9 L164.4,299.8 L165.2,316.7 L163.4,338.0 L172.2,329.3 L168.7,316.7 L170.9,306.1 L177.8,295.5 L191.6,282.5 L214.9,271.1 L232.5,268.3 L239.4,270.8 L246.3,276.4 L250.4,268.5 L254.7,254.6 L258.2,249.3 L265.0,247.1 L266.7,239.8 L257.5,231.2 L251.4,222.7 L252.4,213.3 L262.7,216.7 L268.1,212.1 L273.2,214.8 L269.0,220.5 L268.1,226.2 L274.0,230.6 L281.6,229.7 L279.3,236.8 L284.5,239.6 L288.1,235.3 L292.8,246.0 L301.2,248.6 L304.7,244.3 L303.4,236.9 L306.3,230.8 L315.4,227.9 L309.0,242.8 L311.0,245.7 L307.6,258.8 L301.9,255.2 L296.5,259.4 L292.6,267.0 L290.2,277.2 L304.4,277.2 L317.8,225.0 L317.4,222.2 L326.5,210.1 L331.4,188.9 L328.1,175.4 L329.5,167.2 L327.2,163.9 L332.2,154.3 L307.7,55.8 L311.5,42.3 L318.0,35.0 L322.2,25.3 L282.4,48.2 L268.2,48.1 L252.7,53.7 L241.6,54.3 L233.4,44.9 L232.2,39.0 L224.3,32.5 L214.8,27.9 L204.5,26.3 L203.5,22.0 L194.8,24.0 L191.9,27.6 L184.6,28.5 L174.1,26.1 L155.6,29.2 L120.1,30.0 L87.8,32.2 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Bridgeport, not just the easy parts.</h2>
+<p>Bridgeport sits in Fairfield County, and we cover the whole of it. That includes Black Rock, the South End and Seaside, Brooklawn and St. Vincent, the North End, the West End and West Side, the East Side and the Hollow.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
 </div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
@@ -942,27 +917,6 @@ li{margin:0 0 .4em}
   });
 })();
 </script>
-<script>
-(function(){
-  var hoods = document.querySelectorAll('.hoodmap .hood');
-  var chips = document.querySelectorAll('.hoodchip');
-  if(!hoods.length) return;
-  function set(id, on){
-    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
-    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
-  }
-  function wire(nodes){
-    nodes.forEach(function(n){
-      var id = n.dataset.hood;
-      n.addEventListener('mouseenter', function(){ set(id, true); });
-      n.addEventListener('mouseleave', function(){ set(id, false); });
-      n.addEventListener('focus', function(){ set(id, true); });
-      n.addEventListener('blur', function(){ set(id, false); });
-      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
-    });
-  }
-  wire(hoods); wire(chips);
-})();
-</script>
+
 </body>
 </html>
