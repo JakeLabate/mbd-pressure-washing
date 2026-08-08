@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/deck-cleaning-norwalk-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/deck-cleaning-norwalk-ct/", "name": "Deck cleaning in Norwalk, CT | Free Estimate | MBD", "description": "Deck cleaning in Norwalk, Connecticut. Wood and composite decking cleaned at the right pressure. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/deck-cleaning-norwalk-ct/#service", "name": "Deck cleaning in Norwalk, CT", "serviceType": "Deck cleaning", "description": "Deck cleaning in Norwalk, Connecticut. Wood and composite decking cleaned at the right pressure. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Norwalk, CT"}}]}</script>
 </head>
@@ -706,16 +680,17 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec">
-<div class="wrap">
-<p class="eyebrow">Neighborhoods</p>
-<h2>Where we work in Norwalk.</h2>
-<p class="lead muted">Hover or tap an area to see which part of Norwalk it covers. If yours is not shown we almost certainly still work there, so ask.</p>
-<div class="hoodwrap">
-<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Norwalk, Connecticut, divided into the neighbourhood areas MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="hoods"><g class="hood" data-hood="east-norwalk" tabindex="0" role="button" aria-label="East Norwalk"><path class="cell" d="M272.54696317551407,252.6897656623625 L277.2,253.3 L277.9,246.5 L285.4,255.1 L287.3451469772601,262.8805879090405 L328.78737695425593,221.66795477402255 L328.4,220.2 L337.1,172.5 L337.0937385191147,172.4464017236215 L275.64741759614043,162.8031959381358 L238.72254851682064,174.24591039007336 Z"/><circle class="dot" cx="282.8" cy="231.5" r="3"/><text class="hlabel" x="295.1" y="217.7">East Norwalk</text></g><g class="hood" data-hood="harborview" tabindex="0" role="button" aria-label="Harborview"><path class="cell" d="M239.72739913097453,332.5052886405959 L239.8,325.1 L243.7,322.5 L245.3,316.6 L243.8,312.3 L244.5,301.4 L249.9,312.7 L258.2,308.6 L265.1,326.0 L270.4,329.2 L274.4,324.2 L277.9,313.2 L275.7,301.5 L277.0,291.7 L270.2,282.8 L270.1,271.2 L272.02016574585633,266.62817679558015 L277.52304294257294,264.23003576043516 L284.8323719925972,265.37944170265274 L290.5169974115617,274.3124245038826 L290.2,276.2 L291.7,282.5 L294.3431323803605,280.324922311995 L298.7395648670427,287.23360193392426 L297.8,288.9 L298.8,294.0 L303.5,295.4 L303.8828220858896,295.31586327782645 L284.8323719925972,265.3794417026527 L277.523042942573,264.23003576043516 L215.6128203732927,291.2103662186429 Z"/><circle class="dot" cx="272.5" cy="297.0" r="3"/><text class="hlabel" x="271.9" y="295.6">Harborview</text></g><g class="hood" data-hood="rowayton" tabindex="0" role="button" aria-label="Rowayton"><path class="cell" d="M176.40142777674762,278.75585017615424 L177.1,278.9 L177.9,283.4 L182.6,285.0 L185.6,296.2 L185.9,314.6 L183.7,325.6 L184.7,329.3 L189.4,331.9 L191.2,338.2 L187.1,349.7 L186.2,367.2 L190.1,366.0 L198.8,369.8 L200.3,374.0 L209.3,371.3 L219.6,373.8 L217.9,359.5 L209.4,361.6 L207.7,356.4 L217.3,352.9 L217.5,348.2 L222.6,332.5 L225.9,347.8 L235.3,344.9 L239.7,335.3 L239.72739913097453,332.5052886405959 L215.61282037329272,291.2103662186429 L187.8133294071456,274.9278072241853 Z"/><circle class="dot" cx="192.7" cy="343.6" r="3"/><text class="hlabel" x="202.2" y="333.5">Rowayton</text></g><g class="hood" data-hood="silvermine" tabindex="0" role="button" aria-label="Silvermine"><path class="cell" d="M181.5,80.8 L179.4,91.4 L158.2,138.4 L151.89267732298032,148.67859991810613 L198.9861564505663,161.64583715058495 L220.40884922036423,68.26906179520623 L181.5,80.8 Z"/><circle class="dot" cx="185.6" cy="89.0" r="3"/><text class="hlabel" x="181.7" y="110.0">Silvermine</text></g><g class="hood" data-hood="south-norwalk" tabindex="0" role="button" aria-label="South Norwalk"><path class="cell" d="M187.81332940714563,274.92780722418536 L215.6128203732927,291.2103662186429 L272.02016574585633,266.62817679558015 L272.2,266.2 L267.4,262.5 L267.1,257.7 L263.1,249.0 L271.1,252.5 L272.54696317551407,252.6897656623625 L238.7225485168206,174.24591039007336 L216.13279338168283,175.41081762352297 Z"/><circle class="dot" cx="250.1" cy="245.6" r="3"/><text class="hlabel" x="249.4" y="247.5">South Norwalk</text></g><g class="hood" data-hood="west-norwalk" tabindex="0" role="button" aria-label="West Norwalk"><path class="cell" d="M151.89267732298032,148.67859991810613 L142.0,164.8 L122.9,198.9 L135.5,216.0 L165.1,261.2 L170.2,269.7 L170.8,277.6 L176.40142777674762,278.75585017615424 L187.81332940714563,274.9278072241853 L216.13279338168283,175.41081762352295 L198.98615645056634,161.64583715058495 Z"/><circle class="dot" cx="150.3" cy="217.2" r="3"/><text class="hlabel" x="167.1" y="220.7">West Norwalk</text></g><g class="hood" data-hood="cranbury" tabindex="0" role="button" aria-label="Cranbury"><path class="cell" d="M275.6474175961405,162.8031959381358 L337.0937385191147,172.4464017236215 L332.1,129.7 L331.8,114.6 L323.1,104.2 L317.8,94.6 L322.3,29.9 L303.9,26.0 L270.8443012357771,45.99140605409804 Z"/><circle class="dot" cx="303.5" cy="99.6" r="3"/><text class="hlabel" x="312.7" y="97.8">Cranbury</text></g><g class="hood" data-hood="shorehaven" tabindex="0" role="button" aria-label="Shorehaven"><path class="cell" d="M284.8323719925972,265.3794417026527 L287.3451469772601,262.8805879090405 L287.9,265.1 L292.4,263.1 L290.5169974115617,274.3124245038826 L294.3431323803605,280.324922311995 L301.3,274.6 L303.1,279.5 L298.7395648670427,287.23360193392426 L303.8828220858896,295.31586327782645 L312.6,293.4 L312.0,281.3 L314.3,276.0 L323.7,268.8 L325.7,264.8 L316.6,259.4 L321.8,257.0 L329.6,246.1 L328.3,233.7 L330.3,227.4 L328.78737695425593,221.66795477402255 L284.8323719925972,265.3794417026527 Z"/><circle class="dot" cx="318.7" cy="267.6" r="3"/><text class="hlabel" x="307.9" y="265.6">Shorehaven</text></g><g class="hood" data-hood="winnipauk" tabindex="0" role="button" aria-label="Winnipauk"><path class="cell" d="M238.7225485168207,174.24591039007336 L275.6474175961405,162.80319593813576 L270.8443012357771,45.99140605409804 L249.5,58.9 L220.40884922036423,68.26906179520623 L198.9861564505663,161.64583715058492 L216.13279338168286,175.41081762352297 Z"/><circle class="dot" cx="242.7" cy="102.1" r="3"/><text class="hlabel" x="238.6" y="121.0">Winnipauk</text></g></g><g class="tbase"><path class="tshape" d="M181.5,80.8 L179.4,91.4 L158.2,138.4 L142.0,164.8 L122.9,198.9 L135.5,216.0 L165.1,261.2 L170.2,269.7 L170.8,277.6 L177.1,278.9 L177.9,283.4 L182.6,285.0 L185.6,296.2 L185.9,314.6 L183.7,325.6 L184.7,329.3 L189.4,331.9 L191.2,338.2 L187.1,349.7 L186.2,367.2 L190.1,366.0 L198.8,369.8 L200.3,374.0 L209.3,371.3 L219.6,373.8 L217.9,359.5 L209.4,361.6 L207.7,356.4 L217.3,352.9 L217.5,348.2 L222.6,332.5 L225.9,347.8 L235.3,344.9 L239.7,335.3 L239.8,325.1 L243.7,322.5 L245.3,316.6 L243.8,312.3 L244.5,301.4 L249.9,312.7 L258.2,308.6 L265.1,326.0 L270.4,329.2 L274.4,324.2 L277.9,313.2 L275.7,301.5 L277.0,291.7 L270.2,282.8 L270.1,271.2 L272.2,266.2 L267.4,262.5 L267.1,257.7 L263.1,249.0 L271.1,252.5 L277.2,253.3 L277.9,246.5 L285.4,255.1 L287.9,265.1 L292.4,263.1 L290.2,276.2 L291.7,282.5 L301.3,274.6 L303.1,279.5 L297.8,288.9 L298.8,294.0 L303.5,295.4 L312.6,293.4 L312.0,281.3 L314.3,276.0 L323.7,268.8 L325.7,264.8 L316.6,259.4 L321.8,257.0 L329.6,246.1 L328.3,233.7 L330.3,227.4 L328.4,220.2 L337.1,172.5 L332.1,129.7 L331.8,114.6 L323.1,104.2 L317.8,94.6 L322.3,29.9 L303.9,26.0 L249.5,58.9 L181.5,80.8 Z"/></g></svg>
-<div>
-<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="east-norwalk">East Norwalk</button></li><li><button type="button" class="hoodchip" data-hood="harborview">Harborview</button></li><li><button type="button" class="hoodchip" data-hood="rowayton">Rowayton</button></li><li><button type="button" class="hoodchip" data-hood="silvermine">Silvermine</button></li><li><button type="button" class="hoodchip" data-hood="south-norwalk">South Norwalk</button></li><li><button type="button" class="hoodchip" data-hood="west-norwalk">West Norwalk</button></li><li><button type="button" class="hoodchip" data-hood="cranbury">Cranbury</button></li><li><button type="button" class="hoodchip" data-hood="shorehaven">Shorehaven</button></li><li><button type="button" class="hoodchip" data-hood="winnipauk">Winnipauk</button></li></ul>
-<p class="hoodnote">Town outline from Connecticut open data. Neighborhood centers from OpenStreetMap contributors. The shaded areas are approximate, showing the part of town nearest each neighborhood rather than official boundaries.</p>
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Norwalk, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M165.9,71.8 L164.1,81.4 L144.8,124.1 L130.1,148.0 L112.7,179.0 L124.1,194.5 L151.0,235.6 L155.7,243.3 L156.3,250.5 L161.9,251.6 L162.7,255.8 L167.0,257.2 L169.7,267.4 L170.0,284.1 L167.9,294.0 L168.8,297.4 L173.2,299.8 L174.7,305.5 L171.0,316.0 L170.3,331.8 L173.7,330.8 L181.7,334.2 L183.1,338.0 L191.2,335.5 L200.6,337.8 L199.0,324.8 L191.3,326.8 L189.8,322.0 L198.4,318.8 L198.6,314.6 L203.3,300.3 L206.3,314.2 L214.8,311.6 L218.8,302.8 L218.9,293.6 L222.5,291.2 L223.9,285.9 L222.6,282.0 L223.1,272.1 L228.0,282.3 L235.6,278.6 L241.8,294.4 L246.7,297.3 L250.3,292.8 L253.5,282.7 L251.5,272.2 L252.6,263.3 L246.5,255.2 L246.4,244.7 L248.3,240.1 L244.0,236.8 L243.7,232.4 L240.0,224.5 L247.4,227.7 L252.8,228.4 L253.5,222.3 L260.3,230.0 L262.6,239.2 L266.7,237.3 L264.7,249.2 L266.0,254.9 L274.7,247.8 L276.4,252.2 L271.6,260.8 L272.5,265.3 L276.7,266.6 L285.0,264.8 L284.5,253.8 L286.6,249.0 L295.1,242.5 L296.9,238.9 L288.6,233.9 L293.3,231.8 L300.4,221.9 L299.3,210.6 L301.1,204.9 L299.4,198.4 L307.3,155.0 L302.7,116.2 L302.4,102.5 L294.6,93.0 L289.8,84.3 L293.8,25.5 L277.1,22.0 L227.7,51.9 L165.9,71.8 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Norwalk, not just the easy parts.</h2>
+<p>Norwalk sits in Fairfield County, and we cover the whole of it. That includes Rowayton, East Norwalk and Calf Pasture, South Norwalk, Wilson Point, Shorefront Park, Harborview, West Norwalk, Silvermine and Norwalk Center.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
 </div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
@@ -942,27 +917,6 @@ li{margin:0 0 .4em}
   });
 })();
 </script>
-<script>
-(function(){
-  var hoods = document.querySelectorAll('.hoodmap .hood');
-  var chips = document.querySelectorAll('.hoodchip');
-  if(!hoods.length) return;
-  function set(id, on){
-    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
-    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
-  }
-  function wire(nodes){
-    nodes.forEach(function(n){
-      var id = n.dataset.hood;
-      n.addEventListener('mouseenter', function(){ set(id, true); });
-      n.addEventListener('mouseleave', function(){ set(id, false); });
-      n.addEventListener('focus', function(){ set(id, true); });
-      n.addEventListener('blur', function(){ set(id, false); });
-      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
-    });
-  }
-  wire(hoods); wire(chips);
-})();
-</script>
+
 </body>
 </html>
