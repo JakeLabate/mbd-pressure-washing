@@ -563,6 +563,39 @@ li{margin:0 0 .4em}
   font-family:var(--body);font-size:.86rem;color:var(--bone);
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
+
+/* per-town neighbourhood map */
+.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
+.hoodmap{width:100%;height:auto;display:block;overflow:visible}
+.hoodmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.6;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+.hoodmap .hood{cursor:pointer}
+.hoodmap .halo{fill:var(--gold);opacity:0;transition:opacity .16s ease}
+.hoodmap .hit{fill:transparent}
+.hoodmap .dot{fill:var(--gold-lite);stroke:var(--void);stroke-width:1.2;transition:r .16s ease}
+.hoodmap .hlabel{
+  font-family:var(--body);font-size:11.5px;font-weight:600;
+  fill:var(--paper);text-anchor:middle;pointer-events:none;
+  opacity:0;transition:opacity .16s ease;
+  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
+}
+.hoodmap .hood.on .halo{opacity:.22}
+.hoodmap .hood.on .dot{r:6.5;fill:var(--paper)}
+.hoodmap .hood.on .hlabel{opacity:1}
+.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
+.hoodlist li{margin:0}
+.hoodchip{
+  font-family:var(--body);font-size:.83rem;font-weight:600;
+  color:var(--bone);background:transparent;
+  border:1px solid var(--gold-deep);border-radius:2px;
+  padding:8px 13px;cursor:pointer;
+  transition:border-color .16s ease,color .16s ease;
+}
+.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
+.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/gutter-cleaning-branford-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/gutter-cleaning-branford-ct/", "name": "Gutter cleaning in Branford, CT | Free Estimate | MBD", "description": "Gutter cleaning in Branford, Connecticut. Cleared by hand, downspouts flushed, debris taken away. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/gutter-cleaning-branford-ct/#service", "name": "Gutter cleaning in Branford, CT", "serviceType": "Gutter cleaning", "description": "Gutter cleaning in Branford, Connecticut. Cleared by hand, downspouts flushed, debris taken away. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Branford, CT"}}]}</script>
 </head>
@@ -665,6 +698,21 @@ li{margin:0 0 .4em}
 <h3>What the job includes</h3>
 <ul class="checks"><li>Leaves, sticks and debris cleared out of the full run</li><li>Downspouts flushed so you can see the water actually drain</li><li>A look over the system for visible damage or loose sections</li><li>The debris leaves with us rather than sitting on your lawn</li><li>Gutter exteriors can be washed at the same visit</li></ul>
 <p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<p class="eyebrow">Neighborhoods</p>
+<h2>Where we work in Branford.</h2>
+<p class="lead muted">Hover or tap a neighborhood to find it on the map. If yours is not listed we almost certainly still cover it, so ask.</p>
+<div class="hoodwrap">
+<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Branford, Connecticut, showing the neighbourhoods MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="tbase"><path class="tshape" d="M142.5,77.4 L109.3,92.4 L100.5,104.2 L94.5,137.6 L89.1,152.4 L84.2,160.7 L71.4,172.3 L53.0,181.7 L44.8,189.8 L35.5,203.7 L32.6,214.2 L33.4,222.4 L37.1,227.5 L35.4,235.1 L28.4,248.0 L26.0,255.7 L26.6,276.1 L33.3,288.4 L38.2,287.0 L47.4,293.1 L54.0,293.3 L58.1,301.6 L57.3,313.8 L55.1,317.4 L52.5,331.8 L58.8,336.5 L64.7,334.5 L65.4,320.8 L80.7,321.5 L82.4,315.3 L93.8,314.6 L99.9,320.2 L96.2,333.6 L99.5,341.3 L114.7,346.1 L117.8,337.2 L117.5,330.1 L122.8,324.0 L123.3,307.8 L130.7,301.7 L131.6,293.5 L137.9,295.4 L143.0,292.5 L149.2,302.2 L155.1,304.9 L160.0,297.2 L169.3,298.5 L174.7,289.2 L163.2,282.6 L160.3,277.0 L165.0,260.8 L174.7,250.9 L189.4,242.5 L191.8,249.8 L183.8,251.5 L173.1,264.4 L166.5,266.1 L164.5,271.8 L169.4,281.5 L184.5,290.0 L192.2,298.0 L191.1,304.8 L180.2,315.1 L172.6,307.9 L153.3,316.1 L149.1,322.4 L152.2,329.3 L161.6,335.4 L163.3,342.8 L182.3,340.1 L184.0,346.4 L197.0,335.1 L197.6,328.7 L207.3,318.3 L216.9,318.5 L221.8,311.9 L239.2,309.0 L246.2,310.8 L251.7,296.9 L257.1,289.4 L272.4,286.5 L297.9,292.4 L307.6,283.5 L315.5,285.5 L319.7,281.7 L328.6,279.3 L335.4,283.1 L345.5,280.1 L354.1,271.1 L361.5,292.7 L368.9,297.4 L368.0,308.2 L378.7,309.0 L401.3,298.4 L409.2,301.7 L419.6,299.2 L421.5,287.2 L434.0,281.9 L420.7,253.6 L399.7,203.2 L378.6,123.8 L377.0,108.6 L300.6,129.5 L272.8,97.5 L215.3,53.6 L142.5,77.4 Z"/></g><g class="hoods"><g class="hood" data-hood="indian-neck"><circle class="halo" cx="212.1" cy="305.1" r="13"/><circle class="dot" cx="212.1" cy="305.1" r="4.5"/><text class="hlabel" x="212.1" y="294.1">Indian Neck</text><circle class="hit" cx="212.1" cy="305.1" r="15"/></g><g class="hood" data-hood="pine-orchard"><circle class="halo" cx="271.4" cy="275.3" r="13"/><circle class="dot" cx="271.4" cy="275.3" r="4.5"/><text class="hlabel" x="271.4" y="264.3">Pine Orchard</text><circle class="hit" cx="271.4" cy="275.3" r="15"/></g><g class="hood" data-hood="short-beach"><circle class="halo" cx="69.5" cy="316.5" r="13"/><circle class="dot" cx="69.5" cy="316.5" r="4.5"/><text class="hlabel" x="69.5" y="305.5">Short Beach</text><circle class="hit" cx="69.5" cy="316.5" r="15"/></g><g class="hood" data-hood="branford-center-historic-district"><circle class="halo" cx="168.2" cy="231.7" r="13"/><circle class="dot" cx="168.2" cy="231.7" r="4.5"/><text class="hlabel" x="168.2" y="220.7">Branford Center Historic District</text><circle class="hit" cx="168.2" cy="231.7" r="15"/></g><g class="hood" data-hood="branford-hills"><circle class="halo" cx="77.1" cy="263.9" r="13"/><circle class="dot" cx="77.1" cy="263.9" r="4.5"/><text class="hlabel" x="77.1" y="252.89999999999998">Branford Hills</text><circle class="hit" cx="77.1" cy="263.9" r="15"/></g><g class="hood" data-hood="branford-point-historic-district"><circle class="halo" cx="156.9" cy="275.6" r="13"/><circle class="dot" cx="156.9" cy="275.6" r="4.5"/><text class="hlabel" x="156.9" y="264.6">Branford Point Historic District</text><circle class="hit" cx="156.9" cy="275.6" r="15"/></g><g class="hood" data-hood="double-beach"><circle class="halo" cx="118.1" cy="317.3" r="13"/><circle class="dot" cx="118.1" cy="317.3" r="4.5"/><text class="hlabel" x="118.1" y="306.3">Double Beach</text><circle class="hit" cx="118.1" cy="317.3" r="15"/></g><g class="hood" data-hood="hoadley-neck"><circle class="halo" cx="417.2" cy="298.5" r="13"/><circle class="dot" cx="417.2" cy="298.5" r="4.5"/><text class="hlabel" x="417.2" y="287.5">Hoadley Neck</text><circle class="hit" cx="417.2" cy="298.5" r="15"/></g><g class="hood" data-hood="short-beach-historic-district"><circle class="halo" cx="69.0" cy="315.6" r="13"/><circle class="dot" cx="69.0" cy="315.6" r="4.5"/><text class="hlabel" x="69.0" y="304.6">Short Beach Historic District</text><circle class="hit" cx="69.0" cy="315.6" r="15"/></g></g></svg>
+<div>
+<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="indian-neck">Indian Neck</button></li><li><button type="button" class="hoodchip" data-hood="pine-orchard">Pine Orchard</button></li><li><button type="button" class="hoodchip" data-hood="short-beach">Short Beach</button></li><li><button type="button" class="hoodchip" data-hood="branford-center-historic-district">Branford Center Historic District</button></li><li><button type="button" class="hoodchip" data-hood="branford-hills">Branford Hills</button></li><li><button type="button" class="hoodchip" data-hood="branford-point-historic-district">Branford Point Historic District</button></li><li><button type="button" class="hoodchip" data-hood="double-beach">Double Beach</button></li><li><button type="button" class="hoodchip" data-hood="hoadley-neck">Hoadley Neck</button></li><li><button type="button" class="hoodchip" data-hood="short-beach-historic-district">Short Beach Historic District</button></li></ul>
+<p class="hoodnote">Town boundary from Connecticut open data. Neighborhood locations from OpenStreetMap contributors.</p>
+</div>
 </div>
 </div>
 </section>
@@ -889,6 +937,28 @@ li{margin:0 0 .4em}
       })
       .then(function(){ submit.disabled = false; });
   });
+})();
+</script>
+<script>
+(function(){
+  var hoods = document.querySelectorAll('.hoodmap .hood');
+  var chips = document.querySelectorAll('.hoodchip');
+  if(!hoods.length) return;
+  function set(id, on){
+    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
+    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
+  }
+  function wire(nodes){
+    nodes.forEach(function(n){
+      var id = n.dataset.hood;
+      n.addEventListener('mouseenter', function(){ set(id, true); });
+      n.addEventListener('mouseleave', function(){ set(id, false); });
+      n.addEventListener('focus', function(){ set(id, true); });
+      n.addEventListener('blur', function(){ set(id, false); });
+      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
+    });
+  }
+  wire(hoods); wire(chips);
 })();
 </script>
 </body>
