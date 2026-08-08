@@ -563,6 +563,39 @@ li{margin:0 0 .4em}
   font-family:var(--body);font-size:.86rem;color:var(--bone);
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
+
+/* per-town neighbourhood map */
+.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
+.hoodmap{width:100%;height:auto;display:block;overflow:visible}
+.hoodmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.6;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+.hoodmap .hood{cursor:pointer}
+.hoodmap .halo{fill:var(--gold);opacity:0;transition:opacity .16s ease}
+.hoodmap .hit{fill:transparent}
+.hoodmap .dot{fill:var(--gold-lite);stroke:var(--void);stroke-width:1.2;transition:r .16s ease}
+.hoodmap .hlabel{
+  font-family:var(--body);font-size:11.5px;font-weight:600;
+  fill:var(--paper);text-anchor:middle;pointer-events:none;
+  opacity:0;transition:opacity .16s ease;
+  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
+}
+.hoodmap .hood.on .halo{opacity:.22}
+.hoodmap .hood.on .dot{r:6.5;fill:var(--paper)}
+.hoodmap .hood.on .hlabel{opacity:1}
+.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
+.hoodlist li{margin:0}
+.hoodchip{
+  font-family:var(--body);font-size:.83rem;font-weight:600;
+  color:var(--bone);background:transparent;
+  border:1px solid var(--gold-deep);border-radius:2px;
+  padding:8px 13px;cursor:pointer;
+  transition:border-color .16s ease,color .16s ease;
+}
+.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
+.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/deck-cleaning-milford-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/deck-cleaning-milford-ct/", "name": "Deck cleaning in Milford, CT | Free Estimate | MBD", "description": "Deck cleaning in Milford, Connecticut. Wood and composite decking cleaned at the right pressure. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/deck-cleaning-milford-ct/#service", "name": "Deck cleaning in Milford, CT", "serviceType": "Deck cleaning", "description": "Deck cleaning in Milford, Connecticut. Wood and composite decking cleaned at the right pressure. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Milford, CT"}}]}</script>
 </head>
@@ -665,6 +698,21 @@ li{margin:0 0 .4em}
 <h3>What the job includes</h3>
 <ul class="checks"><li>Algae, mildew and ground in grime lifted off the boards</li><li>Pressure matched to wood, composite or vinyl</li><li>Railings, spindles and steps done with the deck surface</li><li>A less slippery surface once the growth is gone</li><li>Ready for sealing or staining if that is the next step</li></ul>
 <p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<p class="eyebrow">Neighborhoods</p>
+<h2>Where we work in Milford.</h2>
+<p class="lead muted">Hover or tap a neighborhood to find it on the map. If yours is not listed we almost certainly still cover it, so ask.</p>
+<div class="hoodwrap">
+<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Milford, Connecticut, showing the neighbourhoods MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="tbase"><path class="tshape" d="M145.8,26.0 L142.1,41.6 L141.2,49.7 L143.0,67.6 L142.4,81.0 L145.0,97.9 L144.3,108.9 L141.4,115.5 L132.7,129.4 L117.3,144.4 L105.4,152.7 L89.4,180.8 L86.1,193.7 L87.2,205.6 L91.1,218.1 L85.9,240.5 L85.3,252.9 L89.1,266.3 L88.7,274.2 L86.1,280.9 L90.4,281.1 L86.6,293.7 L87.4,309.0 L70.5,319.9 L65.5,326.5 L63.1,334.0 L63.5,348.3 L67.6,354.0 L80.8,362.9 L88.1,363.6 L93.8,359.7 L104.9,359.6 L95.6,366.9 L90.8,374.0 L102.5,371.0 L116.4,361.7 L127.1,348.1 L136.7,329.7 L143.0,323.2 L148.2,314.2 L157.4,304.8 L170.7,295.6 L185.2,290.1 L201.4,288.5 L202.1,282.8 L214.0,260.5 L224.9,250.8 L240.8,246.2 L231.3,237.7 L225.3,237.4 L229.4,226.9 L234.9,238.3 L246.3,240.9 L248.6,234.9 L252.8,232.0 L254.1,223.9 L265.2,220.4 L267.2,214.2 L275.9,208.9 L273.1,221.7 L266.3,225.4 L260.1,234.4 L255.5,244.7 L250.0,244.8 L256.6,259.2 L265.7,269.0 L280.5,258.8 L293.9,256.5 L308.5,257.5 L318.0,267.1 L330.3,262.1 L337.0,250.3 L346.6,238.6 L354.9,209.5 L358.6,205.3 L368.5,207.4 L373.3,203.3 L384.7,205.2 L396.4,176.1 L396.9,166.8 L393.5,164.3 L379.6,168.5 L376.8,163.0 L379.9,153.3 L377.5,146.0 L373.9,143.4 L376.7,135.8 L380.1,133.4 L275.9,103.9 L231.7,86.7 L175.5,46.8 L145.8,26.0 Z"/></g><g class="hoods"><g class="hood" data-hood="devon"><circle class="halo" cx="107.1" cy="274.4" r="13"/><circle class="dot" cx="107.1" cy="274.4" r="4.5"/><text class="hlabel" x="107.1" y="263.4">Devon</text><circle class="hit" cx="107.1" cy="274.4" r="15"/></g><g class="hood" data-hood="laurel-beach"><circle class="halo" cx="127.8" cy="338.0" r="13"/><circle class="dot" cx="127.8" cy="338.0" r="4.5"/><text class="hlabel" x="127.8" y="327.0">Laurel Beach</text><circle class="hit" cx="127.8" cy="338.0" r="15"/></g><g class="hood" data-hood="morningside"><circle class="halo" cx="335.7" cy="239.0" r="13"/><circle class="dot" cx="335.7" cy="239.0" r="4.5"/><text class="hlabel" x="335.7" y="228.0">Morningside</text><circle class="hit" cx="335.7" cy="239.0" r="15"/></g><g class="hood" data-hood="walnut-beach"><circle class="halo" cx="154.3" cy="303.7" r="13"/><circle class="dot" cx="154.3" cy="303.7" r="4.5"/><text class="hlabel" x="154.3" y="292.7">Walnut Beach</text><circle class="hit" cx="154.3" cy="303.7" r="15"/></g><g class="hood" data-hood="woodmont"><circle class="halo" cx="381.7" cy="188.6" r="13"/><circle class="dot" cx="381.7" cy="188.6" r="4.5"/><text class="hlabel" x="381.7" y="177.6">Woodmont</text><circle class="hit" cx="381.7" cy="188.6" r="15"/></g><g class="hood" data-hood="baldwins-crossing"><circle class="halo" cx="129.9" cy="149.1" r="13"/><circle class="dot" cx="129.9" cy="149.1" r="4.5"/><text class="hlabel" x="129.9" y="138.1">Baldwins Crossing</text><circle class="hit" cx="129.9" cy="149.1" r="15"/></g><g class="hood" data-hood="bayview"><circle class="halo" cx="285.8" cy="240.9" r="13"/><circle class="dot" cx="285.8" cy="240.9" r="4.5"/><text class="hlabel" x="285.8" y="229.9">Bayview</text><circle class="hit" cx="285.8" cy="240.9" r="15"/></g><g class="hood" data-hood="cedar-beach"><circle class="halo" cx="117.5" cy="352.7" r="13"/><circle class="dot" cx="117.5" cy="352.7" r="4.5"/><text class="hlabel" x="117.5" y="341.7">Cedar Beach</text><circle class="hit" cx="117.5" cy="352.7" r="15"/></g><g class="hood" data-hood="forest-heights"><circle class="halo" cx="252.7" cy="151.9" r="13"/><circle class="dot" cx="252.7" cy="151.9" r="4.5"/><text class="hlabel" x="252.7" y="140.9">Forest Heights</text><circle class="hit" cx="252.7" cy="151.9" r="15"/></g></g></svg>
+<div>
+<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="devon">Devon</button></li><li><button type="button" class="hoodchip" data-hood="laurel-beach">Laurel Beach</button></li><li><button type="button" class="hoodchip" data-hood="morningside">Morningside</button></li><li><button type="button" class="hoodchip" data-hood="walnut-beach">Walnut Beach</button></li><li><button type="button" class="hoodchip" data-hood="woodmont">Woodmont</button></li><li><button type="button" class="hoodchip" data-hood="baldwins-crossing">Baldwins Crossing</button></li><li><button type="button" class="hoodchip" data-hood="bayview">Bayview</button></li><li><button type="button" class="hoodchip" data-hood="cedar-beach">Cedar Beach</button></li><li><button type="button" class="hoodchip" data-hood="forest-heights">Forest Heights</button></li></ul>
+<p class="hoodnote">Town boundary from Connecticut open data. Neighborhood locations from OpenStreetMap contributors.</p>
+</div>
 </div>
 </div>
 </section>
@@ -889,6 +937,28 @@ li{margin:0 0 .4em}
       })
       .then(function(){ submit.disabled = false; });
   });
+})();
+</script>
+<script>
+(function(){
+  var hoods = document.querySelectorAll('.hoodmap .hood');
+  var chips = document.querySelectorAll('.hoodchip');
+  if(!hoods.length) return;
+  function set(id, on){
+    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
+    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
+  }
+  function wire(nodes){
+    nodes.forEach(function(n){
+      var id = n.dataset.hood;
+      n.addEventListener('mouseenter', function(){ set(id, true); });
+      n.addEventListener('mouseleave', function(){ set(id, false); });
+      n.addEventListener('focus', function(){ set(id, true); });
+      n.addEventListener('blur', function(){ set(id, false); });
+      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
+    });
+  }
+  wire(hoods); wire(chips);
 })();
 </script>
 </body>
