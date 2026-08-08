@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/patio-cleaning-fairfield-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/patio-cleaning-fairfield-ct/", "name": "Patio cleaning in Fairfield, CT | Free Estimate | MBD", "description": "Patio cleaning in Fairfield, Connecticut. Pavers, walkways and driveways cleaned back to the stone. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/patio-cleaning-fairfield-ct/#service", "name": "Patio cleaning in Fairfield, CT", "serviceType": "Patio cleaning", "description": "Patio cleaning in Fairfield, Connecticut. Pavers, walkways and driveways cleaned back to the stone. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Fairfield, CT"}}]}</script>
 </head>
@@ -706,16 +680,17 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec">
-<div class="wrap">
-<p class="eyebrow">Neighborhoods</p>
-<h2>Where we work in Fairfield.</h2>
-<p class="lead muted">Hover or tap an area to see which part of Fairfield it covers. If yours is not shown we almost certainly still work there, so ask.</p>
-<div class="hoodwrap">
-<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Fairfield, Connecticut, divided into the neighbourhood areas MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="hoods"><g class="hood" data-hood="greenfield-hill" tabindex="0" role="button" aria-label="Greenfield Hill"><path class="cell" d="M92.1862390062392,138.2774562128843 L91.7,139.5 L112.7,177.2 L159.8960656714224,262.748876675287 L185.782077026859,258.73023907427785 L257.1791666666667,217.3773148148148 L257.4631757275992,180.4245803312639 Z"/><circle class="dot" cx="198.8" cy="194.7" r="3"/><text class="hlabel" x="165.3" y="196.3">Greenfield Hill</text></g><g class="hood" data-hood="southport" tabindex="0" role="button" aria-label="Southport"><path class="cell" d="M159.8960656714224,262.748876675287 L161.8,266.2 L169.5,269.6 L168.5,275.0 L172.3,283.6 L172.7,288.3 L179.5,288.4 L182.8,291.2 L184.4,296.6 L182.2,303.7 L187.5,316.0 L188.7,324.6 L185.9,330.7 L187.6,337.3 L185.5,343.4 L186.4,348.2 L182.1,351.5 L187.6,356.9 L188.9,349.8 L193.9,346.4 L200.5,344.5 L205.5,345.8 L214.3,338.6 L219.1,327.8 L231.1,321.5 L239.1,310.8 L243.5,312.3 L237.7,324.6 L227.2,326.9 L223.2,330.1 L218.4,344.2 L229.5,346.6 L236.3,353.6 L240.4,363.1 L253.99715679595116,364.90771448732295 L264.49444089024496,323.8566332845315 L185.782077026859,258.73023907427785 Z"/><circle class="dot" cx="217.6" cy="315.8" r="3"/><text class="hlabel" x="202.1" y="320.8">Southport</text></g><g class="hood" data-hood="stratfield" tabindex="0" role="button" aria-label="Stratfield"><path class="cell" d="M298.7,26.9 L295.3,26.0 L291.3,30.9 L289.3,40.9 L286.6,44.2 L281.7,55.1 L279.7,63.8 L271.8,72.5 L271.3,76.2 L264.3,85.4 L250.90074941330528,63.59156456234514 L272.60751459391787,129.87576172244624 L360.88718336483936,123.89069943289225 L340.8,91.9 L307.7,41.7 L298.7,26.9 Z"/><circle class="dot" cx="326.7" cy="102.5" r="3"/><text class="hlabel" x="291.3" y="62.5">Stratfield</text></g><g class="hood" data-hood="little-danbury" tabindex="0" role="button" aria-label="Little Danbury"><path class="cell" d="M253.99715679595116,364.90771448732295 L257.7,365.4 L260.2,369.4 L266.6,374.0 L280.4,363.0 L289.0,352.2 L300.2,345.7 L315.7,342.2 L320.2,326.2 L319.6,319.2 L322.8,311.1 L332.2,296.2 L328.3,288.6 L334.4,281.2 L332.8,270.0 L327.73061582367706,268.119421999106 L319.0709922067308,267.7337463474118 L264.49444089024496,323.8566332845314 Z"/><circle class="dot" cx="309.5" cy="339.3" r="3"/><text class="hlabel" x="301.4" y="323.8">Little Danbury</text></g><g class="hood" data-hood="melville-village" tabindex="0" role="button" aria-label="Melville Village"><path class="cell" d="M364.6417340136857,185.381683577159 L364.1,179.5 L368.3,175.5 L363.0,161.4 L365.1,130.6 L360.88718336483936,123.89069943289225 L272.60751459391787,129.87576172244624 L270.3464234994532,156.62058668828635 Z"/><circle class="dot" cx="329.9" cy="149.7" r="3"/><text class="hlabel" x="341.1" y="155.3">Melville Village</text></g><g class="hood" data-hood="mill-plain" tabindex="0" role="button" aria-label="Mill Plain"><path class="cell" d="M257.1791666666667,217.3773148148148 L185.782077026859,258.73023907427785 L264.4944408902449,323.8566332845314 L319.0709922067308,267.7337463474118 Z"/><circle class="dot" cx="247.8" cy="279.3" r="3"/><text class="hlabel" x="256.6" y="266.9">Mill Plain</text></g><g class="hood" data-hood="murray" tabindex="0" role="button" aria-label="Murray"><path class="cell" d="M250.90074941330528,63.59156456234514 L249.8,61.8 L230.5,31.9 L225.7,28.0 L220.5,34.4 L215.0,46.8 L206.8,50.9 L201.2,61.2 L193.2,67.0 L180.4,80.8 L175.6,84.2 L112.9,82.8 L110.9,90.8 L114.0,92.2 L108.7,98.9 L103.5,115.0 L103.2,126.6 L95.2,130.7 L92.1862390062392,138.2774562128843 L257.4631757275992,180.42458033126388 L270.3464234994532,156.62058668828632 L272.60751459391787,129.87576172244627 Z"/><circle class="dot" cx="212.8" cy="139.8" r="3"/><text class="hlabel" x="181.4" y="88.8">Murray</text></g><g class="hood" data-hood="tunxis-hill" tabindex="0" role="button" aria-label="Tunxis Hill"><path class="cell" d="M257.4631757275992,180.42458033126388 L257.1791666666667,217.3773148148148 L319.07099220673086,267.7337463474118 L327.73061582367706,268.119421999106 L326.6,267.7 L323.3,262.1 L324.8,258.0 L343.0,240.5 L346.1,232.9 L352.9,226.8 L352.5,224.3 L357.9,217.9 L354.7,213.9 L346.0,217.6 L346.6,210.4 L354.2,202.0 L356.3,195.2 L364.8,187.1 L364.6417340136857,185.381683577159 L270.3464234994532,156.62058668828635 Z"/><circle class="dot" cx="315.9" cy="195.6" r="3"/><text class="hlabel" x="332.3" y="221.6">Tunxis Hill</text></g></g><g class="tbase"><path class="tshape" d="M298.7,26.9 L295.3,26.0 L291.3,30.9 L289.3,40.9 L286.6,44.2 L281.7,55.1 L279.7,63.8 L271.8,72.5 L271.3,76.2 L264.3,85.4 L249.8,61.8 L230.5,31.9 L225.7,28.0 L220.5,34.4 L215.0,46.8 L206.8,50.9 L201.2,61.2 L193.2,67.0 L180.4,80.8 L175.6,84.2 L112.9,82.8 L110.9,90.8 L114.0,92.2 L108.7,98.9 L103.5,115.0 L103.2,126.6 L95.2,130.7 L91.7,139.5 L112.7,177.2 L161.8,266.2 L169.5,269.6 L168.5,275.0 L172.3,283.6 L172.7,288.3 L179.5,288.4 L182.8,291.2 L184.4,296.6 L182.2,303.7 L187.5,316.0 L188.7,324.6 L185.9,330.7 L187.6,337.3 L185.5,343.4 L186.4,348.2 L182.1,351.5 L187.6,356.9 L188.9,349.8 L193.9,346.4 L200.5,344.5 L205.5,345.8 L214.3,338.6 L219.1,327.8 L231.1,321.5 L239.1,310.8 L243.5,312.3 L237.7,324.6 L227.2,326.9 L223.2,330.1 L218.4,344.2 L229.5,346.6 L236.3,353.6 L240.4,363.1 L257.7,365.4 L260.2,369.4 L266.6,374.0 L280.4,363.0 L289.0,352.2 L300.2,345.7 L315.7,342.2 L320.2,326.2 L319.6,319.2 L322.8,311.1 L332.2,296.2 L328.3,288.6 L334.4,281.2 L332.8,270.0 L326.6,267.7 L323.3,262.1 L324.8,258.0 L343.0,240.5 L346.1,232.9 L352.9,226.8 L352.5,224.3 L357.9,217.9 L354.7,213.9 L346.0,217.6 L346.6,210.4 L354.2,202.0 L356.3,195.2 L364.8,187.1 L364.1,179.5 L368.3,175.5 L363.0,161.4 L365.1,130.6 L340.8,91.9 L307.7,41.7 L298.7,26.9 Z"/></g></svg>
-<div>
-<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="greenfield-hill">Greenfield Hill</button></li><li><button type="button" class="hoodchip" data-hood="southport">Southport</button></li><li><button type="button" class="hoodchip" data-hood="stratfield">Stratfield</button></li><li><button type="button" class="hoodchip" data-hood="little-danbury">Little Danbury</button></li><li><button type="button" class="hoodchip" data-hood="melville-village">Melville Village</button></li><li><button type="button" class="hoodchip" data-hood="mill-plain">Mill Plain</button></li><li><button type="button" class="hoodchip" data-hood="murray">Murray</button></li><li><button type="button" class="hoodchip" data-hood="tunxis-hill">Tunxis Hill</button></li></ul>
-<p class="hoodnote">Town outline from Connecticut open data. Neighborhood centers from OpenStreetMap contributors. The shaded areas are approximate, showing the part of town nearest each neighborhood rather than official boundaries.</p>
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Fairfield, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M272.3,22.8 L269.3,22.0 L265.7,26.4 L263.9,35.5 L261.4,38.5 L256.9,48.4 L255.1,56.3 L248.0,64.3 L247.5,67.6 L241.1,75.9 L228.0,54.5 L210.5,27.3 L206.1,23.8 L201.4,29.7 L196.4,40.9 L188.9,44.6 L183.8,54.0 L176.5,59.2 L165.0,71.8 L160.6,74.8 L103.6,73.6 L101.9,80.9 L104.6,82.2 L99.8,88.2 L95.1,102.8 L94.9,113.3 L87.6,117.0 L84.4,125.1 L103.4,159.3 L148.1,240.2 L155.1,243.2 L154.2,248.1 L157.6,255.9 L158.0,260.2 L164.1,260.3 L167.2,262.8 L168.6,267.8 L166.6,274.2 L171.5,285.4 L172.5,293.1 L170.0,298.7 L171.5,304.7 L169.6,310.2 L170.4,314.6 L166.5,317.5 L171.5,322.5 L172.7,316.0 L177.2,312.9 L183.2,311.2 L187.8,312.4 L195.7,305.8 L200.1,296.1 L211.0,290.3 L218.2,280.6 L222.3,282.0 L217.0,293.1 L207.5,295.2 L203.8,298.2 L199.5,310.9 L209.5,313.1 L215.7,319.5 L219.4,328.1 L235.1,330.2 L237.4,333.8 L243.2,338.0 L255.8,328.0 L263.6,318.2 L273.8,312.3 L287.8,309.1 L291.9,294.6 L291.4,288.3 L294.3,280.9 L302.8,267.4 L299.3,260.4 L304.8,253.8 L303.4,243.5 L297.7,241.5 L294.7,236.4 L296.1,232.7 L312.6,216.8 L315.4,209.9 L321.6,204.3 L321.3,202.0 L326.1,196.3 L323.3,192.6 L315.3,196.0 L315.9,189.5 L322.8,181.8 L324.6,175.6 L332.4,168.2 L331.8,161.4 L335.6,157.7 L330.7,144.9 L332.7,117.0 L310.6,81.8 L280.6,36.2 L272.3,22.8 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Fairfield, not just the easy parts.</h2>
+<p>Fairfield sits in Fairfield County, and we cover the whole of it. That includes Southport, Sasco Hill, Fairfield Beach, South Benson, Greenfield Hill, Stratfield, the University area and the neighborhoods around downtown.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
 </div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
@@ -942,27 +917,6 @@ li{margin:0 0 .4em}
   });
 })();
 </script>
-<script>
-(function(){
-  var hoods = document.querySelectorAll('.hoodmap .hood');
-  var chips = document.querySelectorAll('.hoodchip');
-  if(!hoods.length) return;
-  function set(id, on){
-    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
-    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
-  }
-  function wire(nodes){
-    nodes.forEach(function(n){
-      var id = n.dataset.hood;
-      n.addEventListener('mouseenter', function(){ set(id, true); });
-      n.addEventListener('mouseleave', function(){ set(id, false); });
-      n.addEventListener('focus', function(){ set(id, true); });
-      n.addEventListener('blur', function(){ set(id, false); });
-      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
-    });
-  }
-  wire(hoods); wire(chips);
-})();
-</script>
+
 </body>
 </html>
