@@ -563,6 +563,39 @@ li{margin:0 0 .4em}
   font-family:var(--body);font-size:.86rem;color:var(--bone);
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
+
+/* per-town neighbourhood map */
+.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
+.hoodmap{width:100%;height:auto;display:block;overflow:visible}
+.hoodmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.6;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+.hoodmap .hood{cursor:pointer}
+.hoodmap .halo{fill:var(--gold);opacity:0;transition:opacity .16s ease}
+.hoodmap .hit{fill:transparent}
+.hoodmap .dot{fill:var(--gold-lite);stroke:var(--void);stroke-width:1.2;transition:r .16s ease}
+.hoodmap .hlabel{
+  font-family:var(--body);font-size:11.5px;font-weight:600;
+  fill:var(--paper);text-anchor:middle;pointer-events:none;
+  opacity:0;transition:opacity .16s ease;
+  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
+}
+.hoodmap .hood.on .halo{opacity:.22}
+.hoodmap .hood.on .dot{r:6.5;fill:var(--paper)}
+.hoodmap .hood.on .hlabel{opacity:1}
+.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
+.hoodlist li{margin:0}
+.hoodchip{
+  font-family:var(--body);font-size:.83rem;font-weight:600;
+  color:var(--bone);background:transparent;
+  border:1px solid var(--gold-deep);border-radius:2px;
+  padding:8px 13px;cursor:pointer;
+  transition:border-color .16s ease,color .16s ease;
+}
+.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
+.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/deck-cleaning-stratford-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/deck-cleaning-stratford-ct/", "name": "Deck cleaning in Stratford, CT | Free Estimate | MBD", "description": "Deck cleaning in Stratford, Connecticut. Wood and composite decking cleaned at the right pressure. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/deck-cleaning-stratford-ct/#service", "name": "Deck cleaning in Stratford, CT", "serviceType": "Deck cleaning", "description": "Deck cleaning in Stratford, Connecticut. Wood and composite decking cleaned at the right pressure. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Stratford, CT"}}]}</script>
 </head>
@@ -665,6 +698,21 @@ li{margin:0 0 .4em}
 <h3>What the job includes</h3>
 <ul class="checks"><li>Algae, mildew and ground in grime lifted off the boards</li><li>Pressure matched to wood, composite or vinyl</li><li>Railings, spindles and steps done with the deck surface</li><li>A less slippery surface once the growth is gone</li><li>Ready for sealing or staining if that is the next step</li></ul>
 <p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<p class="eyebrow">Neighborhoods</p>
+<h2>Where we work in Stratford.</h2>
+<p class="lead muted">Hover or tap a neighborhood to find it on the map. If yours is not listed we almost certainly still cover it, so ask.</p>
+<div class="hoodwrap">
+<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Stratford, Connecticut, showing the neighbourhoods MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="tbase"><path class="tshape" d="M313.0,64.1 L308.6,64.1 L304.6,60.0 L297.1,62.4 L295.4,57.2 L287.0,53.3 L277.9,52.6 L277.9,46.0 L275.1,41.7 L268.9,38.1 L271.7,31.6 L266.8,26.0 L243.5,36.0 L183.1,63.4 L187.0,77.8 L188.7,87.6 L191.6,96.5 L191.5,105.4 L197.3,114.6 L190.5,116.0 L181.7,120.3 L177.4,128.9 L169.1,137.7 L161.1,141.2 L157.8,148.9 L152.6,154.7 L149.6,165.5 L169.1,244.0 L165.1,251.7 L166.9,254.3 L165.8,260.8 L168.4,271.6 L164.6,288.5 L157.3,298.2 L157.6,300.4 L147.0,342.0 L180.4,357.4 L196.9,363.7 L205.5,368.7 L210.7,369.1 L221.0,374.0 L235.3,368.9 L244.4,367.3 L249.6,359.8 L256.9,361.7 L260.7,364.5 L265.3,363.3 L267.8,359.1 L274.3,359.2 L278.7,362.0 L283.7,352.7 L279.3,350.2 L273.6,351.3 L268.6,347.6 L267.0,335.0 L269.2,327.2 L267.9,314.1 L256.7,301.5 L252.4,302.6 L236.3,300.4 L232.6,298.3 L235.6,283.6 L233.2,277.2 L237.7,272.1 L238.6,254.5 L249.4,239.9 L252.7,231.1 L262.0,222.6 L264.3,216.8 L264.6,210.0 L261.3,198.4 L261.8,187.6 L266.3,168.2 L263.0,157.4 L262.1,147.1 L264.9,135.9 L278.7,111.6 L289.1,104.3 L302.4,91.3 L309.9,79.3 L312.4,73.6 L313.0,64.1 Z"/></g><g class="hoods"><g class="hood" data-hood="lordship"><circle class="halo" cx="241.0" cy="352.6" r="13"/><circle class="dot" cx="241.0" cy="352.6" r="4.5"/><text class="hlabel" x="241.0" y="341.6">Lordship</text><circle class="hit" cx="241.0" cy="352.6" r="15"/></g><g class="hood" data-hood="oronoque"><circle class="halo" cx="280.3" cy="86.1" r="13"/><circle class="dot" cx="280.3" cy="86.1" r="4.5"/><text class="hlabel" x="280.3" y="75.1">Oronoque</text><circle class="hit" cx="280.3" cy="86.1" r="15"/></g><g class="hood" data-hood="johnsons-corner"><circle class="halo" cx="268.9" cy="105.3" r="13"/><circle class="dot" cx="268.9" cy="105.3" r="4.5"/><text class="hlabel" x="268.9" y="94.3">Johnsons Corner</text><circle class="hit" cx="268.9" cy="105.3" r="15"/></g><g class="hood" data-hood="oronoque-hills-north"><circle class="halo" cx="256.9" cy="68.8" r="13"/><circle class="dot" cx="256.9" cy="68.8" r="4.5"/><text class="hlabel" x="256.9" y="57.8">Oronoque Hills North</text><circle class="hit" cx="256.9" cy="68.8" r="15"/></g><g class="hood" data-hood="oronoque-hills-south"><circle class="halo" cx="260.5" cy="87.8" r="13"/><circle class="dot" cx="260.5" cy="87.8" r="4.5"/><text class="hlabel" x="260.5" y="76.8">Oronoque Hills South</text><circle class="hit" cx="260.5" cy="87.8" r="15"/></g><g class="hood" data-hood="pecks-mill"><circle class="halo" cx="249.2" cy="157.8" r="13"/><circle class="dot" cx="249.2" cy="157.8" r="4.5"/><text class="hlabel" x="249.2" y="146.8">Pecks Mill</text><circle class="hit" cx="249.2" cy="157.8" r="15"/></g><g class="hood" data-hood="putney"><circle class="halo" cx="259.3" cy="122.8" r="13"/><circle class="dot" cx="259.3" cy="122.8" r="4.5"/><text class="hlabel" x="259.3" y="111.8">Putney</text><circle class="hit" cx="259.3" cy="122.8" r="15"/></g><g class="hood" data-hood="stratford-center-historic-district"><circle class="halo" cx="219.3" cy="252.3" r="13"/><circle class="dot" cx="219.3" cy="252.3" r="4.5"/><text class="hlabel" x="219.3" y="241.3">Stratford Center Historic District</text><circle class="hit" cx="219.3" cy="252.3" r="15"/></g></g></svg>
+<div>
+<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="lordship">Lordship</button></li><li><button type="button" class="hoodchip" data-hood="oronoque">Oronoque</button></li><li><button type="button" class="hoodchip" data-hood="johnsons-corner">Johnsons Corner</button></li><li><button type="button" class="hoodchip" data-hood="oronoque-hills-north">Oronoque Hills North</button></li><li><button type="button" class="hoodchip" data-hood="oronoque-hills-south">Oronoque Hills South</button></li><li><button type="button" class="hoodchip" data-hood="pecks-mill">Pecks Mill</button></li><li><button type="button" class="hoodchip" data-hood="putney">Putney</button></li><li><button type="button" class="hoodchip" data-hood="stratford-center-historic-district">Stratford Center Historic District</button></li></ul>
+<p class="hoodnote">Town boundary from Connecticut open data. Neighborhood locations from OpenStreetMap contributors.</p>
+</div>
 </div>
 </div>
 </section>
@@ -889,6 +937,28 @@ li{margin:0 0 .4em}
       })
       .then(function(){ submit.disabled = false; });
   });
+})();
+</script>
+<script>
+(function(){
+  var hoods = document.querySelectorAll('.hoodmap .hood');
+  var chips = document.querySelectorAll('.hoodchip');
+  if(!hoods.length) return;
+  function set(id, on){
+    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
+    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
+  }
+  function wire(nodes){
+    nodes.forEach(function(n){
+      var id = n.dataset.hood;
+      n.addEventListener('mouseenter', function(){ set(id, true); });
+      n.addEventListener('mouseleave', function(){ set(id, false); });
+      n.addEventListener('focus', function(){ set(id, true); });
+      n.addEventListener('blur', function(){ set(id, false); });
+      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
+    });
+  }
+  wire(hoods); wire(chips);
 })();
 </script>
 </body>
