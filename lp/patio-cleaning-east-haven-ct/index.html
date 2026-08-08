@@ -563,6 +563,39 @@ li{margin:0 0 .4em}
   font-family:var(--body);font-size:.86rem;color:var(--bone);
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
+
+/* per-town neighbourhood map */
+.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
+.hoodmap{width:100%;height:auto;display:block;overflow:visible}
+.hoodmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.6;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+.hoodmap .hood{cursor:pointer}
+.hoodmap .halo{fill:var(--gold);opacity:0;transition:opacity .16s ease}
+.hoodmap .hit{fill:transparent}
+.hoodmap .dot{fill:var(--gold-lite);stroke:var(--void);stroke-width:1.2;transition:r .16s ease}
+.hoodmap .hlabel{
+  font-family:var(--body);font-size:11.5px;font-weight:600;
+  fill:var(--paper);text-anchor:middle;pointer-events:none;
+  opacity:0;transition:opacity .16s ease;
+  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
+}
+.hoodmap .hood.on .halo{opacity:.22}
+.hoodmap .hood.on .dot{r:6.5;fill:var(--paper)}
+.hoodmap .hood.on .hlabel{opacity:1}
+.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
+.hoodlist li{margin:0}
+.hoodchip{
+  font-family:var(--body);font-size:.83rem;font-weight:600;
+  color:var(--bone);background:transparent;
+  border:1px solid var(--gold-deep);border-radius:2px;
+  padding:8px 13px;cursor:pointer;
+  transition:border-color .16s ease,color .16s ease;
+}
+.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
+.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/patio-cleaning-east-haven-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/patio-cleaning-east-haven-ct/", "name": "Patio cleaning in East Haven, CT | Free Estimate | MBD", "description": "Patio cleaning in East Haven, Connecticut. Pavers, walkways and driveways cleaned back to the stone. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/patio-cleaning-east-haven-ct/#service", "name": "Patio cleaning in East Haven, CT", "serviceType": "Patio cleaning", "description": "Patio cleaning in East Haven, Connecticut. Pavers, walkways and driveways cleaned back to the stone. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "East Haven, CT"}}]}</script>
 </head>
@@ -665,6 +698,21 @@ li{margin:0 0 .4em}
 <h3>What the job includes</h3>
 <ul class="checks"><li>Pavers, flagstone, concrete and brick</li><li>Grime lifted out of the joints and edges, not just the open faces</li><li>Driveways and sidewalks on the same visit if you want them</li><li>Higher pressure here, because hard surfaces can take it</li><li>A safer surface once the algae film is gone</li></ul>
 <p class="muted" style="margin-top:20px">Monday to Friday, 9:00am to 5:00pm. Estimates are free, and the quote is based on the property rather than a price list.</p>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<p class="eyebrow">Neighborhoods</p>
+<h2>Where we work in East Haven.</h2>
+<p class="lead muted">Hover or tap a neighborhood to find it on the map. If yours is not listed we almost certainly still cover it, so ask.</p>
+<div class="hoodwrap">
+<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of East Haven, Connecticut, showing the neighbourhoods MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="tbase"><path class="tshape" d="M225.0,106.3 L199.3,185.6 L167.6,251.6 L169.0,342.8 L163.6,350.9 L159.3,350.1 L155.8,354.8 L151.3,354.5 L141.5,361.9 L152.2,367.2 L155.1,374.0 L163.3,368.4 L172.7,369.0 L185.0,373.5 L190.5,370.6 L202.3,368.7 L206.1,366.8 L219.4,367.0 L224.8,365.1 L227.5,361.8 L234.0,343.2 L242.0,330.5 L243.6,327.9 L244.1,319.2 L241.2,313.2 L236.4,313.0 L229.9,308.6 L226.4,309.7 L221.5,300.8 L221.1,286.2 L222.8,280.6 L227.9,271.4 L229.1,265.9 L226.4,262.3 L225.8,256.4 L227.9,248.8 L234.6,238.8 L240.5,233.0 L253.7,226.2 L262.9,217.9 L266.4,212.0 L270.3,201.4 L274.6,177.3 L280.9,168.9 L304.7,158.1 L318.5,93.0 L318.4,27.1 L307.5,26.0 L307.5,32.8 L296.5,33.1 L296.1,65.4 L296.4,86.8 L225.0,106.3 Z"/></g><g class="hoods"><g class="hood" data-hood="foxon"><circle class="halo" cx="263.7" cy="142.8" r="13"/><circle class="dot" cx="263.7" cy="142.8" r="4.5"/><text class="hlabel" x="263.7" y="131.8">Foxon</text><circle class="hit" cx="263.7" cy="142.8" r="15"/></g><g class="hood" data-hood="momauguin"><circle class="halo" cx="192.4" cy="347.8" r="13"/><circle class="dot" cx="192.4" cy="347.8" r="4.5"/><text class="hlabel" x="192.4" y="336.8">Momauguin</text><circle class="hit" cx="192.4" cy="347.8" r="15"/></g><g class="hood" data-hood="bradford-manor"><circle class="halo" cx="205.8" cy="352.7" r="13"/><circle class="dot" cx="205.8" cy="352.7" r="4.5"/><text class="hlabel" x="205.8" y="341.7">Bradford Manor</text><circle class="hit" cx="205.8" cy="352.7" r="15"/></g></g></svg>
+<div>
+<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="foxon">Foxon</button></li><li><button type="button" class="hoodchip" data-hood="momauguin">Momauguin</button></li><li><button type="button" class="hoodchip" data-hood="bradford-manor">Bradford Manor</button></li></ul>
+<p class="hoodnote">Town boundary from Connecticut open data. Neighborhood locations from OpenStreetMap contributors.</p>
+</div>
 </div>
 </div>
 </section>
@@ -889,6 +937,28 @@ li{margin:0 0 .4em}
       })
       .then(function(){ submit.disabled = false; });
   });
+})();
+</script>
+<script>
+(function(){
+  var hoods = document.querySelectorAll('.hoodmap .hood');
+  var chips = document.querySelectorAll('.hoodchip');
+  if(!hoods.length) return;
+  function set(id, on){
+    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
+    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
+  }
+  function wire(nodes){
+    nodes.forEach(function(n){
+      var id = n.dataset.hood;
+      n.addEventListener('mouseenter', function(){ set(id, true); });
+      n.addEventListener('mouseleave', function(){ set(id, false); });
+      n.addEventListener('focus', function(){ set(id, true); });
+      n.addEventListener('blur', function(){ set(id, false); });
+      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
+    });
+  }
+  wire(hoods); wire(chips);
 })();
 </script>
 </body>
