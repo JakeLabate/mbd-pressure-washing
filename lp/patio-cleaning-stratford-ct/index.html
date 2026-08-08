@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/patio-cleaning-stratford-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/patio-cleaning-stratford-ct/", "name": "Patio cleaning in Stratford, CT | Free Estimate | MBD", "description": "Patio cleaning in Stratford, Connecticut. Pavers, walkways and driveways cleaned back to the stone. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/patio-cleaning-stratford-ct/#service", "name": "Patio cleaning in Stratford, CT", "serviceType": "Patio cleaning", "description": "Patio cleaning in Stratford, Connecticut. Pavers, walkways and driveways cleaned back to the stone. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Stratford, CT"}}]}</script>
 </head>
@@ -706,16 +680,17 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec">
-<div class="wrap">
-<p class="eyebrow">Neighborhoods</p>
-<h2>Where we work in Stratford.</h2>
-<p class="lead muted">Hover or tap an area to see which part of Stratford it covers. If yours is not shown we almost certainly still work there, so ask.</p>
-<div class="hoodwrap">
-<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Stratford, Connecticut, divided into the neighbourhood areas MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="hoods"><g class="hood" data-hood="lordship" tabindex="0" role="button" aria-label="Lordship"><path class="cell" d="M152.81429006254976,319.1816540941443 L147.0,342.0 L180.4,357.4 L196.9,363.7 L205.5,368.7 L210.7,369.1 L221.0,374.0 L235.3,368.9 L244.4,367.3 L249.6,359.8 L256.9,361.7 L260.7,364.5 L265.3,363.3 L267.8,359.1 L274.3,359.2 L278.7,362.0 L283.7,352.7 L279.3,350.2 L273.6,351.3 L268.6,347.6 L267.0,335.0 L269.2,327.2 L267.9,314.1 L256.7,301.5 L252.4,302.6 L238.33809624054894,300.6784976229321 Z"/><circle class="dot" cx="241.0" cy="352.6" r="3"/><text class="hlabel" x="242.5" y="347.8">Lordship</text></g><g class="hood" data-hood="oronoque" tabindex="0" role="button" aria-label="Oronoque"><path class="cell" d="M313.0,64.1 L308.6,64.1 L304.6,60.0 L297.1,62.4 L295.4,57.2 L287.0,53.3 L286.48384136858476,53.260295489891135 L269.48192351956476,76.25710922787201 L270.9660069848661,93.54231664726422 L289.09276437847865,104.30507884972171 L289.1,104.3 L302.4,91.3 L309.9,79.3 L312.4,73.6 L313.0,64.1 Z"/><circle class="dot" cx="280.3" cy="86.1" r="3"/><text class="hlabel" x="296.6" y="73.4">Oronoque</text></g><g class="hood" data-hood="johnsons-corner" tabindex="0" role="button" aria-label="Johnsons Corner"><path class="cell" d="M274.17113657145933,119.57473777634337 L278.7,111.6 L289.09276437847865,104.30507884972171 L270.96600698486617,93.54231664726424 L247.36611111111108,104.87026666666667 Z"/><circle class="dot" cx="268.9" cy="105.3" r="3"/><text class="hlabel" x="272.1" y="106.8">Johnsons Corner</text></g><g class="hood" data-hood="oronoque-hills-north" tabindex="0" role="button" aria-label="Oronoque Hills North"><path class="cell" d="M286.48384136858476,53.260295489891135 L277.9,52.6 L277.9,46.0 L275.1,41.7 L268.9,38.1 L271.7,31.6 L266.8,26.0 L243.5,36.0 L183.1,63.4 L187.0,77.8 L188.7,87.6 L189.91627492480785,91.3327058037207 L269.4819235195648,76.25710922787191 Z"/><circle class="dot" cx="256.9" cy="68.8" r="3"/><text class="hlabel" x="245.1" y="55.5">Oronoque Hills North</text></g><g class="hood" data-hood="oronoque-hills-south" tabindex="0" role="button" aria-label="Oronoque Hills South"><path class="cell" d="M189.91627492480785,91.3327058037207 L191.6,96.5 L191.52746293562672,102.95579872922151 L247.36611111111105,104.87026666666667 L270.9660069848661,93.54231664726427 L269.48192351956476,76.25710922787192 Z"/><circle class="dot" cx="260.5" cy="87.8" r="3"/><text class="hlabel" x="226.8" y="94.2">Oronoque Hills South</text></g><g class="hood" data-hood="pecks-mill" tabindex="0" role="button" aria-label="Pecks Mill"><path class="cell" d="M182.9041273289331,119.71161960063495 L181.7,120.3 L177.4,128.9 L169.1,137.7 L161.1,141.2 L157.8,148.9 L152.6,154.7 L149.6,165.5 L153.0418275983146,179.35556238295885 L264.397555136056,214.5887502493976 L264.6,210.0 L261.3,198.4 L261.8,187.6 L266.3,168.2 L263.0,157.4 L262.1,147.1 L263.15739506995334,142.87041972018656 Z"/><circle class="dot" cx="249.2" cy="157.8" r="3"/><text class="hlabel" x="211.3" y="160.1">Pecks Mill</text></g><g class="hood" data-hood="putney" tabindex="0" role="button" aria-label="Putney"><path class="cell" d="M191.52746293562672,102.95579872922151 L191.5,105.4 L197.3,114.6 L190.5,116.0 L182.9041273289331,119.71161960063495 L263.15739506995334,142.87041972018656 L264.9,135.9 L274.17113657145933,119.57473777634335 L247.36611111111108,104.87026666666667 Z"/><circle class="dot" cx="259.3" cy="122.8" r="3"/><text class="hlabel" x="222.6" y="118.0">Putney</text></g><g class="hood" data-hood="stratford-center-historic-district" tabindex="0" role="button" aria-label="Stratford Center Historic District"><path class="cell" d="M153.0418275983146,179.35556238295885 L169.1,244.0 L165.1,251.7 L166.9,254.3 L165.8,260.8 L168.4,271.6 L164.6,288.5 L157.3,298.2 L157.6,300.4 L152.81429006254976,319.1816540941443 L238.33809624054894,300.6784976229321 L236.3,300.4 L232.6,298.3 L235.6,283.6 L233.2,277.2 L237.7,272.1 L238.6,254.5 L249.4,239.9 L252.7,231.1 L262.0,222.6 L264.3,216.8 L264.397555136056,214.5887502493976 Z"/><circle class="dot" cx="219.3" cy="252.3" r="3"/><text class="hlabel" x="207.5" y="262.7">Stratford Center Historic District</text></g></g><g class="tbase"><path class="tshape" d="M313.0,64.1 L308.6,64.1 L304.6,60.0 L297.1,62.4 L295.4,57.2 L287.0,53.3 L277.9,52.6 L277.9,46.0 L275.1,41.7 L268.9,38.1 L271.7,31.6 L266.8,26.0 L243.5,36.0 L183.1,63.4 L187.0,77.8 L188.7,87.6 L191.6,96.5 L191.5,105.4 L197.3,114.6 L190.5,116.0 L181.7,120.3 L177.4,128.9 L169.1,137.7 L161.1,141.2 L157.8,148.9 L152.6,154.7 L149.6,165.5 L169.1,244.0 L165.1,251.7 L166.9,254.3 L165.8,260.8 L168.4,271.6 L164.6,288.5 L157.3,298.2 L157.6,300.4 L147.0,342.0 L180.4,357.4 L196.9,363.7 L205.5,368.7 L210.7,369.1 L221.0,374.0 L235.3,368.9 L244.4,367.3 L249.6,359.8 L256.9,361.7 L260.7,364.5 L265.3,363.3 L267.8,359.1 L274.3,359.2 L278.7,362.0 L283.7,352.7 L279.3,350.2 L273.6,351.3 L268.6,347.6 L267.0,335.0 L269.2,327.2 L267.9,314.1 L256.7,301.5 L252.4,302.6 L236.3,300.4 L232.6,298.3 L235.6,283.6 L233.2,277.2 L237.7,272.1 L238.6,254.5 L249.4,239.9 L252.7,231.1 L262.0,222.6 L264.3,216.8 L264.6,210.0 L261.3,198.4 L261.8,187.6 L266.3,168.2 L263.0,157.4 L262.1,147.1 L264.9,135.9 L278.7,111.6 L289.1,104.3 L302.4,91.3 L309.9,79.3 L312.4,73.6 L313.0,64.1 Z"/></g></svg>
-<div>
-<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="lordship">Lordship</button></li><li><button type="button" class="hoodchip" data-hood="oronoque">Oronoque</button></li><li><button type="button" class="hoodchip" data-hood="johnsons-corner">Johnsons Corner</button></li><li><button type="button" class="hoodchip" data-hood="oronoque-hills-north">Oronoque Hills North</button></li><li><button type="button" class="hoodchip" data-hood="oronoque-hills-south">Oronoque Hills South</button></li><li><button type="button" class="hoodchip" data-hood="pecks-mill">Pecks Mill</button></li><li><button type="button" class="hoodchip" data-hood="putney">Putney</button></li><li><button type="button" class="hoodchip" data-hood="stratford-center-historic-district">Stratford Center Historic District</button></li></ul>
-<p class="hoodnote">Town outline from Connecticut open data. Neighborhood centers from OpenStreetMap contributors. The shaded areas are approximate, showing the part of town nearest each neighborhood rather than official boundaries.</p>
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Stratford, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M285.4,56.6 L281.4,56.6 L277.8,52.9 L270.9,55.1 L269.4,50.3 L261.7,46.8 L253.5,46.1 L253.5,40.2 L250.9,36.2 L245.3,32.9 L247.9,27.1 L243.4,22.0 L222.3,31.1 L167.4,56.0 L170.9,69.1 L172.5,78.0 L175.1,86.0 L175.1,94.1 L180.3,102.4 L174.1,103.7 L166.2,107.6 L162.3,115.4 L154.7,123.4 L147.4,126.6 L144.4,133.6 L139.8,138.9 L137.0,148.7 L154.7,220.0 L151.1,226.9 L152.7,229.3 L151.7,235.2 L154.1,245.0 L150.6,260.4 L144.0,269.2 L144.2,271.1 L134.6,308.9 L164.9,323.0 L179.9,328.6 L187.7,333.2 L192.4,333.6 L201.9,338.0 L214.8,333.4 L223.1,331.9 L227.8,325.1 L234.4,326.8 L237.9,329.4 L242.1,328.3 L244.3,324.4 L250.2,324.5 L254.2,327.1 L258.8,318.7 L254.8,316.4 L249.6,317.4 L245.1,314.1 L243.6,302.6 L245.6,295.5 L244.4,283.6 L234.2,272.2 L230.4,273.2 L215.8,271.2 L212.4,269.2 L215.1,255.9 L212.9,250.1 L217.0,245.5 L217.8,229.5 L227.6,216.2 L230.6,208.3 L239.1,200.5 L241.1,195.2 L241.4,189.1 L238.4,178.5 L238.9,168.7 L243.0,151.1 L239.9,141.3 L239.1,131.9 L241.7,121.8 L254.3,99.7 L263.6,93.1 L275.7,81.3 L282.6,70.4 L284.8,65.2 L285.4,56.6 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Stratford, not just the easy parts.</h2>
+<p>Stratford sits in Fairfield County, and we cover the whole of it. That includes Lordship, Short Beach, Oronoque, Paradise Green, Stratford Center, the Housatonic River side of town and the neighborhoods off Main Street.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
 </div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
@@ -942,27 +917,6 @@ li{margin:0 0 .4em}
   });
 })();
 </script>
-<script>
-(function(){
-  var hoods = document.querySelectorAll('.hoodmap .hood');
-  var chips = document.querySelectorAll('.hoodchip');
-  if(!hoods.length) return;
-  function set(id, on){
-    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
-    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
-  }
-  function wire(nodes){
-    nodes.forEach(function(n){
-      var id = n.dataset.hood;
-      n.addEventListener('mouseenter', function(){ set(id, true); });
-      n.addEventListener('mouseleave', function(){ set(id, false); });
-      n.addEventListener('focus', function(){ set(id, true); });
-      n.addEventListener('blur', function(){ set(id, false); });
-      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
-    });
-  }
-  wire(hoods); wire(chips);
-})();
-</script>
+
 </body>
 </html>
