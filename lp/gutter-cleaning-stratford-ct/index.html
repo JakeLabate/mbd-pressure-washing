@@ -634,9 +634,10 @@ li{margin:0 0 .4em}
 <span class="hint">Optional, but it lets us size the job without a second call.</span>
 </div>
 <div class="field wide" data-field>
-<label for="qf-material">Siding or decking material</label>
-<input id="qf-material" name="material" type="text" placeholder="Vinyl, cedar, Hardie board, composite, not sure">
-<span class="hint">Optional. It decides the pressure and the solution we use.</span>
+<label for="qf-material">Storeys, and any gutter guards</label>
+<select id="qf-material" name="gutter_details">
+<option value="">Select if you know</option><option value="Single storey, no guards">Single storey, no guards</option><option value="Single storey, with guards">Single storey, with guards</option><option value="Two storeys, no guards">Two storeys, no guards</option><option value="Two storeys, with guards">Two storeys, with guards</option><option value="Three storeys or more">Three storeys or more</option><option value="Not sure">Not sure</option></select>
+<span class="hint">Optional. Height and guards are what change the time on site.</span>
 </div>
 <div class="field wide" data-field>
 <label for="qf-msg">Anything else we should know?</label>
