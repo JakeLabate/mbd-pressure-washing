@@ -566,6 +566,39 @@ li{margin:0 0 .4em}
   font-family:var(--body);font-size:.86rem;color:var(--bone);
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
+
+/* per-town neighbourhood map */
+.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
+.hoodmap{width:100%;height:auto;display:block;overflow:visible}
+.hoodmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.6;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
+}
+.hoodmap .hood{cursor:pointer}
+.hoodmap .halo{fill:var(--gold);opacity:0;transition:opacity .16s ease}
+.hoodmap .hit{fill:transparent}
+.hoodmap .dot{fill:var(--gold-lite);stroke:var(--void);stroke-width:1.2;transition:r .16s ease}
+.hoodmap .hlabel{
+  font-family:var(--body);font-size:11.5px;font-weight:600;
+  fill:var(--paper);text-anchor:middle;pointer-events:none;
+  opacity:0;transition:opacity .16s ease;
+  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
+}
+.hoodmap .hood.on .halo{opacity:.22}
+.hoodmap .hood.on .dot{r:6.5;fill:var(--paper)}
+.hoodmap .hood.on .hlabel{opacity:1}
+.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
+.hoodlist li{margin:0}
+.hoodchip{
+  font-family:var(--body);font-size:.83rem;font-weight:600;
+  color:var(--bone);background:transparent;
+  border:1px solid var(--gold-deep);border-radius:2px;
+  padding:8px 13px;cursor:pointer;
+  transition:border-color .16s ease,color .16s ease;
+}
+.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
+.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://mbdpressurewashing.net/#website", "url": "https://mbdpressurewashing.net/", "name": "MBD Pressure Washing", "inLanguage": "en-US", "publisher": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "WebPage", "@id": "https://mbdpressurewashing.net/gutter-cleaning/#webpage", "url": "https://mbdpressurewashing.net/gutter-cleaning/", "name": "Gutter Cleaning in Shoreline CT | MBD Pressure Washing", "description": "Gutter cleaning in Milford, Stratford and nearby Connecticut towns. Debris cleared, downspouts flushed, and the mess taken away. Free estimates.", "isPartOf": {"@id": "https://mbdpressurewashing.net/#website"}, "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "BreadcrumbList", "@id": "https://mbdpressurewashing.net/gutter-cleaning/#crumbs", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mbdpressurewashing.net/"}, {"@type": "ListItem", "position": 2, "name": "Gutter Cleaning in Shoreline CT", "item": "https://mbdpressurewashing.net/gutter-cleaning/"}]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/gutter-cleaning/#service", "name": "Gutter cleaning", "serviceType": "Gutter cleaning", "description": "Full gutter clearing by hand and with specialized equipment, downspout flushing, inspection for visible damage, and removal of the debris.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}]}]}</script>
 </head>
