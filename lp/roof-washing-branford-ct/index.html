@@ -564,41 +564,15 @@ li{margin:0 0 .4em}
   border-top:1px solid var(--gold-deep);padding-top:.7rem;
 }
 
-/* per-town neighbourhood map */
-.hoodwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
-@media(min-width:820px){.hoodwrap{grid-template-columns:1.05fr .95fr}}
-.hoodmap{width:100%;height:auto;display:block;overflow:visible}
-.hoodmap .tshape{
-  fill:none;stroke:var(--gold);stroke-width:1.8;
-  stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none;
+/* town outline */
+.townwrap{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr;align-items:center}
+@media(min-width:820px){.townwrap{grid-template-columns:.9fr 1.1fr}}
+.townmap{width:100%;height:auto;display:block;max-width:420px;margin-inline:auto}
+.townmap .tshape{
+  fill:var(--ember);stroke:var(--gold);stroke-width:1.8;
+  stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
-.hoodmap .cell{
-  fill:var(--ember);stroke:var(--gold-deep);stroke-width:1;
-  vector-effect:non-scaling-stroke;transition:fill .16s ease;
-}
-.hoodmap .hood:focus{outline:none}
-.hoodmap .hood:focus .cell,.hoodmap .hood.on .cell{fill:var(--gold-deep)}
-.hoodmap .hood{cursor:pointer}
-.hoodmap .dot{fill:var(--gold-lite);pointer-events:none}
-.hoodmap .hlabel{
-  font-family:var(--body);font-size:11.5px;font-weight:600;
-  fill:var(--paper);text-anchor:middle;pointer-events:none;
-  opacity:0;transition:opacity .16s ease;
-  paint-order:stroke;stroke:var(--void);stroke-width:3.5px;stroke-linejoin:round;
-}
-.hoodmap .hood.on .dot{fill:var(--paper)}
-.hoodmap .hood.on .hlabel{opacity:1}
-.hoodlist{list-style:none;padding-left:0;margin:0;display:flex;flex-wrap:wrap;gap:9px}
-.hoodlist li{margin:0}
-.hoodchip{
-  font-family:var(--body);font-size:.83rem;font-weight:600;
-  color:var(--bone);background:transparent;
-  border:1px solid var(--gold-deep);border-radius:2px;
-  padding:8px 13px;cursor:pointer;
-  transition:border-color .16s ease,color .16s ease;
-}
-.hoodchip:hover,.hoodchip.on{border-color:var(--gold);color:var(--gold-lite)}
-.hoodnote{font-size:.78rem;color:var(--muted);margin-top:16px;line-height:1.5}
+.townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/roof-washing-branford-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/roof-washing-branford-ct/", "name": "Roof washing in Branford, CT | Free Estimate | MBD", "description": "Roof washing in Branford, Connecticut. Algae, moss and lichen removed without stripping the shingle. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/roof-washing-branford-ct/#service", "name": "Roof washing in Branford, CT", "serviceType": "Roof washing", "description": "Roof washing in Branford, Connecticut. Algae, moss and lichen removed without stripping the shingle. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Branford, CT"}}]}</script>
 </head>
@@ -706,16 +680,17 @@ li{margin:0 0 .4em}
 </section>
 
 <section class="sec">
-<div class="wrap">
-<p class="eyebrow">Neighborhoods</p>
-<h2>Where we work in Branford.</h2>
-<p class="lead muted">Hover or tap an area to see which part of Branford it covers. If yours is not shown we almost certainly still work there, so ask.</p>
-<div class="hoodwrap">
-<svg class="hoodmap" viewBox="0 0 460 400" role="img" aria-label="Map of Branford, Connecticut, divided into the neighbourhood areas MBD Pressure Washing works in." xmlns="http://www.w3.org/2000/svg"><g class="hoods"><g class="hood" data-hood="indian-neck" tabindex="0" role="button" aria-label="Indian Neck"><path class="cell" d="M184.62026881883094,290.1249546169672 L192.2,298.0 L191.1,304.8 L180.2,315.1 L174.27359475883023,309.48551082415497 L166.71349711586447,323.63186302387396 L169.09440773197576,341.97658416440345 L182.3,340.1 L184.0,346.4 L197.0,335.1 L197.6,328.7 L207.3,318.3 L216.9,318.5 L221.8,311.9 L239.2,309.0 L246.2,310.8 L248.80001418209812,304.2290550670611 L221.40183117699843,249.70850969114124 L199.08712358931018,263.0547721311891 Z"/><circle class="dot" cx="212.1" cy="305.1" r="3"/><text class="hlabel" x="201.0" y="311.5">Indian Neck</text></g><g class="hood" data-hood="pine-orchard" tabindex="0" role="button" aria-label="Pine Orchard"><path class="cell" d="M221.40183117699843,249.70850969114127 L248.80001418209812,304.2290550670611 L251.7,296.9 L257.1,289.4 L272.4,286.5 L297.9,292.4 L307.6,283.5 L315.5,285.5 L319.7,281.7 L328.6,279.3 L335.4,283.1 L345.3761778500049,280.1367788564342 L372.47447401222416,109.83800383697009 L300.6,129.5 L281.4839142996511,107.4958725751379 Z"/><circle class="dot" cx="271.4" cy="275.3" r="3"/><text class="hlabel" x="297.1" y="250.6">Pine Orchard</text></g><g class="hood" data-hood="short-beach" tabindex="0" role="button" aria-label="Short Beach"><path class="cell" d="M53.793310463121735,324.63704974271036 L52.5,331.8 L58.8,336.5 L64.7,334.5 L65.4,320.8 L80.7,321.5 L82.4,315.3 L93.8,314.6 L93.83729647105736,314.63423938326576 L94.04070143054915,302.27738809413904 Z"/><circle class="dot" cx="69.5" cy="316.5" r="3"/><text class="hlabel" x="74.0" y="321.7">Short Beach</text></g><g class="hood" data-hood="branford-center-historic-district" tabindex="0" role="button" aria-label="Branford Center Historic District"><path class="cell" d="M142.5,77.4 L109.3,92.4 L100.5,104.2 L94.5,137.6 L89.1,152.4 L88.99374693477195,152.57997968191688 L120.93120167352969,242.9371885856694 L170.10113557017382,255.5936863768329 L174.7,250.9 L189.4,242.5 L191.8,249.8 L183.8,251.5 L178.59168679607694,257.7791813393091 L199.0871235893101,263.05477213118917 L221.40183117699846,249.70850969114122 L281.4839142996511,107.4958725751379 L272.8,97.5 L215.3,53.6 L142.5,77.4 Z"/><circle class="dot" cx="168.2" cy="231.7" r="3"/><text class="hlabel" x="166.7" y="174.5">Branford Center Historic District</text></g><g class="hood" data-hood="branford-hills" tabindex="0" role="button" aria-label="Branford Hills"><path class="cell" d="M88.99374693477195,152.57997968191688 L84.2,160.7 L71.4,172.3 L53.0,181.7 L44.8,189.8 L35.5,203.7 L32.6,214.2 L33.4,222.4 L37.1,227.5 L35.4,235.1 L28.4,248.0 L26.0,255.7 L26.6,276.1 L30.395100061893974,283.06712399422327 L94.35884948124006,293.08852380653855 L116.01616688086057,276.46024640233554 L120.93120167352969,242.9371885856694 Z"/><circle class="dot" cx="77.1" cy="263.9" r="3"/><text class="hlabel" x="56.4" y="225.6">Branford Hills</text></g><g class="hood" data-hood="branford-point-historic-district" tabindex="0" role="button" aria-label="Branford Point Historic District"><path class="cell" d="M135.63850553840558,294.7179619877731 L137.9,295.4 L143.0,292.5 L149.2,302.2 L155.1,304.9 L160.0,297.2 L169.3,298.5 L174.7,289.2 L163.2,282.6 L160.3,277.0 L165.0,260.8 L170.10113557017382,255.5936863768329 L178.59168679607694,257.7791813393091 L173.1,264.4 L166.5,266.1 L164.5,271.8 L169.4,281.5 L184.5,290.0 L184.62026881883094,290.1249546169672 L174.27359475883023,309.48551082415497 L172.6,307.9 L156.95137287078967,314.5486395056749 L166.71349711586447,323.63186302387396 L199.08712358931018,263.05477213118917 L120.93120167352969,242.9371885856694 L116.01616688086057,276.46024640233554 Z"/><circle class="dot" cx="156.9" cy="275.6" r="3"/><text class="hlabel" x="162.0" y="285.0">Branford Point Historic District</text></g><g class="hood" data-hood="double-beach" tabindex="0" role="button" aria-label="Double Beach"><path class="cell" d="M94.04070143054915,302.27738809413904 L93.83729647105736,314.63423938326576 L99.9,320.2 L96.2,333.6 L99.5,341.3 L114.7,346.1 L117.8,337.2 L117.5,330.1 L122.8,324.0 L123.3,307.8 L130.7,301.7 L131.6,293.5 L135.63850553840558,294.7179619877731 L156.95137287078967,314.5486395056749 L153.3,316.1 L149.1,322.4 L152.2,329.3 L161.6,335.4 L163.3,342.8 L169.09440773197576,341.97658416440345 L166.7134971158645,323.63186302387396 L116.01616688086058,276.46024640233554 L94.35884948124,293.0885238065386 Z"/><circle class="dot" cx="118.1" cy="317.3" r="3"/><text class="hlabel" x="128.7" y="319.3">Double Beach</text></g><g class="hood" data-hood="hoadley-neck" tabindex="0" role="button" aria-label="Hoadley Neck"><path class="cell" d="M345.3761778500049,280.1367788564342 L345.5,280.1 L354.1,271.1 L361.5,292.7 L368.9,297.4 L368.0,308.2 L378.7,309.0 L401.3,298.4 L409.2,301.7 L419.6,299.2 L421.5,287.2 L434.0,281.9 L420.7,253.6 L399.7,203.2 L378.6,123.8 L377.0,108.6 L372.47447401222416,109.83800383697009 Z"/><circle class="dot" cx="417.2" cy="298.5" r="3"/><text class="hlabel" x="385.7" y="253.3">Hoadley Neck</text></g><g class="hood" data-hood="short-beach-historic-district" tabindex="0" role="button" aria-label="Short Beach Historic District"><path class="cell" d="M30.395100061893963,283.06712399422327 L33.3,288.4 L38.2,287.0 L47.4,293.1 L54.0,293.3 L58.1,301.6 L57.3,313.8 L55.1,317.4 L53.793310463121735,324.63704974271036 L94.04070143054915,302.27738809413904 L94.35884948124,293.08852380653855 Z"/><circle class="dot" cx="69.0" cy="315.6" r="3"/><text class="hlabel" x="56.0" y="299.8">Short Beach Historic District</text></g></g><g class="tbase"><path class="tshape" d="M142.5,77.4 L109.3,92.4 L100.5,104.2 L94.5,137.6 L89.1,152.4 L84.2,160.7 L71.4,172.3 L53.0,181.7 L44.8,189.8 L35.5,203.7 L32.6,214.2 L33.4,222.4 L37.1,227.5 L35.4,235.1 L28.4,248.0 L26.0,255.7 L26.6,276.1 L33.3,288.4 L38.2,287.0 L47.4,293.1 L54.0,293.3 L58.1,301.6 L57.3,313.8 L55.1,317.4 L52.5,331.8 L58.8,336.5 L64.7,334.5 L65.4,320.8 L80.7,321.5 L82.4,315.3 L93.8,314.6 L99.9,320.2 L96.2,333.6 L99.5,341.3 L114.7,346.1 L117.8,337.2 L117.5,330.1 L122.8,324.0 L123.3,307.8 L130.7,301.7 L131.6,293.5 L137.9,295.4 L143.0,292.5 L149.2,302.2 L155.1,304.9 L160.0,297.2 L169.3,298.5 L174.7,289.2 L163.2,282.6 L160.3,277.0 L165.0,260.8 L174.7,250.9 L189.4,242.5 L191.8,249.8 L183.8,251.5 L173.1,264.4 L166.5,266.1 L164.5,271.8 L169.4,281.5 L184.5,290.0 L192.2,298.0 L191.1,304.8 L180.2,315.1 L172.6,307.9 L153.3,316.1 L149.1,322.4 L152.2,329.3 L161.6,335.4 L163.3,342.8 L182.3,340.1 L184.0,346.4 L197.0,335.1 L197.6,328.7 L207.3,318.3 L216.9,318.5 L221.8,311.9 L239.2,309.0 L246.2,310.8 L251.7,296.9 L257.1,289.4 L272.4,286.5 L297.9,292.4 L307.6,283.5 L315.5,285.5 L319.7,281.7 L328.6,279.3 L335.4,283.1 L345.5,280.1 L354.1,271.1 L361.5,292.7 L368.9,297.4 L368.0,308.2 L378.7,309.0 L401.3,298.4 L409.2,301.7 L419.6,299.2 L421.5,287.2 L434.0,281.9 L420.7,253.6 L399.7,203.2 L378.6,123.8 L377.0,108.6 L300.6,129.5 L272.8,97.5 L215.3,53.6 L142.5,77.4 Z"/></g></svg>
-<div>
-<ul class="hoodlist"><li><button type="button" class="hoodchip" data-hood="indian-neck">Indian Neck</button></li><li><button type="button" class="hoodchip" data-hood="pine-orchard">Pine Orchard</button></li><li><button type="button" class="hoodchip" data-hood="short-beach">Short Beach</button></li><li><button type="button" class="hoodchip" data-hood="branford-center-historic-district">Branford Center Historic District</button></li><li><button type="button" class="hoodchip" data-hood="branford-hills">Branford Hills</button></li><li><button type="button" class="hoodchip" data-hood="branford-point-historic-district">Branford Point Historic District</button></li><li><button type="button" class="hoodchip" data-hood="double-beach">Double Beach</button></li><li><button type="button" class="hoodchip" data-hood="hoadley-neck">Hoadley Neck</button></li><li><button type="button" class="hoodchip" data-hood="short-beach-historic-district">Short Beach Historic District</button></li></ul>
-<p class="hoodnote">Town outline from Connecticut open data. Neighborhood centers from OpenStreetMap contributors. The shaded areas are approximate, showing the part of town nearest each neighborhood rather than official boundaries.</p>
+<div class="wrap townwrap">
+<svg class="townmap" viewBox="0 0 420 360" role="img" aria-label="Outline map of Branford, Connecticut, the town MBD Pressure Washing serves on this page." xmlns="http://www.w3.org/2000/svg"><path class="tshape" d="M129.3,67.0 L98.7,80.8 L90.7,91.7 L85.1,122.5 L80.2,136.2 L75.6,143.8 L63.8,154.4 L46.9,163.1 L39.4,170.6 L30.7,183.4 L28.1,193.1 L28.9,200.7 L32.2,205.4 L30.7,212.4 L24.2,224.2 L22.0,231.4 L22.5,250.1 L28.8,261.5 L33.3,260.1 L41.7,265.8 L47.8,266.0 L51.6,273.6 L50.8,284.9 L48.8,288.2 L46.4,301.5 L52.2,305.8 L57.7,304.0 L58.3,291.3 L72.4,292.0 L74.0,286.3 L84.5,285.6 L90.1,290.8 L86.7,303.2 L89.8,310.2 L103.8,314.6 L106.6,306.5 L106.3,299.9 L111.2,294.3 L111.7,279.3 L118.5,273.7 L119.3,266.2 L125.1,267.9 L129.8,265.3 L135.5,274.2 L141.0,276.6 L145.5,269.6 L154.1,270.7 L159.1,262.2 L148.5,256.1 L145.8,251.0 L150.1,236.1 L159.0,226.9 L172.6,219.2 L174.8,225.9 L167.4,227.5 L157.6,239.4 L151.4,241.0 L149.7,246.2 L154.1,255.1 L168.1,263.0 L175.1,270.3 L174.2,276.6 L164.1,286.1 L157.1,279.4 L139.3,287.0 L135.4,292.8 L138.3,299.2 L147.0,304.8 L148.6,311.6 L166.1,309.2 L167.6,314.9 L179.6,304.5 L180.1,298.6 L189.1,289.1 L197.9,289.2 L202.4,283.2 L218.5,280.5 L225.0,282.1 L230.0,269.3 L235.0,262.4 L249.1,259.7 L272.5,265.2 L281.5,257.0 L288.8,258.8 L292.7,255.3 L300.9,253.1 L307.1,256.6 L316.4,253.8 L324.4,245.5 L331.2,265.4 L338.0,269.8 L337.2,279.7 L347.1,280.5 L367.8,270.7 L375.1,273.7 L384.7,271.4 L386.5,260.4 L398.0,255.5 L385.8,229.4 L366.4,183.0 L346.9,109.8 L345.4,95.7 L275.1,115.1 L249.5,85.5 L196.4,45.1 L129.3,67.0 Z"/></svg>
+<div class="prose">
+<p class="eyebrow">Service area</p>
+<h2>All of Branford, not just the easy parts.</h2>
+<p>Branford sits in New Haven County, and we cover the whole of it. That includes Stony Creek and the Thimble Islands shore, Indian Neck, Short Beach, Pine Orchard, Branford Point, the town center and the neighborhoods north toward the Branford River.</p>
+<p class="muted">Residential and commercial. If you are just over the line in a neighboring town, ask anyway, because we are almost certainly there already.</p>
+<div class="btnrow">
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
 </div>
+<p class="townnote">Town outline from Connecticut open data.</p>
 </div>
 </div>
 </section>
@@ -942,27 +917,6 @@ li{margin:0 0 .4em}
   });
 })();
 </script>
-<script>
-(function(){
-  var hoods = document.querySelectorAll('.hoodmap .hood');
-  var chips = document.querySelectorAll('.hoodchip');
-  if(!hoods.length) return;
-  function set(id, on){
-    hoods.forEach(function(h){ if(h.dataset.hood===id) h.classList.toggle('on', on); });
-    chips.forEach(function(c){ if(c.dataset.hood===id) c.classList.toggle('on', on); });
-  }
-  function wire(nodes){
-    nodes.forEach(function(n){
-      var id = n.dataset.hood;
-      n.addEventListener('mouseenter', function(){ set(id, true); });
-      n.addEventListener('mouseleave', function(){ set(id, false); });
-      n.addEventListener('focus', function(){ set(id, true); });
-      n.addEventListener('blur', function(){ set(id, false); });
-      n.addEventListener('touchstart', function(){ set(id, true); }, {passive:true});
-    });
-  }
-  wire(hoods); wire(chips);
-})();
-</script>
+
 </body>
 </html>
