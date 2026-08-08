@@ -634,9 +634,10 @@ li{margin:0 0 .4em}
 <span class="hint">Optional, but it lets us size the job without a second call.</span>
 </div>
 <div class="field wide" data-field>
-<label for="qf-material">Siding or decking material</label>
-<input id="qf-material" name="material" type="text" placeholder="Vinyl, cedar, Hardie board, composite, not sure">
-<span class="hint">Optional. It decides the pressure and the solution we use.</span>
+<label for="qf-material">Decking material</label>
+<select id="qf-material" name="decking_material">
+<option value="">Select if you know</option><option value="Pressure treated wood">Pressure treated wood</option><option value="Cedar">Cedar</option><option value="Mahogany or hardwood">Mahogany or hardwood</option><option value="Composite">Composite</option><option value="Vinyl">Vinyl</option><option value="Painted or stained wood">Painted or stained wood</option><option value="Not sure">Not sure</option></select>
+<span class="hint">Optional. It sets the pressure we can safely use.</span>
 </div>
 <div class="field wide" data-field>
 <label for="qf-msg">Anything else we should know?</label>
