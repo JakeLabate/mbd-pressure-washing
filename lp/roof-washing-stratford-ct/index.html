@@ -604,7 +604,7 @@ li{margin:0 0 .4em}
 <div class="wrap cols cols-form">
 <div class="formwrap">
 <h3>Request a free estimate</h3>
-<p class="formintro">Tell us about the property and what needs cleaning. Quotes are based on the property rather than a price list, so the more detail the better.</p>
+<p class="formintro">Roof washing in Stratford, CT. Leave your details and we will come back with a price. It takes about thirty seconds.</p>
 <form id="quoteForm" novalidate>
 <div class="fgrid">
 <div class="field" data-field>
@@ -627,16 +627,7 @@ li{margin:0 0 .4em}
 <select id="qf-property" name="property" required aria-required="true"><option value="">Select property type</option><option value="Residential">Residential</option><option value="Commercial">Commercial</option></select>
 <span class="err" id="qf-property-err">Please choose residential or commercial.</span>
 </div>
-<div class="field" data-field>
-<label for="qf-town">Town <span aria-hidden="true">*</span></label>
-<select id="qf-town" name="town" required aria-required="true"><option value="Milford, CT">Milford, CT</option><option value="West Haven, CT">West Haven, CT</option><option value="Stratford, CT" selected>Stratford, CT</option><option value="Fairfield, CT">Fairfield, CT</option><option value="Bridgeport, CT">Bridgeport, CT</option><option value="Orange, CT">Orange, CT</option><option value="Woodbridge, CT">Woodbridge, CT</option><option value="Norwalk, CT">Norwalk, CT</option><option value="Westport, CT">Westport, CT</option><option value="Trumbull, CT">Trumbull, CT</option><option value="Seymour, CT">Seymour, CT</option><option value="Branford, CT">Branford, CT</option><option value="East Haven, CT">East Haven, CT</option><option value="Guilford, CT">Guilford, CT</option><option value="Somewhere else nearby">Somewhere else nearby</option></select>
-<span class="err" id="qf-town-err">Please choose the town.</span>
-</div>
-<div class="field" data-field>
-<label for="qf-surface">What needs cleaning? <span aria-hidden="true">*</span></label>
-<select id="qf-surface" name="surface" required aria-required="true"><option value="Roof washing" selected>Roof washing</option><option value="House washing / siding">House washing / siding</option><option value="Gutter cleaning">Gutter cleaning</option><option value="Deck or fence">Deck or fence</option><option value="Patio, walkway or driveway">Patio, walkway or driveway</option><option value="More than one of these">More than one of these</option><option value="Not sure yet, please advise">Not sure yet, please advise</option></select>
-<span class="err" id="qf-surface-err">Please pick one, or choose the last option.</span>
-</div>
+<input type="hidden" name="town" value="Stratford, CT"><input type="hidden" name="surface" value="Roof washing">
 <div class="field wide" data-field>
 <label for="qf-address">Street address</label>
 <input id="qf-address" name="address" type="text" autocomplete="street-address" placeholder="So we can look at the property before quoting">
@@ -748,6 +739,7 @@ li{margin:0 0 .4em}
     var bad = [];
     ['qf-name','qf-phone','qf-property','qf-town','qf-surface'].forEach(function(id){
       var el = document.getElementById(id);
+      if(!el) return;               // hidden on landing pages, value comes preset
       var empty = !el.value.trim();
       setInvalid(el, empty);
       if(empty) bad.push(el);
