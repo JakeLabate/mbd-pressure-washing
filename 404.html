@@ -304,15 +304,9 @@ li{margin:0 0 .4em}
 /* Small screens: pitch, then the form, then the supporting detail. The form
    is the only thing on this page that earns money, so it goes above the
    bullets rather than below them. */
-.lp-hero .hero-copy{order:1}
-.lp-hero #quote{order:2}
-.lp-hero .hero-extra{order:3}
-.lp-hero .hero-extra .lp-points{margin-top:0}
 @media(min-width:940px){
   .lp-hero .hero-in{grid-template-columns:1.02fr .98fr;align-items:start}
-  .lp-hero .hero-copy{grid-column:1;grid-row:1;padding-top:8px}
-  .lp-hero .hero-extra{grid-column:1;grid-row:2}
-  .lp-hero #quote{grid-column:2;grid-row:1 / span 2}
+  .lp-hero .hero-copy{padding-top:8px}
 }
 /* the form sits on the hero panel, so it needs its own edge to read as a card */
 .lp-points{list-style:none;padding-left:0;display:grid;gap:10px;margin-top:20px}
@@ -558,6 +552,8 @@ li{margin:0 0 .4em}
   width:100%;
 }
 .field textarea{min-height:116px;resize:vertical}
+/* on landing pages the message box is a note, not an essay */
+.lp-hero .field textarea{min-height:64px}
 .field input:focus,.field select:focus,.field textarea:focus{
   border-color:var(--gold);outline:2px solid var(--gold-lite);outline-offset:1px;
 }
