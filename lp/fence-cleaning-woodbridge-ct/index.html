@@ -634,9 +634,10 @@ li{margin:0 0 .4em}
 <span class="hint">Optional, but it lets us size the job without a second call.</span>
 </div>
 <div class="field wide" data-field>
-<label for="qf-material">Siding or decking material</label>
-<input id="qf-material" name="material" type="text" placeholder="Vinyl, cedar, Hardie board, composite, not sure">
-<span class="hint">Optional. It decides the pressure and the solution we use.</span>
+<label for="qf-material">Fence material, and rough length</label>
+<select id="qf-material" name="fence_material">
+<option value="">Select if you know</option><option value="Vinyl">Vinyl</option><option value="Wood, stained or bare">Wood, stained or bare</option><option value="Painted wood">Painted wood</option><option value="Composite">Composite</option><option value="Chain link">Chain link</option><option value="Not sure">Not sure</option></select>
+<span class="hint">Optional. A rough run in feet is plenty.</span>
 </div>
 <div class="field wide" data-field>
 <label for="qf-msg">Anything else we should know?</label>
