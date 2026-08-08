@@ -312,7 +312,6 @@ li{margin:0 0 .4em}
   .lp-hero #quote{grid-column:2;grid-row:1 / span 2}
 }
 /* the form sits on the hero panel, so it needs its own edge to read as a card */
-.lp-hero .formwrap{border-color:var(--gold);box-shadow:0 18px 44px rgba(0,0,0,.45)}
 .lp-points{list-style:none;padding-left:0;display:grid;gap:10px;margin-top:20px}
 .lp-points li{position:relative;padding-left:26px;margin:0;color:var(--bone);font-size:1rem}
 .lp-points li::before{content:"";position:absolute;left:0;top:.6em;width:13px;height:2px;background:var(--gold-lite)}
@@ -531,6 +530,10 @@ li{margin:0 0 .4em}
   border-radius:4px;
   padding:clamp(20px,3vw,30px);
 }
+/* On a landing page the form is the page, so it drops the card and the fields
+   sit directly on the hero. */
+.lp-hero .formwrap{background:none;border:0;border-radius:0;padding:0;box-shadow:none}
+.lp-hero .formwrap h3{margin-bottom:16px}
 .formwrap h3{margin-bottom:6px}
 .formwrap .formintro{color:var(--muted);font-size:.94rem;margin-bottom:22px}
 .fgrid{display:grid;grid-template-columns:1fr;gap:1.05rem}
@@ -565,8 +568,18 @@ li{margin:0 0 .4em}
 .field[data-invalid="true"] textarea{border-color:var(--danger)}
 .field[data-invalid="true"] .err{display:block}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.formfoot{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-top:1.4rem}
-.formnote{font-size:.84rem;color:var(--muted);max-width:44ch;margin:0}
+.formfoot{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.1rem;margin-top:1.15rem}
+.formnote{font-size:.92rem;color:var(--muted);margin:0}
+.formnote a{font-weight:700}
+/* Side by side needs 380px and a 390px phone gives the form 350px, so below
+   that the button goes full width and the phone centres under it. A wrapped
+   half width button next to stray text looks like a bug; this looks chosen,
+   and a full width tap target is better on a phone anyway. */
+@media(max-width:430px){
+  .formfoot{flex-direction:column;align-items:stretch;gap:.7rem}
+  .formfoot .btn{width:100%;justify-content:center}
+  .formnote{text-align:center;font-size:.95rem}
+}
 .formstatus{
   margin-top:1.1rem;font-size:.94rem;border-radius:3px;
   padding-top:14px;padding-bottom:14px;padding-left:16px;padding-right:16px;
@@ -619,7 +632,7 @@ li{margin:0 0 .4em}
 </div>
 <div id="quote"><div class="formwrap">
 <h3>Request a free estimate</h3>
-<p class="formintro">Patio cleaning in Guilford, CT. Leave your details and we will come back with a price. It takes about thirty seconds.</p>
+
 <form id="quoteForm" novalidate>
 <div class="fgrid">
 <div class="field" data-field>
@@ -668,7 +681,7 @@ li{margin:0 0 .4em}
 
 <div class="formfoot">
 <button class="btn" type="submit" id="qf-submit">Send my request</button>
-<p class="formnote">Prefer to talk? Call <a href="tel:+14754506215">475-450-6215</a>. We never share your details.</p>
+<p class="formnote">Or call <a href="tel:+14754506215">475-450-6215</a></p>
 </div>
 <div class="formstatus" id="qf-status" role="status" aria-live="polite"></div>
 </form>
