@@ -291,7 +291,6 @@ li{margin:0 0 .4em}
 }
 .tel,.callbar,.foot-tel,.tel-big{letter-spacing:.015em}
 
-
 /* paid landing pages */
 .lp-bar{background:var(--void);border-bottom:1px solid var(--gold-deep)}
 .lp-bar-in{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
@@ -419,47 +418,22 @@ li{margin:0 0 .4em}
   margin-top:6px;margin-bottom:6px;
 }
 .foot .foot-tel:hover{color:var(--gold-lite);text-decoration:none}
-/* The review widget renders in EmbedSocial's own styles, likely inside an
-   iframe, so none of it is reachable from here. It gets a light surface to
-   land on rather than a guess at overriding it. */
+
 /* Full-bleed review band. It sits outside .wrap and takes no horizontal
    padding, so it runs the full width of the viewport. No max-width: a marquee
    slider is meant to run off both edges. Vertical padding only. */
-.reviews-band{
-  position:relative;
-  background:var(--void);
-  margin-top:clamp(28px,4vw,44px);
-  padding-top:0;padding-bottom:0;
-  overflow:hidden;
-  font-size:0;          /* kills the inline descender gap under the embed */
-}
+
 /* An iframe is inline by default and sits on the text baseline, which leaves a
    few pixels of background showing underneath it. This is the usual cause of a
    thin strip below an embed. */
-.reviews-band iframe{display:block;width:100%;border:0}
-.reviews-band > *{font-size:1rem}
+
 /* Masks the third-party branding row pinned to the bottom of the widget.
    Change the background below to recolor it. */
-.reviews-band::after{
-  content:"";
-  position:absolute;
-  left:0;right:0;bottom:0;
-  height:53px;
-  background:var(--void);
-  z-index:2;
-}
-.reviews-band img{max-width:100%;height:auto}
+
 /* Black band and mask. Band height is driven entirely by the embed, so this
    background sits fully behind it; light text covers the case where the embed
    fails to load. */
-.reviews-band{color:var(--paper)}
-.reviews-band a{color:var(--bone)}
-.reviews-band a:hover{color:var(--paper)}
-.reviews-band .es-widget-branding{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:.78rem;text-decoration:none;
-  padding-left:var(--pad);padding-right:var(--pad);
-}
+
 .foot-social-h{margin-top:20px}
 .foot-social{display:flex;flex-wrap:wrap;gap:16px}
 .foot-social a{
@@ -608,8 +582,273 @@ li{margin:0 0 .4em}
   stroke-linejoin:round;vector-effect:non-scaling-stroke;
 }
 .townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
+
+/* Review scroller. Horizontal scroll-snap rail, no third-party CSS. */
+.rv-rail{
+  display:grid;grid-auto-flow:column;
+  grid-auto-columns:minmax(268px,336px);
+  gap:20px;
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:none;
+  scroll-padding-left:2px;
+  padding:2px 2px 16px;
+  margin:0 -2px;
+  scrollbar-width:thin;scrollbar-color:var(--gold-deep) transparent;
+  -webkit-overflow-scrolling:touch;
+}
+.rv-rail::-webkit-scrollbar{height:8px}
+.rv-rail::-webkit-scrollbar-track{background:var(--field)}
+.rv-rail::-webkit-scrollbar-thumb{background:var(--gold-deep);border-radius:4px}
+.rv-rail.rv-snap{scroll-snap-type:x mandatory}
+/* A small set should fill the row rather than trail off with dead space. */
+.rv-rail.rv-few{grid-auto-columns:minmax(268px,1fr)}
+@media (max-width:720px){.rv-rail.rv-few{grid-auto-columns:minmax(268px,300px)}}
+.rv-card{
+  scroll-snap-align:start;
+  background:var(--ember);
+  border:1px solid var(--gold-deep);
+  border-top:3px solid var(--gold-deep);
+  padding:24px 24px 22px;
+  display:flex;flex-direction:column;gap:16px;
+  transition:border-top-color .18s ease,transform .18s ease;
+}
+.rv-card:hover{border-top-color:var(--gold);transform:translateY(-2px)}
+.rv-stars{display:flex;gap:3px;align-items:center}
+.rv-stars svg{width:15px;height:15px;display:block}
+.rv-quote{
+  margin:0 0 4px;color:var(--bone);font-size:.97rem;line-height:1.62;
+  /* long reviews clamp so cards stay a scannable height; full text is in
+     the schema markup and one tap away on the profile */
+  display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden;
+}
+.rv-meta{
+  margin-top:auto;padding-top:16px;
+  border-top:1px solid var(--gold-deep);
+  display:flex;align-items:center;gap:12px;
+}
+.rv-face{
+  width:40px;height:40px;flex:0 0 40px;border-radius:50%;
+  object-fit:cover;display:block;
+  border:1px solid var(--gold-deep);background:var(--field);
+}
+.rv-initial{
+  width:40px;height:40px;flex:0 0 40px;border-radius:50%;
+  border:1px solid var(--gold-deep);background:var(--field);
+  color:var(--gold-lite);font-weight:700;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--num);letter-spacing:.02em;
+}
+.rv-who{display:flex;flex-direction:column;gap:3px;min-width:0}
+.rv-author{color:var(--paper);font-weight:700;font-size:.93rem;letter-spacing:.01em}
+.rv-sub{
+  color:var(--muted);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+  font-family:var(--num);
+}
+.rv-head{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px 28px;flex-wrap:wrap;
+  margin:26px 0 22px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--gold-deep);
+}
+.rv-score{display:flex;align-items:center;gap:14px}
+.rv-score b{font-family:var(--num);font-size:2.1rem;color:var(--gold-lite);line-height:1;font-weight:700}
+.rv-score-txt{display:flex;flex-direction:column;gap:5px}
+.rv-nav{display:flex;gap:10px;align-items:center}
+.rv-btn{
+  width:44px;height:44px;flex:0 0 44px;
+  background:var(--field);border:1px solid var(--gold-deep);
+  color:var(--gold-lite);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s ease,border-color .18s ease,opacity .18s ease;
+}
+.rv-btn:hover:not(:disabled){background:var(--panel);border-color:var(--gold)}
+.rv-btn:focus-visible{outline:2px solid var(--gold-lite);outline-offset:3px}
+.rv-btn:disabled{opacity:.3;cursor:default}
+.rv-card:focus-visible{outline:2px solid var(--gold-lite);outline-offset:3px}
+.rv-more{margin:22px 0 0}
+.rv-toggle svg{width:15px;height:15px}
+.rv-rail::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+/* the empty state has no rail to separate heading from copy */
+#reviews .rv-empty{margin:18px 0 0;max-width:52ch}
+@media (max-width:520px){
+  .rv-head{margin:22px 0 18px;padding-bottom:16px}
+  .rv-card{padding:20px 20px 18px;gap:14px}
+  .rv-rail{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){.rv-rail{scroll-behavior:auto}}
+
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://mbdpressurewashing.net/#website", "url": "https://mbdpressurewashing.net/", "name": "MBD Pressure Washing", "inLanguage": "en-US", "publisher": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "WebPage", "@id": "https://mbdpressurewashing.net/#webpage", "url": "https://mbdpressurewashing.net/", "name": "MBD Pressure Washing | Soft Washing in Milford, CT", "description": "Owner-operated soft washing, roof washing and gutter cleaning for homes in Milford, Stratford, Fairfield and nearby Connecticut towns. Free estimates.", "isPartOf": {"@id": "https://mbdpressurewashing.net/#website"}, "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}]}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://mbdpressurewashing.net/#website",
+      "url": "https://mbdpressurewashing.net/",
+      "name": "MBD Pressure Washing",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://mbdpressurewashing.net/#org"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mbdpressurewashing.net/#webpage",
+      "url": "https://mbdpressurewashing.net/",
+      "name": "MBD Pressure Washing | Soft Washing in Milford, CT",
+      "description": "Owner-operated soft washing, roof washing and gutter cleaning for homes in Milford, Stratford, Fairfield and nearby Connecticut towns. Free estimates.",
+      "isPartOf": {
+        "@id": "https://mbdpressurewashing.net/#website"
+      },
+      "about": {
+        "@id": "https://mbdpressurewashing.net/#org"
+      }
+    },
+    {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": "https://mbdpressurewashing.net/#org",
+      "name": "MBD Pressure Washing",
+      "alternateName": "MBDPressurewashing.net",
+      "url": "https://mbdpressurewashing.net/",
+      "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.",
+      "telephone": "+1-475-450-6215",
+      "image": "https://mbdpressurewashing.net/img/og.png",
+      "logo": "https://mbdpressurewashing.net/apple-touch-icon.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "CT",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Milford, CT"
+        },
+        {
+          "@type": "City",
+          "name": "West Haven, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Stratford, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Fairfield, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Bridgeport, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Orange, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Woodbridge, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Norwalk, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Westport, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Trumbull, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Seymour, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Branford, CT"
+        },
+        {
+          "@type": "City",
+          "name": "East Haven, CT"
+        },
+        {
+          "@type": "City",
+          "name": "Guilford, CT"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "knowsAbout": [
+        "Soft washing",
+        "Roof washing",
+        "House washing",
+        "Gutter cleaning",
+        "Deck and patio cleaning"
+      ],
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Stephanie Dudding"
+          },
+          "datePublished": "2026-07-22",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": 5,
+            "bestRating": 5,
+            "worstRating": 1
+          },
+          "reviewBody": "I highly recommend MBD pressure washing company! From the first phone call to the completion of the job, they were professional, responsive, and courteous. They arrived on time, worked efficiently, and paid attention to every detail. My house, driveway, sidewalks, and patio look absolutely amazing\u2014everything looks fresh, clean, and almost brand new."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Roy Alling"
+          },
+          "datePublished": "2026-07-25",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": 5,
+            "bestRating": 5,
+            "worstRating": 1
+          },
+          "reviewBody": "Just had MBD pressure washing out to do a roof and house wash and the results are incredible. i didn't realize how much grime and algae had built up until it was gone. They were on time, professional, and clearly took care to protect the landscaping and siding while they worked. The roof looks brand new and the whole exterior of the house is noticeably brighter. Great communication throughout and fair pricing for the quality of work. Highly recommend MBD for pressure washing !"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Hailey Dudding"
+          },
+          "datePublished": "2026-07-20",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": 5,
+            "bestRating": 5,
+            "worstRating": 1
+          },
+          "reviewBody": "Hard working guys who know what they are doing. Don't hesitate to hire mbd pressure washing!"
+        }
+      ]
+    }
+  ]
+}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -800,32 +1039,7 @@ Your browser cannot play this video. <a href="/img/mbd-video.mp4">Download the c
 </div>
 </section>
 
-<section class="sec sec-shell" id="reviews">
-<div class="wrap">
-<p class="eyebrow">Reviews</p>
-<h2>What Connecticut homeowners say.</h2>
-<p class="lead muted">Published on Google and loaded straight from the business profile, so what you see here is what is on the listing.</p>
-</div>
-<div class="reviews-band">
-<div class="embedsocial-hashtag" data-ref="3cfdab0ed5fc52f7f8c9ddaa4e19e623f2dfcd98">
-<a class="feed-powered-by-es feed-powered-by-es-feed-img es-widget-branding" href="https://embedsocial.com/google-reviews-widget/" target="_blank" rel="noopener" title="Embed Google reviews">
-<img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial" width="20" height="20">
-<div class="es-widget-branding-text">Embed Google reviews</div>
-</a>
-</div>
-</div>
-<script>
-(function(d, s, id) {
-  var js;
-  if (d.getElementById(id)) { return; }
-  js = d.createElement(s);
-  js.id = id;
-  js.async = true;
-  js.src = "https://embedsocial.com/cdn/ht.js";
-  d.getElementsByTagName("head")[0].appendChild(js);
-}(document, "script", "EmbedSocialHashtagScript"));
-</script>
-</section>
+<section class="sec sec-shell" id="reviews"><div class="wrap"><p class="eyebrow">Reviews</p><h2>What Connecticut homeowners say.</h2><div class="rv-head"><span class="rv-sub">Recent reviews from Facebook and Google</span><div class="rv-nav"><button class="rv-btn rv-toggle" id="rv-toggle" type="button" aria-label="Pause automatic scrolling" aria-pressed="false" aria-controls="rv-rail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" fill="currentColor"/><rect x="14" y="5" width="4" height="14" fill="currentColor"/></svg></button><button class="rv-btn" id="rv-prev" type="button" aria-label="Previous reviews" aria-controls="rv-rail"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-8 7 8 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="rv-btn" id="rv-next" type="button" aria-label="More reviews" aria-controls="rv-rail"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div><div class="rv-rail rv-few" id="rv-rail" tabindex="0" role="region" aria-label="Customer reviews, scroll horizontally"><article class="rv-card" tabindex="0"><div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg></div><p class="rv-quote">Just had MBD pressure washing out to do a roof and house wash and the results are incredible. i didn&#x27;t realize how much grime and algae had built up until it was gone. They were on time, professional, and clearly took care to protect the landscaping and siding while they worked. The roof looks brand new and the whole exterior of the house is noticeably brighter. Great communication throughout and fair pricing for the quality of work. Highly recommend MBD for pressure washing !</p><div class="rv-meta"><span class="rv-initial" aria-hidden="true">R</span><span class="rv-who"><span class="rv-author">Roy Alling</span><span class="rv-sub">Jul 2026 / Google</span></span></div></article><article class="rv-card" tabindex="0"><div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg></div><p class="rv-quote">I highly recommend MBD pressure washing company! From the first phone call to the completion of the job, they were professional, responsive, and courteous. They arrived on time, worked efficiently, and paid attention to every detail. My house, driveway, sidewalks, and patio look absolutely amazing—everything looks fresh, clean, and almost brand new.</p><div class="rv-meta"><img class="rv-face" src="/img/reviews/stephanie-dudding.jpg" alt="" width="40" height="40" loading="lazy" decoding="async"><span class="rv-who"><span class="rv-author">Stephanie Dudding</span><span class="rv-sub">Jul 2026 / Facebook</span></span></div></article><article class="rv-card" tabindex="0"><div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg></div><p class="rv-quote">Hard working guys who know what they are doing. Don&#x27;t hesitate to hire mbd pressure washing!</p><div class="rv-meta"><img class="rv-face" src="/img/reviews/hailey-dudding.jpg" alt="" width="40" height="40" loading="lazy" decoding="async"><span class="rv-who"><span class="rv-author">Hailey Dudding</span><span class="rv-sub">Jul 2026 / Facebook</span></span></div></article><div class="rv-clones" id="rv-clones" aria-hidden="true" style="display:contents"></div></div></div></section>
 
 <section class="sec cta">
 <div class="wrap">
@@ -892,5 +1106,118 @@ Your browser cannot play this video. <a href="/img/mbd-video.mp4">Download the c
 })();
 </script>
 
+<script>(function(){
+var rail=document.getElementById('rv-rail');if(!rail)return;
+var prev=document.getElementById('rv-prev'),next=document.getElementById('rv-next'),
+    toggle=document.getElementById('rv-toggle'),clones=document.getElementById('rv-clones');
+var SPEED=22;           /* px per second, a slow read-along drift */
+var RESUME=3500;        /* idle time before the drift picks back up */
+var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* If everything already fits, there is nothing to scroll and a drifting rail
+   would just jitter. Measured, not assumed. */
+var fits=rail.scrollWidth<=rail.clientWidth+8;
+/* With a clone set the rail wraps; without one it reverses at each end. */
+var loop=!!(clones&&clones.children.length), dir=1;
+var playing=!reduced&&!fits, paused=false, userHeld=false, idleTimer=null, last=null, raf=null;
+/* scrollLeft rounds sub-pixel writes away, so a 22px/s drift would never
+   move. Position is accumulated as a float here and written out each frame. */
+var pos=0;
+
+function half(){return rail.scrollWidth/2;}
+function step(){var c=rail.firstElementChild;return c?c.getBoundingClientRect().width+20:320;}
+
+/* The loop only advances when nothing else is driving the rail. */
+function tick(now){
+  if(last===null)last=now;
+  var dt=(now-last)/1000; last=now;
+  if(playing&&!paused&&!userHeld&&dt<0.5){
+    pos+=SPEED*dt*dir;
+    if(loop){
+      var h=half();
+      if(pos>=h)pos-=h;
+    }else{
+      var max=rail.scrollWidth-rail.clientWidth;
+      if(pos>=max){pos=max;dir=-1;}
+      else if(pos<=0){pos=0;dir=1;}
+    }
+    rail.scrollLeft=pos;
+  }
+  raf=requestAnimationFrame(tick);
+}
+
+/* Manual control wins immediately, then hands back after a pause. */
+function hold(){
+  userHeld=true; rail.classList.add('rv-snap');
+  if(idleTimer)clearTimeout(idleTimer);
+}
+function resync(){pos=rail.scrollLeft; last=null;}
+function release(){
+  if(idleTimer)clearTimeout(idleTimer);
+  idleTimer=setTimeout(function(){
+    userHeld=false; rail.classList.remove('rv-snap'); resync();
+  },RESUME);
+}
+function nudge(d){
+  hold();
+  /* Manual paging sets the drift direction too, so it carries on the way the
+     visitor was already heading. */
+  dir=d<0?-1:1;
+  /* Going left from the start jumps to the matching spot in the clone set
+     first, so the rail loops instead of stopping dead. */
+  if(loop&&d<0&&rail.scrollLeft<step()){rail.scrollLeft+=half();pos=rail.scrollLeft;}
+  rail.scrollBy({left:d*step(),behavior:reduced?'auto':'smooth'});
+  release();
+}
+
+prev.addEventListener('click',function(){nudge(-1);});
+next.addEventListener('click',function(){nudge(1);});
+
+/* Wrap on manual scrolling too, so the rail never dead-ends. */
+rail.addEventListener('scroll',function(){
+  if(!loop)return;
+  var h=half();
+  if(rail.scrollLeft>=h*2-2){rail.scrollLeft-=h;pos=rail.scrollLeft;}
+},{passive:true});
+
+['pointerdown','wheel','touchstart'].forEach(function(ev){
+  rail.addEventListener(ev,function(){hold();release();},{passive:true});
+});
+rail.addEventListener('keydown',function(e){
+  if(e.key==='ArrowLeft'){nudge(-1);e.preventDefault();}
+  if(e.key==='ArrowRight'){nudge(1);e.preventDefault();}
+});
+/* Hover and keyboard focus suspend the drift without cancelling it. */
+rail.addEventListener('pointerenter',function(){paused=true;});
+rail.addEventListener('pointerleave',function(){paused=false;resync();});
+rail.addEventListener('focusin',function(){paused=true;});
+rail.addEventListener('focusout',function(){paused=false;resync();});
+document.addEventListener('visibilitychange',function(){
+  paused=document.hidden; if(!document.hidden)resync();
+});
+
+var PLAY='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>';
+var PAUSE='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" fill="currentColor"/><rect x="14" y="5" width="4" height="14" fill="currentColor"/></svg>';
+function paint(){
+  toggle.innerHTML=playing?PAUSE:PLAY;
+  toggle.setAttribute('aria-label',playing?'Pause automatic scrolling':'Resume automatic scrolling');
+  toggle.setAttribute('aria-pressed',playing?'false':'true');
+}
+toggle.addEventListener('click',function(){
+  playing=!playing; resync();
+  if(playing){userHeld=false;rail.classList.remove('rv-snap');}
+  else{rail.classList.add('rv-snap');}
+  paint();
+});
+
+if(reduced||fits){rail.classList.add('rv-snap');}
+if(fits){
+  /* controls would be dead buttons */
+  var nav=toggle.parentNode; if(nav)nav.style.display='none';
+  if(clones&&clones.parentNode)clones.parentNode.removeChild(clones);
+  return;
+}
+paint();
+raf=requestAnimationFrame(tick);
+})();</script>
 </body>
 </html>
