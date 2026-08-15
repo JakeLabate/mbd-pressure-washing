@@ -608,7 +608,7 @@ li{margin:0 0 .4em}
   background:var(--ember);
   border:1px solid var(--gold-deep);
   border-top:3px solid var(--gold-deep);
-  padding:24px 24px 22px;
+  padding:24px 24px 22px;border-radius:0;
   display:flex;flex-direction:column;gap:16px;
   transition:border-top-color .18s ease,transform .18s ease;
 }
@@ -655,7 +655,7 @@ li{margin:0 0 .4em}
 .rv-score b{font-family:var(--num);font-size:2.1rem;color:var(--gold-lite);line-height:1;font-weight:700}
 .rv-score-txt{display:flex;flex-direction:column;gap:5px}
 .rv-nav{display:flex;gap:10px;align-items:center}
-.rv-btn{
+.rv-btn{border-radius:0;
   width:44px;height:44px;flex:0 0 44px;
   background:var(--field);border:1px solid var(--gold-deep);
   color:var(--gold-lite);cursor:pointer;
@@ -667,17 +667,16 @@ li{margin:0 0 .4em}
 .rv-btn:disabled{opacity:.3;cursor:default}
 .rv-card:focus-visible{outline:2px solid var(--gold-lite);outline-offset:3px}
 .rv-more{margin:22px 0 0}
-.rv-toggle svg{width:15px;height:15px}
 .rv-rail::-webkit-scrollbar-thumb:hover{background:var(--gold)}
 /* the empty state has no rail to separate heading from copy */
 #reviews .rv-empty{margin:18px 0 0;max-width:52ch}
 @media (max-width:520px){
   .rv-head{margin:22px 0 18px;padding-bottom:16px}
   .rv-card{padding:20px 20px 18px;gap:14px}
+  /* the scrollbar lives inside this padding on touch devices */
   .rv-rail{gap:14px;padding-bottom:26px}
 }
 @media (prefers-reduced-motion:reduce){.rv-rail{scroll-behavior:auto}}
-
 </style>
 <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -1039,7 +1038,7 @@ Your browser cannot play this video. <a href="/img/mbd-video.mp4">Download the c
 </div>
 </section>
 
-<section class="sec sec-shell" id="reviews"><div class="wrap"><p class="eyebrow">Reviews</p><h2>What Connecticut homeowners say.</h2><div class="rv-head"><span class="rv-sub">Recent reviews from Facebook and Google</span><div class="rv-nav"><button class="rv-btn rv-toggle" id="rv-toggle" type="button" aria-label="Pause automatic scrolling" aria-pressed="false" aria-controls="rv-rail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" fill="currentColor"/><rect x="14" y="5" width="4" height="14" fill="currentColor"/></svg></button><button class="rv-btn" id="rv-prev" type="button" aria-label="Previous reviews" aria-controls="rv-rail"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-8 7 8 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="rv-btn" id="rv-next" type="button" aria-label="More reviews" aria-controls="rv-rail"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div><div class="rv-rail rv-few" id="rv-rail" tabindex="0" role="region" aria-label="Customer reviews, scroll horizontally"><article class="rv-card" tabindex="0"><div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg></div><p class="rv-quote">Just had MBD pressure washing out to do a roof and house wash and the results are incredible. i didn&#x27;t realize how much grime and algae had built up until it was gone. They were on time, professional, and clearly took care to protect the landscaping and siding while they worked. The roof looks brand new and the whole exterior of the house is noticeably brighter. Great communication throughout and fair pricing for the quality of work. Highly recommend MBD for pressure washing !</p><div class="rv-meta"><span class="rv-initial" aria-hidden="true">R</span><span class="rv-who"><span class="rv-author">Roy Alling</span><span class="rv-sub">Jul 2026 / Google</span></span></div></article><article class="rv-card" tabindex="0"><div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg></div><p class="rv-quote">I highly recommend MBD pressure washing company! From the first phone call to the completion of the job, they were professional, responsive, and courteous. They arrived on time, worked efficiently, and paid attention to every detail. My house, driveway, sidewalks, and patio look absolutely amazing—everything looks fresh, clean, and almost brand new.</p><div class="rv-meta"><img class="rv-face" src="/img/reviews/stephanie-dudding.jpg" alt="" width="40" height="40" loading="lazy" decoding="async"><span class="rv-who"><span class="rv-author">Stephanie Dudding</span><span class="rv-sub">Jul 2026 / Facebook</span></span></div></article><article class="rv-card" tabindex="0"><div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg></div><p class="rv-quote">Hard working guys who know what they are doing. Don&#x27;t hesitate to hire mbd pressure washing!</p><div class="rv-meta"><img class="rv-face" src="/img/reviews/hailey-dudding.jpg" alt="" width="40" height="40" loading="lazy" decoding="async"><span class="rv-who"><span class="rv-author">Hailey Dudding</span><span class="rv-sub">Jul 2026 / Facebook</span></span></div></article><div class="rv-clones" id="rv-clones" aria-hidden="true" style="display:contents"></div></div></div></section>
+<section class="sec sec-shell" id="reviews"><div class="wrap"><p class="eyebrow">Reviews</p><h2>What Connecticut homeowners say.</h2><div class="rv-head"><span class="rv-sub">Recent reviews from Facebook and Google</span><div class="rv-nav"><button class="rv-btn" id="rv-prev" type="button" aria-label="Previous reviews" aria-controls="rv-rail"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-8 7 8 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="rv-btn" id="rv-next" type="button" aria-label="More reviews" aria-controls="rv-rail"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div><div class="rv-rail rv-few" id="rv-rail" tabindex="0" role="region" aria-label="Customer reviews, scroll horizontally"><article class="rv-card" tabindex="0"><div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg></div><p class="rv-quote">Just had MBD pressure washing out to do a roof and house wash and the results are incredible. i didn&#x27;t realize how much grime and algae had built up until it was gone. They were on time, professional, and clearly took care to protect the landscaping and siding while they worked. The roof looks brand new and the whole exterior of the house is noticeably brighter. Great communication throughout and fair pricing for the quality of work. Highly recommend MBD for pressure washing !</p><div class="rv-meta"><span class="rv-initial" aria-hidden="true">R</span><span class="rv-who"><span class="rv-author">Roy Alling</span><span class="rv-sub">Jul 2026 / Google</span></span></div></article><article class="rv-card" tabindex="0"><div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg></div><p class="rv-quote">I highly recommend MBD pressure washing company! From the first phone call to the completion of the job, they were professional, responsive, and courteous. They arrived on time, worked efficiently, and paid attention to every detail. My house, driveway, sidewalks, and patio look absolutely amazing—everything looks fresh, clean, and almost brand new.</p><div class="rv-meta"><img class="rv-face" src="/img/reviews/stephanie-dudding.jpg" alt="" width="40" height="40" loading="lazy" decoding="async"><span class="rv-who"><span class="rv-author">Stephanie Dudding</span><span class="rv-sub">Jul 2026 / Facebook</span></span></div></article><article class="rv-card" tabindex="0"><div class="rv-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5 6.1 20.6l1.2-6.5L2.5 9.5l6.6-.9z" fill="var(--gold-lite)" stroke="var(--gold-lite)" stroke-width="1.4" stroke-linejoin="round"/></svg></div><p class="rv-quote">Hard working guys who know what they are doing. Don&#x27;t hesitate to hire mbd pressure washing!</p><div class="rv-meta"><img class="rv-face" src="/img/reviews/hailey-dudding.jpg" alt="" width="40" height="40" loading="lazy" decoding="async"><span class="rv-who"><span class="rv-author">Hailey Dudding</span><span class="rv-sub">Jul 2026 / Facebook</span></span></div></article><div class="rv-clones" id="rv-clones" aria-hidden="true" style="display:contents"></div></div></div></section>
 
 <section class="sec cta">
 <div class="wrap">
@@ -1109,28 +1108,33 @@ Your browser cannot play this video. <a href="/img/mbd-video.mp4">Download the c
 <script>(function(){
 var rail=document.getElementById('rv-rail');if(!rail)return;
 var prev=document.getElementById('rv-prev'),next=document.getElementById('rv-next'),
-    toggle=document.getElementById('rv-toggle'),clones=document.getElementById('rv-clones');
+    clones=document.getElementById('rv-clones');
 var SPEED=22;           /* px per second, a slow read-along drift */
-var RESUME=3500;        /* idle time before the drift picks back up */
 var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-/* If everything already fits, there is nothing to scroll and a drifting rail
+/* If everything already fits there is nothing to scroll and a drifting rail
    would just jitter. Measured, not assumed. */
 var fits=rail.scrollWidth<=rail.clientWidth+8;
 /* With a clone set the rail wraps; without one it reverses at each end. */
 var loop=!!(clones&&clones.children.length), dir=1;
-var playing=!reduced&&!fits, paused=false, userHeld=false, idleTimer=null, last=null, raf=null;
-/* scrollLeft rounds sub-pixel writes away, so a 22px/s drift would never
-   move. Position is accumulated as a float here and written out each frame. */
-var pos=0;
+/* scrollLeft rounds sub-pixel writes away, so a 22px/s drift would never move.
+   Position is accumulated as a float here and written out each frame. */
+var pos=0, drifting=!reduced&&!fits, hovering=false, hidden=false, last=null;
 
-function half(){return rail.scrollWidth/2;}
 function step(){var c=rail.firstElementChild;return c?c.getBoundingClientRect().width+20:320;}
+function half(){return rail.scrollWidth/2;}
 
-/* The loop only advances when nothing else is driving the rail. */
+/* Any deliberate action hands the rail over for good. The visitor is reading
+   at their own pace now, and yanking it back would fight them. */
+function takeOver(){
+  if(!drifting)return;
+  drifting=false;
+  rail.classList.add('rv-snap');
+}
+
 function tick(now){
   if(last===null)last=now;
   var dt=(now-last)/1000; last=now;
-  if(playing&&!paused&&!userHeld&&dt<0.5){
+  if(drifting&&!hovering&&!hidden&&dt<0.5){
     pos+=SPEED*dt*dir;
     if(loop){
       var h=half();
@@ -1142,82 +1146,54 @@ function tick(now){
     }
     rail.scrollLeft=pos;
   }
-  raf=requestAnimationFrame(tick);
+  requestAnimationFrame(tick);
 }
 
-/* Manual control wins immediately, then hands back after a pause. */
-function hold(){
-  userHeld=true; rail.classList.add('rv-snap');
-  if(idleTimer)clearTimeout(idleTimer);
-}
-function resync(){pos=rail.scrollLeft; last=null;}
-function release(){
-  if(idleTimer)clearTimeout(idleTimer);
-  idleTimer=setTimeout(function(){
-    userHeld=false; rail.classList.remove('rv-snap'); resync();
-  },RESUME);
-}
 function nudge(d){
-  hold();
-  /* Manual paging sets the drift direction too, so it carries on the way the
-     visitor was already heading. */
-  dir=d<0?-1:1;
-  /* Going left from the start jumps to the matching spot in the clone set
-     first, so the rail loops instead of stopping dead. */
-  if(loop&&d<0&&rail.scrollLeft<step()){rail.scrollLeft+=half();pos=rail.scrollLeft;}
+  takeOver();
+  if(loop&&d<0&&rail.scrollLeft<step()){rail.scrollLeft+=half();}
   rail.scrollBy({left:d*step(),behavior:reduced?'auto':'smooth'});
-  release();
 }
-
 prev.addEventListener('click',function(){nudge(-1);});
 next.addEventListener('click',function(){nudge(1);});
 
-/* Wrap on manual scrolling too, so the rail never dead-ends. */
-rail.addEventListener('scroll',function(){
-  if(!loop)return;
-  var h=half();
-  if(rail.scrollLeft>=h*2-2){rail.scrollLeft-=h;pos=rail.scrollLeft;}
-},{passive:true});
-
+/* Touching, dragging, scrolling or arrowing the rail itself counts too. */
 ['pointerdown','wheel','touchstart'].forEach(function(ev){
-  rail.addEventListener(ev,function(){hold();release();},{passive:true});
+  rail.addEventListener(ev,takeOver,{passive:true});
 });
 rail.addEventListener('keydown',function(e){
   if(e.key==='ArrowLeft'){nudge(-1);e.preventDefault();}
   if(e.key==='ArrowRight'){nudge(1);e.preventDefault();}
 });
-/* Hover and keyboard focus suspend the drift without cancelling it. */
-rail.addEventListener('pointerenter',function(){paused=true;});
-rail.addEventListener('pointerleave',function(){paused=false;resync();});
-rail.addEventListener('focusin',function(){paused=true;});
-rail.addEventListener('focusout',function(){paused=false;resync();});
-document.addEventListener('visibilitychange',function(){
-  paused=document.hidden; if(!document.hidden)resync();
-});
 
-var PLAY='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg>';
-var PAUSE='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" fill="currentColor"/><rect x="14" y="5" width="4" height="14" fill="currentColor"/></svg>';
-function paint(){
-  toggle.innerHTML=playing?PAUSE:PLAY;
-  toggle.setAttribute('aria-label',playing?'Pause automatic scrolling':'Resume automatic scrolling');
-  toggle.setAttribute('aria-pressed',playing?'false':'true');
-}
-toggle.addEventListener('click',function(){
-  playing=!playing; resync();
-  if(playing){userHeld=false;rail.classList.remove('rv-snap');}
-  else{rail.classList.add('rv-snap');}
-  paint();
+/* Wrapping still applies once the visitor is driving. */
+rail.addEventListener('scroll',function(){
+  if(!loop)return;
+  var h=half();
+  if(rail.scrollLeft>=h*2-2){rail.scrollLeft-=h;pos-=h;}
+  /* Deliberately does NOT copy scrollLeft back into pos while drifting.
+     The browser rounds scrollLeft to whole pixels, and feeding that rounded
+     value back in ratchets the error upward: the drift ran 36% fast. */
+},{passive:true});
+
+/* Hovering or tabbing in is a pause, not a hand-off: someone reading a card
+   should not have it slide away, but they have not taken the wheel either. */
+rail.addEventListener('pointerenter',function(){hovering=true;});
+rail.addEventListener('pointerleave',function(){hovering=false;pos=rail.scrollLeft;last=null;});
+rail.addEventListener('focusin',function(){hovering=true;});
+rail.addEventListener('focusout',function(){hovering=false;pos=rail.scrollLeft;last=null;});
+document.addEventListener('visibilitychange',function(){
+  hidden=document.hidden;
+  if(!hidden){pos=rail.scrollLeft;last=null;}
 });
 
 if(reduced||fits){rail.classList.add('rv-snap');}
 if(fits){
-  /* controls would be dead buttons */
-  var nav=toggle.parentNode; if(nav)nav.style.display='none';
+  var nav=prev.parentNode; if(nav)nav.style.display='none';
   if(clones&&clones.parentNode)clones.parentNode.removeChild(clones);
   return;
 }
-paint();
-raf=requestAnimationFrame(tick);
+requestAnimationFrame(tick);
 })();</script>
 </body>
 </html>
