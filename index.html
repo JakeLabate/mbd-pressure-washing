@@ -198,7 +198,7 @@ li{margin:0 0 .4em}
 .sec{padding-top:clamp(48px,6vw,88px);padding-bottom:clamp(48px,6vw,88px)}
 .sec-shell{background:var(--panel)}
 /* the full-bleed band supplies the closing space, so the section drops its own */
-#reviews{padding-bottom:0}
+/* the review band used to run full bleed; it no longer does */
 .prose{max-width:68ch}
 .prose h2{margin-bottom:18px}
 .prose h3{margin-top:32px;margin-bottom:10px}
@@ -591,7 +591,7 @@ li{margin:0 0 .4em}
   overflow-x:auto;overflow-y:hidden;
   scroll-snap-type:none;
   scroll-padding-left:2px;
-  padding:2px 2px 16px;
+  padding:2px 2px 22px;
   margin:0 -2px;
   scrollbar-width:thin;scrollbar-color:var(--gold-deep) transparent;
   -webkit-overflow-scrolling:touch;
@@ -674,7 +674,7 @@ li{margin:0 0 .4em}
 @media (max-width:520px){
   .rv-head{margin:22px 0 18px;padding-bottom:16px}
   .rv-card{padding:20px 20px 18px;gap:14px}
-  .rv-rail{gap:14px}
+  .rv-rail{gap:14px;padding-bottom:26px}
 }
 @media (prefers-reduced-motion:reduce){.rv-rail{scroll-behavior:auto}}
 
