@@ -1120,7 +1120,27 @@ var loop=!!(clones&&clones.children.length), dir=1;
    Position is accumulated as a float here and written out each frame. */
 var pos=0, drifting=!reduced&&!fits, hovering=false, hidden=false, last=null;
 
-function step(){var c=rail.firstElementChild;return c?c.getBoundingClientRect().width+20:320;}
+/* Paging measures real card positions rather than assuming a gap width. The
+   gap differs between breakpoints, so a computed step overshot by a few pixels
+   every tap and walked the card edge off screen on mobile. */
+function cards(){return rail.querySelectorAll('.rv-card');}
+function step(){
+  var c=cards();
+  if(c.length>1)return c[1].getBoundingClientRect().left-c[0].getBoundingClientRect().left;
+  return c.length?c[0].getBoundingClientRect().width:320;
+}
+/* Scroll so the next or previous card sits flush to the rail's left edge,
+   whatever the current offset happens to be. */
+function pageTo(d){
+  var c=cards(), railLeft=rail.getBoundingClientRect().left, target=null;
+  for(var i=0;i<c.length;i++){
+    var delta=c[i].getBoundingClientRect().left-railLeft;
+    if(d>0){ if(delta>6){target=delta;break;} }
+    else   { if(delta<-6)target=delta; }
+  }
+  if(target===null)target=d*step();
+  return Math.round(rail.scrollLeft+target);
+}
 function half(){return rail.scrollWidth/2;}
 
 /* Any deliberate action hands the rail over for good. The visitor is reading
@@ -1151,8 +1171,9 @@ function tick(now){
 
 function nudge(d){
   takeOver();
+  dir=d<0?-1:1;
   if(loop&&d<0&&rail.scrollLeft<step()){rail.scrollLeft+=half();}
-  rail.scrollBy({left:d*step(),behavior:reduced?'auto':'smooth'});
+  rail.scrollTo({left:pageTo(d),behavior:reduced?'auto':'smooth'});
 }
 prev.addEventListener('click',function(){nudge(-1);});
 next.addEventListener('click',function(){nudge(1);});
