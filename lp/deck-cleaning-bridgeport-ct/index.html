@@ -16,8 +16,15 @@
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..700&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
+/* Fraunces, vendored so it is same origin: no third-party connection and
+   nothing extra to block first paint. Replaces Bodoni Moda, whose hairline
+   strokes thinned out at display sizes and dropped out entirely at text
+   sizes. Fraunces holds an even stroke weight and reads cleanly on dark. */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;
+  src:url('/fonts/fraunces-latin-600-normal.woff2') format('woff2')}
+
 :root{
   --void:#000000;
   --ink:#0b0a09;
@@ -31,11 +38,11 @@
   --gold-deep:#704b19;
   --field:#141210;
   --danger:#ff8a7a;
-  --display:"Bodoni Moda","Didot","Times New Roman",serif;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
   --body:"Public Sans",system-ui,-apple-system,Segoe UI,sans-serif;
-  /* Numerals never use the Didone. At text sizes its hairline diagonal drops
-     out and the 4 collapses toward the width of a 1. Public Sans holds a
-     steady 2.2x width difference at every size the site uses. */
+  /* Numerals stay on the sans. Fraunces sets a handsome figure but the
+     tabular rhythm of Public Sans is easier to scan in prices and phone
+     numbers, which is all --num is used for. */
   --num:"Public Sans",system-ui,-apple-system,Segoe UI,sans-serif;
   --w:1120px;
   --pad:clamp(20px,5vw,44px);
