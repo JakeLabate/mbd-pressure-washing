@@ -1,0 +1,94 @@
+/* Review scroller. Horizontal scroll-snap rail, no third-party CSS. */
+.rv-rail{
+  display:grid;grid-auto-flow:column;
+  grid-auto-columns:minmax(268px,336px);
+  gap:20px;
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:none;
+  scroll-padding-left:2px;
+  padding:2px 2px 22px;
+  margin:0 -2px;
+  scrollbar-width:thin;scrollbar-color:var(--gold-deep) transparent;
+  -webkit-overflow-scrolling:touch;
+}
+.rv-rail::-webkit-scrollbar{height:8px}
+.rv-rail::-webkit-scrollbar-track{background:var(--field)}
+.rv-rail::-webkit-scrollbar-thumb{background:var(--gold-deep);border-radius:4px}
+.rv-rail.rv-snap{scroll-snap-type:x mandatory}
+/* A small set should fill the row rather than trail off with dead space. */
+.rv-rail.rv-few{grid-auto-columns:minmax(0,1fr)}
+@media (max-width:720px){.rv-rail.rv-few{grid-auto-columns:minmax(268px,300px)}}
+.rv-card{
+  scroll-snap-align:start;
+  background:var(--ember);
+  border:1px solid var(--gold-deep);
+  border-top:3px solid var(--gold-deep);
+  padding:24px 24px 22px;border-radius:0;
+  display:flex;flex-direction:column;gap:16px;
+  transition:border-top-color .18s ease,transform .18s ease;
+}
+.rv-card:hover{border-top-color:var(--gold);transform:translateY(-2px)}
+.rv-stars{display:flex;gap:3px;align-items:center}
+.rv-stars svg{width:15px;height:15px;display:block}
+.rv-quote{
+  margin:0 0 4px;color:var(--bone);font-size:.97rem;line-height:1.62;
+  /* long reviews clamp so cards stay a scannable height; full text is in
+     the schema markup and one tap away on the profile */
+  display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden;
+}
+.rv-meta{
+  margin-top:auto;padding-top:16px;
+  border-top:1px solid var(--gold-deep);
+  display:flex;align-items:center;gap:12px;
+}
+.rv-face{
+  width:40px;height:40px;flex:0 0 40px;border-radius:50%;
+  object-fit:cover;display:block;
+  border:1px solid var(--gold-deep);background:var(--field);
+}
+.rv-initial{
+  width:40px;height:40px;flex:0 0 40px;border-radius:50%;
+  border:1px solid var(--gold-deep);background:var(--field);
+  color:var(--gold-lite);font-weight:700;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--num);letter-spacing:.02em;
+}
+.rv-who{display:flex;flex-direction:column;gap:3px;min-width:0}
+.rv-author{color:var(--paper);font-weight:700;font-size:.93rem;letter-spacing:.01em}
+.rv-sub{
+  color:var(--muted);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+  font-family:var(--num);
+}
+.rv-head{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px 28px;flex-wrap:wrap;
+  margin:26px 0 22px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--gold-deep);
+}
+.rv-score{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.rv-score b{font-family:var(--num);font-size:2.1rem;color:var(--gold-lite);line-height:1;font-weight:700}
+.rv-score-txt{display:flex;flex-direction:column;gap:5px}
+.rv-nav{display:flex;gap:10px;align-items:center}
+.rv-btn{border-radius:0;
+  width:44px;height:44px;flex:0 0 44px;
+  background:var(--field);border:1px solid var(--gold-deep);
+  color:var(--gold-lite);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s ease,border-color .18s ease,opacity .18s ease;
+}
+.rv-btn:hover:not(:disabled){background:var(--panel);border-color:var(--gold)}
+.rv-btn:focus-visible{outline:2px solid var(--gold-lite);outline-offset:3px}
+.rv-btn:disabled{opacity:.3;cursor:default}
+.rv-card:focus-visible{outline:2px solid var(--gold-lite);outline-offset:3px}
+.rv-more{margin:22px 0 0}
+.rv-rail::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+/* the empty state has no rail to separate heading from copy */
+#reviews .rv-empty{margin:18px 0 0;max-width:52ch}
+@media (max-width:520px){
+  .rv-head{margin:22px 0 18px;padding-bottom:16px}
+  .rv-card{padding:20px 20px 18px;gap:14px}
+  /* the scrollbar lives inside this padding on touch devices */
+  .rv-rail{gap:14px;padding-bottom:26px}
+}
+@media (prefers-reduced-motion:reduce){.rv-rail{scroll-behavior:auto}}

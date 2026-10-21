@@ -1,0 +1,23 @@
+{
+  "_readme": "Single source of truth for the review carousel. Newest first. Add a review here, then run: python3 tools/reviews/build.py. tags decide which service pages show it first: house, roof, gutter, decks. full=false means the text is cut off and is kept out of schema.",
+  "reviews": [
+    {"name": "Lauren Braccio", "date": "2026-10-14", "label": "Oct 2026", "source": "Google", "face": "lauren-braccio.jpg", "tags": [], "full": true,
+     "text": "These guys are the absolute best! Not only were they incredibly detailed, timely and professional, but no one else even came close to their pricing. Book them now before everyone starts scoffing them up!"},
+    {"name": "4U2CB", "date": "2026-10-14", "label": "Oct 2026", "source": "Google", "face": "4u2cb.jpg", "tags": ["roof", "house"], "full": true,
+     "text": "Friendly and did a great job on roof soft wash plus power washing house"},
+    {"name": "Cyndy Kozik", "date": "2026-09-23", "label": "Sep 2026", "source": "Google", "initial": "C", "tags": ["gutter", "roof"], "full": false,
+     "text": "Matt did an excellent job of cleaning my gutters and roof. I text him once and he followed up right away. We set a date..."},
+    {"name": "Andrea Braccio", "date": "2026-09-23", "label": "Sep 2026", "source": "Google", "initial": "A", "tags": ["house"], "full": true,
+     "text": "Matt was prompt, professional and did an amazing job powerwashing our home. The house looks awesome. Thank you Matt."},
+    {"name": "Joseph DiLella", "date": "2026-09-23", "label": "Sep 2026", "source": "Google", "initial": "J", "tags": ["roof"], "full": false,
+     "text": "I just bought a house and called like 10 dudes to soft wash my roof on the advice of the inspector. No one called back..."},
+    {"name": "Ross Sealfon", "date": "2026-08-20", "label": "Aug 2026", "source": "Google", "face": "ross-sealfon.jpg", "tags": ["house"], "full": true,
+     "text": "Matt did a pressure wash at our house and did a great job. He's friendly, professional and on time. Would highly recommend and we'll definitely use MBD again."},
+    {"name": "Roy Alling", "date": "2026-07-25", "label": "Jul 2026", "source": "Google", "face": "roy-alling.jpg", "tags": ["roof", "house"], "full": true,
+     "text": "Just had MBD pressure washing out to do a roof and house wash and the results are incredible. i didn't realize how much grime and algae had built up until it was gone. They were on time, professional, and clearly took care to protect the landscaping and siding while they worked. The roof looks brand new and the whole exterior of the house is noticeably brighter. Great communication throughout and fair pricing for the quality of work. Highly recommend MBD for pressure washing !"},
+    {"name": "Stephanie Dudding", "date": "2026-07-22", "label": "Jul 2026", "source": "Facebook", "face": "stephanie-dudding.jpg", "tags": ["house", "decks"], "full": true,
+     "text": "I highly recommend MBD pressure washing company! From the first phone call to the completion of the job, they were professional, responsive, and courteous. They arrived on time, worked efficiently, and paid attention to every detail. My house, driveway, sidewalks, and patio look absolutely amazing—everything looks fresh, clean, and almost brand new."},
+    {"name": "Hailey Dudding", "date": "2026-07-20", "label": "Jul 2026", "source": "Facebook", "face": "hailey-dudding.jpg", "tags": [], "full": true,
+     "text": "Hard working guys who know what they are doing. Don't hesitate to hire mbd pressure washing!"}
+  ]
+}
