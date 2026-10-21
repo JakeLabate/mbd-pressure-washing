@@ -613,6 +613,14 @@ li{margin:0 0 .4em}
 }
 .townnote{font-size:.78rem;color:var(--muted);margin-top:18px;line-height:1.5}
 .svc-art{width:100%;height:auto;display:block;border:1px solid var(--gold-deep);cursor:ew-resize;touch-action:pan-y;user-select:none}.svc-art:focus{outline:2px solid var(--gold-lite);outline-offset:3px}
+
+/* lp videos */
+.lp-vid{margin:0;justify-self:center;width:min(300px,80vw)}
+.lp-vid video{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;background:var(--void);
+  border:1px solid var(--gold-deep);border-radius:4px;box-shadow:0 18px 44px rgba(0,0,0,.5)}
+.lp-vid figcaption{font-size:.84rem;color:var(--muted);margin-top:10px;text-align:center}
+@media(min-width:860px){.cols-proj{grid-template-columns:1fr .62fr;align-items:center}}
+@media(max-width:859px){.cols-owner .lp-vid{order:2}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://mbdpressurewashing.net/lp/house-washing-milford-ct/#webpage", "url": "https://mbdpressurewashing.net/lp/house-washing-milford-ct/", "name": "House washing in Milford, CT | Free Estimate | MBD", "description": "House washing in Milford, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "about": {"@id": "https://mbdpressurewashing.net/#org"}}, {"@type": "HomeAndConstructionBusiness", "@id": "https://mbdpressurewashing.net/#org", "name": "MBD Pressure Washing", "alternateName": "MBDPressurewashing.net", "url": "https://mbdpressurewashing.net/", "description": "Owner-operated pressure washing and soft washing for residential and commercial properties on the Connecticut shoreline.", "telephone": "+1-475-450-6215", "image": "https://mbdpressurewashing.net/img/og.png", "logo": "https://mbdpressurewashing.net/apple-touch-icon.png", "address": {"@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US"}, "areaServed": [{"@type": "City", "name": "Milford, CT"}, {"@type": "City", "name": "West Haven, CT"}, {"@type": "City", "name": "Stratford, CT"}, {"@type": "City", "name": "Fairfield, CT"}, {"@type": "City", "name": "Bridgeport, CT"}, {"@type": "City", "name": "Orange, CT"}, {"@type": "City", "name": "Woodbridge, CT"}, {"@type": "City", "name": "Norwalk, CT"}, {"@type": "City", "name": "Westport, CT"}, {"@type": "City", "name": "Trumbull, CT"}, {"@type": "City", "name": "Seymour, CT"}, {"@type": "City", "name": "Branford, CT"}, {"@type": "City", "name": "East Haven, CT"}, {"@type": "City", "name": "Guilford, CT"}], "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "17:00"}], "knowsAbout": ["Soft washing", "Roof washing", "House washing", "Gutter cleaning", "Deck and patio cleaning"]}, {"@type": "Service", "@id": "https://mbdpressurewashing.net/lp/house-washing-milford-ct/#service", "name": "House washing in Milford, CT", "serviceType": "House washing", "description": "House washing in Milford, Connecticut. Low pressure soft washing for siding, trim and soffits. Owner operated, free estimates. Call 475-450-6215.", "provider": {"@id": "https://mbdpressurewashing.net/#org"}, "areaServed": {"@type": "City", "name": "Milford, CT"}}]}</script>
 </head>
@@ -719,14 +727,40 @@ li{margin:0 0 .4em}
 </div>
 </section>
 
+<section class="sec sec-shell" id="project">
+<div class="wrap cols cols-proj">
+<div class="prose">
+<p class="eyebrow">On the job</p>
+<h2>A shoreline house, siding to walkway.</h2>
+<p>Weathered shingle siding, a deck and a long wood walkway gone green with algae. The siding got a soft wash, the wood got a pressure it could take, and every surface was rinsed clean.</p>
+<p class="muted">Filmed on a job on the Connecticut shoreline. Sound is on the clip.</p>
+<div class="btnrow">
+<a class="btn" href="tel:4754506215">Call 475-450-6215</a>
+<a class="btn btn-ghost" href="#quote">Get a free estimate</a>
+</div>
+</div>
+<figure class="lp-vid">
+<video controls preload="none" playsinline
+       poster="/img/mbd-deck-walkway-poster.jpg" width="720" height="1280"
+       aria-label="Deck, walkway and siding cleaning project by MBD Pressure Washing">
+<source src="/video/mbd-deck-walkway-project.mp4" type="video/mp4">
+Your browser cannot play this video. <a href="/video/mbd-deck-walkway-project.mp4">Download the video</a> instead.
+</video>
+<figcaption>Deck, walkway and siding project &middot; 30s</figcaption>
+</figure>
+</div>
+</section>
+
 <section class="sec">
 <div class="wrap cols cols-owner">
-<figure class="shot shot-owner">
-<img src="/img/mbd-owner.jpg"
-     srcset="/img/mbd-owner-sm.jpg 560w, /img/mbd-owner.jpg 900w"
-     sizes="(min-width: 860px) 40vw, 92vw"
-     width="900" height="960" loading="lazy" decoding="async"
-     alt="Matt, the owner of MBD Pressure Washing, standing beside the company trailer, which carries the MBD logo and the phone number 475-450-6215.">
+<figure class="lp-vid">
+<video controls preload="none" playsinline
+       poster="/img/mbd-intro-poster.jpg" width="720" height="1280"
+       aria-label="Meet MBD Pressure Washing: owner Matt Ludden on why he started the business">
+<source src="/video/mbd-pressure-washing-intro.mp4" type="video/mp4">
+Your browser cannot play this video. <a href="/video/mbd-pressure-washing-intro.mp4">Download the video</a> instead.
+</video>
+<figcaption>Meet Matt, the owner &middot; 27s</figcaption>
 </figure>
 <div class="prose">
 <p class="eyebrow">Who you are calling</p>
